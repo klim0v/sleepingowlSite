@@ -8,6 +8,28 @@ use Illuminate\Support\Facades\Storage;
 use SleepingOwl\Admin\Traits\OrderableModel;
 
 
+/**
+ * App\Model\Banner
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $link
+ * @property string $color
+ * @property string $image
+ * @property int $published
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner published()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner whereColor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner wherePublished($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Banner whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Banner extends Model
 {
 

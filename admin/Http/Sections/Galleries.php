@@ -7,7 +7,7 @@ use AdminColumnEditable;
 use AdminDisplay;
 use AdminForm;
 use AdminFormElement;
-use App\Model\Review;
+use App\Model\Gallery;
 use Illuminate\Support\Facades\Storage;
 use SleepingOwl\Admin\Contracts\Display\DisplayInterface;
 use SleepingOwl\Admin\Contracts\Form\FormInterface;
@@ -91,9 +91,9 @@ class Galleries extends Section implements Initializable
      */
     public function onDelete($id)
     {
-        $review = Review::findOrFail($id);
-        Storage::disk('public')->delete(str_replace('storage/', '', $review->image));
-        Storage::disk('public')->delete(str_replace('storage/', '', $review->images));
+        $gallery = Gallery::findOrFail($id);
+        Storage::disk('public')->delete(str_replace('storage/', '', $gallery->image));
+        Storage::disk('public')->delete(str_replace('storage/', '', $gallery->images));
 
     }
 

@@ -8,6 +8,30 @@ use Illuminate\Support\Facades\Storage;
 use SleepingOwl\Admin\Traits\OrderableModel;
 
 
+/**
+ * App\Model\Gallery
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $slug
+ * @property string $description
+ * @property string $image
+ * @property string $images
+ * @property int $published
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery published()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereImages($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery wherePublished($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Gallery extends Model
 {
 
