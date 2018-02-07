@@ -3,6 +3,7 @@
 namespace Admin\Http\Sections;
 
 use AdminColumn;
+use AdminColumnEditable;
 use AdminDisplay;
 use AdminForm;
 use AdminFormElement;
@@ -62,8 +63,8 @@ class FundamentalSettings extends Section implements Initializable
         ->setHtmlAttribute('class', 'table-primary')
             ->setColumns(
                 AdminColumn::text('id', '#')->setWidth('30px'),
-                AdminColumn::link('title', 'Настройка')->setWidth('200px'),
-                AdminColumn::text('value', 'Значение'),
+                AdminColumn::text('title', 'Настройка')->setWidth('200px'),
+                AdminColumnEditable::text('value', 'Значение'),
                 AdminColumn::text('description', 'Описание')
             )->paginate(20);
     }

@@ -3,6 +3,7 @@
 namespace Admin\Http\Sections;
 
 use AdminColumn;
+use AdminColumnEditable;
 use AdminDisplay;
 use AdminForm;
 use AdminFormElement;
@@ -65,7 +66,8 @@ class Banners extends Section implements Initializable
                 AdminColumn::text('title', 'Название')->setWidth('200px'),
                 AdminColumn::url('link', 'Ссылка')->setWidth('200px'),
                 AdminColumn::text('color', 'Цвет фона надписи'),
-                AdminColumn::image('image', 'Изображение')
+                AdminColumn::image('image', 'Изображение'),
+                AdminColumnEditable::checkbox('published', 'Published')->setLabel('Опубликован')
             )->paginate(15);
     }
 
@@ -86,7 +88,8 @@ class Banners extends Section implements Initializable
                 'light-blue' => 'Голубой'
             ])->required(),
             AdminFormElement::image('image', 'Изображение')->required(),
-
+            AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
+                ->required(),
         ]);
     }
 
@@ -103,27 +106,10 @@ class Banners extends Section implements Initializable
      */
     public function onDelete($id)
     {
-        // remove if unused
-    }
-
-
-    /**
-     * @return void
-     */
-    public function onDestroy($id)
-    {
-        $banner = Banner::onlyTrashed()->findOrFail($id);
+        $banner = Banner::findOrFail($id);
         if (null !== $banner->image) {
             Storage::disk('public')->delete(str_replace('storage/', '', $banner->image));
         }
-    }
-
-    /**
-     * @return void
-     */
-    public function onRestore($id)
-    {
-        // remove if unused
     }
 
     //заголовок для создания записи

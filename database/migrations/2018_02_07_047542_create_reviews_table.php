@@ -16,10 +16,10 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
             $table->string('author');
-            $table->string('description');
+            $table->text('description');
             $table->string('logo')->nullable();
             $table->string('background')->nullable();
-            $table->softDeletes();
+            $table->boolean('published');
             $table->timestamps();
         });
     }

@@ -15,13 +15,13 @@ use SleepingOwl\Admin\Contracts\Initializable;
 use SleepingOwl\Admin\Section;
 
 /**
- * Class Reviews
+ * Class Galleries
  *
  * @property \App\Model\Review $model
  *
  * @see http://sleepingowladmin.ru/docs/model_configuration_section
  */
-class Reviews extends Section implements Initializable
+class Galleries extends Section implements Initializable
 {
     /**
      * @see http://sleepingowladmin.ru/docs/model_configuration#ограничение-прав-доступа
@@ -33,7 +33,7 @@ class Reviews extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Отзывы';
+    protected $title = 'Галлерея';
 
     /**
      * @var string
@@ -49,10 +49,11 @@ class Reviews extends Section implements Initializable
         ->setHtmlAttribute('class', 'table-primary')
             ->setColumns(
                 AdminColumn::text('id', '#')->setWidth('30px'),
-                AdminColumn::text('author', 'Автор')->setWidth('200px'),
+                AdminColumn::text('title', 'Название')->setWidth('200px'),
+                AdminColumn::text('slug', 'Слаг'),
                 AdminColumn::text('description', 'Текст отзыва'),
-                AdminColumn::image('logo', 'Логотип'),
-                AdminColumn::image('background', 'Фоновое изображение'),
+                AdminColumn::image('image', 'Обложка'),
+                AdminColumn::count('images', 'Галлерея'),
                 AdminColumnEditable::checkbox('published', 'Published')->setLabel('Опубликован'),
                 AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
@@ -66,10 +67,11 @@ class Reviews extends Section implements Initializable
     public function onEdit($id)
     {
         return AdminForm::panel()->addBody([
-            AdminFormElement::text('author', 'Автор')->required(),
+            AdminFormElement::text('title', 'Название')->required(),
+            AdminFormElement::text('slug', 'Слаг')->required(),
             AdminFormElement::ckeditor('description', 'Текст отзыва')->required(),
-            AdminFormElement::image('logo', 'Логотип компании'),
-            AdminFormElement::image('background', 'Фоновое изображение'),
+            AdminFormElement::image('image', 'Обложка'),
+            AdminFormElement::images('images', 'Галлерея'),
             AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
                 ->required(),
             AdminFormElement::datetime('created_at', 'Добавлен')->required(),
@@ -91,7 +93,7 @@ class Reviews extends Section implements Initializable
     {
         $review = Review::findOrFail($id);
         Storage::disk('public')->delete(str_replace('storage/', '', $review->image));
-        Storage::disk('public')->delete(str_replace('storage/', '', $review->background));
+        Storage::disk('public')->delete(str_replace('storage/', '', $review->images));
 
     }
 
@@ -100,18 +102,18 @@ class Reviews extends Section implements Initializable
      */
     public function initialize()
     {
-        $this->addToNavigation($priority = 10);
+        $this->addToNavigation($priority = 20);
     }
 
     public function getIcon()
     {
-        return 'fa fa-comments-o';
+        return 'fa fa-camera';
     }
 
 
     //заголовок для создания записи
     public function getCreateTitle()
     {
-        return 'Создание отзыва';
+        return 'Создание галлереи';
     }
 }

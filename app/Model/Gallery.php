@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Storage;
 use SleepingOwl\Admin\Traits\OrderableModel;
 
 
-class Banner extends Model
+class Gallery extends Model
 {
 
     protected $fillable = [
         'title',
-        'link',
-        'color',
+        'description',
         'image',
+        'images',
         'published',
     ];
 
@@ -24,19 +24,22 @@ class Banner extends Model
         'updated_at'
     ];
 
-    public function setLinkAttribute($value)
-    {
-        if ( 0 !== stripos($value, 'http://')) {
-            $this->attributes['link'] = 'http://' . $value;
-        }
-    }
-
     public function setImageAttribute($value)
     {
         if ($value !== $this->image) {
             Storage::disk('public')->delete(str_replace('storage/', '', $this->image));
         }
         $this->attributes['image'] = $value;
+    }
+
+    public function getImagesAttribute($value)
+    {
+        return preg_split('/,/', $value, -1, PREG_SPLIT_NO_EMPTY);
+    }
+
+    public function setImagesAttribute($images)
+    {
+        $this->attributes['images'] = implode(',', $images);
     }
 
     public function scopePublished($query){
