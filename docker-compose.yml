@@ -1,12 +1,12 @@
 version: "2"
 
 services:
-  data:
-    image: busybox
-    container_name: "soa_data"
-    volumes:
-      - /data
-      - /var/lib/mysql
+#  data:
+#    image: busybox
+#    container_name: "soa_data"
+#    volumes:
+#      - /data
+#      - /var/lib/mysql
 #      - /var/lib/postgresql
 
 #  redis:
@@ -25,9 +25,10 @@ services:
     env_file:
       - ./docker/mysql/.env
     volumes:
+      - ./docker/runtime/mysql:/var/lib/mysql
       - ./docker/mysql/newdb.sql:/docker-entrypoint-initdb.d/newdb.sql
-    volumes_from:
-      - data
+#    volumes_from:
+#      - data
 
 
 #  pgsql:

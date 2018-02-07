@@ -47,9 +47,9 @@ class Banners extends Section implements Initializable
         // Добавление пункта меню и счетчика кол-ва записей в разделе
         $this->addToNavigation($priority = 1);
 
-        $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
-            //...
-        });
+//        $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
+//            //...
+//        });
 
     }
 
@@ -63,7 +63,7 @@ class Banners extends Section implements Initializable
             ->setColumns(
                 AdminColumn::text('id', '#')->setWidth('30px'),
                 AdminColumn::link('title', 'Название')->setWidth('200px'),
-                AdminColumn::link('link', 'Ссылка')->setWidth('200px'),
+                AdminColumn::url('link', 'Ссылка')->setWidth('200px'),
                 AdminColumn::text('color', 'Цвет фона надписи'),
                 AdminColumn::image('image', 'Изображение')
             )->paginate(15);
@@ -85,7 +85,7 @@ class Banners extends Section implements Initializable
                 'orange' => 'Оранжевый',
                 'light-blue' => 'Голубой'
             ])->required(),
-            AdminFormElement::image('image', 'Изображение'),
+            AdminFormElement::image('image', 'Изображение')->required(),
 
         ]);
     }
@@ -112,7 +112,7 @@ class Banners extends Section implements Initializable
      */
     public function onDestroy($id)
     {
-        $banner = Banner::withTrashed()->findOrFail($id);
+        $banner = Banner::onlyTrashed()->findOrFail($id);
         if (null !== $banner->image) {
             Storage::disk('public')->delete(str_replace('storage/', '', $banner->image));
         }
@@ -130,6 +130,18 @@ class Banners extends Section implements Initializable
     public function getCreateTitle()
     {
         return 'Создание баннера';
+    }
+
+    /**
+     * Переопределение метода содержащего ссылку на удаление записи
+     *
+     * @param string|int $id
+     *
+     * @return string
+     */
+    public function getDeleteUrl($id)
+    {
+        return 'Снять с публикации';
     }
 
     // иконка для пункта меню

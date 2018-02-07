@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * App\Model\Banner
@@ -46,4 +47,19 @@ class Banner extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function setLinkAttribute($value)
+    {
+        if ( 0 !== stripos($value, 'http://')) {
+            $this->attributes['link'] = 'http://' . $value;
+        }
+    }
+
+    public function setImageAttribute($value)
+    {
+        if ($value !== $this->image) {
+            Storage::disk('public')->delete(str_replace('storage/', '', $this->image));
+        }
+        $this->attributes['image'] = $value;
+    }
 }
