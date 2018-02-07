@@ -31,6 +31,8 @@
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Contact5 whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Contact5 whereUserId($value)
  * @mixin \Eloquent
+ * @property-read \App\User|null $author
+ * @property-read \App\Model\Country|null $country
  */
 class Contact5 extends Contact
 {

@@ -20,6 +20,7 @@ use SleepingOwl\Admin\Traits\OrderableModel;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\DataTables\CountryStopPageRefresh whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\DataTables\CountryStopPageRefresh whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Contact[] $contacts
  */
 class CountryStopPageRefresh extends Country
 {

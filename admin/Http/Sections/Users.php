@@ -30,7 +30,7 @@ class Users extends Section
     /**
      * @var string
      */
-    protected $title = 'Users';
+    protected $title = 'Пользователи';
 
     /**
      * @return DisplayInterface
@@ -41,9 +41,9 @@ class Users extends Section
             ->with('roles')
             ->setHtmlAttribute('class', 'table-primary')
             ->setColumns([
-                AdminColumn::link('name', 'Username'),
+                AdminColumn::link('name', 'Имя пользователя'),
                 AdminColumn::email('email', 'Email')->setWidth('150px'),
-                AdminColumn::lists('roles.label', 'Roles')->setWidth('200px'),
+                AdminColumn::lists('roles.label', 'Роли')->setWidth('200px'),
             ])->paginate(20);
     }
 

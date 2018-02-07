@@ -29,7 +29,7 @@ class Roles extends Section
     /**
      * @var string
      */
-    protected $title = 'Roles';
+    protected $title = 'Роли';
 
     /**
      * @var string
@@ -46,8 +46,8 @@ class Roles extends Section
             ->setHtmlAttribute('class', 'table-primary')
             ->setColumns([
                 AdminColumn::text('id', '#')->setWidth('30px'),
-                AdminColumn::link('label', 'Label')->setWidth('100px'),
-                AdminColumn::text('name', 'Name')
+                AdminColumn::link('label', 'Метка')->setWidth('100px'),
+                AdminColumn::text('name', 'Название')
             ])->paginate(20);
     }
 

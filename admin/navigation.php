@@ -81,7 +81,7 @@ $navigation->setFromArray([
 
 
     [
-        'title' => 'Permissions',
+        'title' => 'Разрешения',
         'icon' => 'fa fa-group',
         'priority' =>'10000',
         'pages' => [
@@ -92,5 +92,6 @@ $navigation->setFromArray([
                 ->setIcon('fa fa-group')
                 ->setPriority(100)
         ]
-    ]
+    ],
+
 ]);

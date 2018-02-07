@@ -63,6 +63,8 @@ class AdminSectionsServiceProvider extends ServiceProvider
         'App\Model\DataTables\NewsActions'         => 'Admin\Http\Sections\DataTables\Actions',
         'App\Model\DataTables\CountryStopPageRefresh' => 'Admin\Http\Sections\DataTables\StopPageRefresh',
 
+        'App\Model\FundamentalSetting' => 'Admin\Http\Sections\FundamentalSettings',
+        'App\Model\Banner'             => 'Admin\Http\Sections\Banners',
     ];
 
     /**

@@ -7,15 +7,15 @@ services:
     volumes:
       - /data
       - /var/lib/mysql
-      - /var/lib/postgresql
+#      - /var/lib/postgresql
 
-  redis:
-    image: redis:3.0.7
-    container_name: "soa_redis"
-    ports:
-      - "6379:6379"
-    volumes_from:
-      - data
+#  redis:
+#    image: redis:3.0.7
+#    container_name: "soa_redis"
+#    ports:
+#      - "6379:6379"
+#    volumes_from:
+#      - data
 
   mysql:
     image: mysql:5.7
@@ -64,6 +64,6 @@ services:
       - .:/app
     depends_on:
       - mysql
-      - redis
+#      - redis
     command: /usr/local/sbin/php-fpm --allow-to-run-as-root
 
