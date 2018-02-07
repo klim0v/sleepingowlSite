@@ -48,9 +48,9 @@ class FundamentalSettings extends Section implements Initializable
             return \App\Model\FundamentalSetting::count();
         });
 
-        $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
-            //...
-        });
+//        $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
+//            //...
+//        });
     }
 
     /**

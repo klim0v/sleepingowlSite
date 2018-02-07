@@ -37,7 +37,7 @@ class Companies extends Section implements Initializable
      */
     public function initialize()
     {
-        $this->addToNavigation()->setIcon('fa fa-bank')->setPriority(0);
+        $this->addToNavigation()->setIcon('fa fa-bank')->setPriority(100);
     }
 
     /**

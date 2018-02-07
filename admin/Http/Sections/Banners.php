@@ -58,11 +58,11 @@ class Banners extends Section implements Initializable
      */
     public function onDisplay()
     {
-        return AdminDisplay::table()/*->with('users')*/
+        return AdminDisplay::datatablesAsync()/*->with('users')*/
         ->setHtmlAttribute('class', 'table-primary')
             ->setColumns(
                 AdminColumn::text('id', '#')->setWidth('30px'),
-                AdminColumn::link('title', 'Название')->setWidth('200px'),
+                AdminColumn::text('title', 'Название')->setWidth('200px'),
                 AdminColumn::url('link', 'Ссылка')->setWidth('200px'),
                 AdminColumn::text('color', 'Цвет фона надписи'),
                 AdminColumn::image('image', 'Изображение')
@@ -130,18 +130,6 @@ class Banners extends Section implements Initializable
     public function getCreateTitle()
     {
         return 'Создание баннера';
-    }
-
-    /**
-     * Переопределение метода содержащего ссылку на удаление записи
-     *
-     * @param string|int $id
-     *
-     * @return string
-     */
-    public function getDeleteUrl($id)
-    {
-        return 'Снять с публикации';
     }
 
     // иконка для пункта меню

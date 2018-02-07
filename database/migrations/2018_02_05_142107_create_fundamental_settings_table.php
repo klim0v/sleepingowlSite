@@ -17,7 +17,7 @@ class CreateFundamentalSettingsTable extends Migration
             $table
                 ->increments('id');
             $table
-                ->string('name', 100)
+                ->string('title', 100)
                 ->comment('Человеческое название настройки/параметра. Например "Email-ы для оповещений"');
             $table
                 ->string('key', 50)

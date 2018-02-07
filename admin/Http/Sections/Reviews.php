@@ -48,9 +48,11 @@ class Reviews extends Section implements Initializable
         ->setHtmlAttribute('class', 'table-primary')
             ->setColumns(
                 AdminColumn::text('id', '#')->setWidth('30px'),
-                AdminColumn::link('title', 'Название')->setWidth('200px'),
+                AdminColumn::text('author', 'Название')->setWidth('200px'),
                 AdminColumn::text('description', 'Текст отзыва'),
-                AdminColumn::image('image', 'Изображение')
+                AdminColumn::image('logo', 'Логотип'),
+                AdminColumn::image('background', 'Фоновое изображение'),
+                AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
     }
 
@@ -62,10 +64,11 @@ class Reviews extends Section implements Initializable
     public function onEdit($id)
     {
         return AdminForm::panel()->addBody([
-            AdminFormElement::text('title', 'Название')->required(),
+            AdminFormElement::text('author', 'Автор')->required(),
             AdminFormElement::ckeditor('description', 'Текст отзыва')->required(),
-            AdminFormElement::image('image', 'Изображение')->required(),
-
+            AdminFormElement::image('logo', 'Логотип компании'),
+            AdminFormElement::image('background', 'Фоновое изображение'),
+            AdminFormElement::datetime('created_at', 'Добавлен'),
         ]);
     }
 
@@ -101,6 +104,7 @@ class Reviews extends Section implements Initializable
     {
         $review = Review::onlyTrashed()->findOrFail($id);
         Storage::disk('public')->delete(str_replace('storage/', '', $review->image));
+        Storage::disk('public')->delete(str_replace('storage/', '', $review->background));
     }
 
     /**
@@ -114,5 +118,12 @@ class Reviews extends Section implements Initializable
     public function getIcon()
     {
         return 'fa fa-comments-o';
+    }
+
+
+    //заголовок для создания записи
+    public function getCreateTitle()
+    {
+        return 'Создание отзыва';
     }
 }
