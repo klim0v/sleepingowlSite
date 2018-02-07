@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,13 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => 'web'], function () {
-    Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    // Authentication Routes...
+    $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    $this->post('login', 'Auth\LoginController@login');
+    $this->get('logout', 'Auth\LoginController@logout')->name('logout');
+    $this->post('logout', 'Auth\LoginController@logout');
+
+
+    Route::get('/', 'HomeController@index');
 });

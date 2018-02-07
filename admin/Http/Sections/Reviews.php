@@ -105,7 +105,7 @@ class Reviews extends Section implements Initializable
 
     public function getIcon()
     {
-        return 'fa fa-comments-o';
+        return 'fa fa-commenting';
     }
 
 
