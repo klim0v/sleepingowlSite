@@ -52,9 +52,10 @@ class Galleries extends Section implements Initializable
                 AdminColumn::text('title', 'Название')->setWidth('200px'),
                 AdminColumn::text('slug', 'Слаг'),
                 AdminColumn::text('description', 'Текст отзыва'),
-                AdminColumn::image('image', 'Обложка'),
+                AdminColumn::image('cover', 'Обложка'),
                 AdminColumn::count('images', 'Галлерея'),
-                AdminColumnEditable::checkbox('published', 'Published')->setLabel('Опубликован'),
+                AdminColumnEditable::checkbox('published', 'Опубликован')->setLabel('Опубликован'),
+                AdminColumnEditable::checkbox('on_main', 'На главной')->setLabel('На главной'),
                 AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
     }
@@ -68,12 +69,13 @@ class Galleries extends Section implements Initializable
     {
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Название')->required(),
-            AdminFormElement::text('slug', 'Слаг')->required(),
+            AdminFormElement::text('slug', 'Слаг')->required()->unique(),
             AdminFormElement::ckeditor('description', 'Текст отзыва')->required(),
-            AdminFormElement::image('image', 'Обложка'),
+            AdminFormElement::image('cover', 'Обложка'),
             AdminFormElement::images('images', 'Галлерея'),
             AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
                 ->required(),
+            AdminFormElement::checkbox('on_main', 'Показать на главной странице'),
             AdminFormElement::datetime('created_at', 'Добавлен')->required(),
         ]);
     }
@@ -92,7 +94,7 @@ class Galleries extends Section implements Initializable
     public function onDelete($id)
     {
         $gallery = Gallery::findOrFail($id);
-        Storage::disk('public')->delete(str_replace('storage/', '', $gallery->image));
+        Storage::disk('public')->delete(str_replace('storage/', '', $gallery->cover));
         Storage::disk('public')->delete(str_replace('storage/', '', $gallery->images));
 
     }

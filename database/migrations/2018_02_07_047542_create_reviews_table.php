@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->text('description');
             $table->string('logo')->nullable();
             $table->string('background')->nullable();
-            $table->boolean('published');
+            $table->boolean('published')->index();
             $table->timestamps();
         });
     }

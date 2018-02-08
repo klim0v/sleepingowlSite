@@ -1,0 +1,192 @@
+.dashboard-title{
+    width:300px;
+    height:150px;
+    background:url(../images/logo_admin.png) no-repeat;
+    -webkit-background-size: 300px 150px;
+    -moz-background-size: 300px 150px;
+    -o-background-size: 300px 150px;
+    background-size: 300px 150px;
+    
+    color:transparent;
+    
+    margin: 10px 0 10px 30px;
+}
+
+.admin-menu-clients{
+    height:30px;
+    font-size:1.5em;
+}
+
+.admin-menu-clients .updates{
+    float:right;
+    width:30px;
+    height:25px;
+    text-align:center;
+    padding-top:5px;
+}
+
+.admin-menu-clients .updates.active{
+    background:red;
+    color:white;
+    border-radius:15px;
+}
+
+#site-name{
+    display:none;
+}
+
+#user-tools{
+    display:none;
+}
+
+
+.multi-line{
+    word-wrap:break-word;
+}
+
+.question-text{
+    font-size:1.2em;
+    width:600px;
+}
+
+.question-info span{
+    vertical-align:middle;
+    font-size:1.2em;
+}
+
+.backcall .form-row span{
+    vertical-align:middle;
+    font-size:1.2em;
+}
+
+
+
+
+.site-settings{
+}
+
+.site-settings .mail{
+    font-size:2em;
+}
+
+.site-settings .mail span{
+    vertical-align:middle;
+}
+
+.site-settings .mail input{
+    vertical-align:middle;
+    font-size:1em;
+}
+
+
+.site-settings .number{
+    font-size:2em;
+}
+
+.site-settings .number span{
+    vertical-align:middle;
+}
+
+.site-settings .number input{
+    vertical-align:middle;
+    font-size:1em;
+}
+
+.site-settings .about{
+    font-size:1.7em;
+}
+
+.site-settings .about textarea{
+    vertical-align:middle;
+    font-size:1em;
+    width:992px;
+    height:300px;
+}
+
+
+.site-settings .address{
+    font-size:1.7em;
+}
+
+.site-settings .address textarea{
+    vertical-align:middle;
+    font-size:1em;
+    width:300px;
+    height:100px;
+}
+
+
+.site-settings .delivery{
+     margin-left:30px;
+}
+
+.site-settings .delivery .title{
+    font-size:3em;
+}
+
+.site-settings .delivery .distance{
+    margin-left:30px;
+    margin-top:30px;
+    font-size:2em;
+}
+
+.site-settings .delivery .distance input{
+     font-size:1em;
+}
+
+.site-settings .delivery .sub-title{
+    font-size:2em;
+    margin-top:15px;
+}
+
+.site-settings .delivery .items{
+    margin-top:10px;
+}
+
+.site-settings .delivery .items .item{
+   
+}
+
+.site-settings .delivery .items .item .item-field{
+    margin-left:30px;
+}
+
+.site-settings .delivery .items .item span{
+    vertical-align:middle;
+    font-size:1.5em;
+}
+
+.site-settings .delivery .items .item input{
+    vertical-align:middle;
+    font-size:1.5em;
+    
+    text-align:right;
+}
+
+.site-settings .is_tech_works span{
+    vertical-align:middle;
+    font-size:2em;
+}
+
+.site-settings .is_tech_works input{
+    vertical-align:middle;
+    width:20px;
+    height:20px;
+}
+
+
+.site-settings .use_site span{
+    vertical-align:middle;
+    font-size:2em;
+}
+
+.site-settings .use_site input{
+    vertical-align:middle;
+    width:20px;
+    height:20px;
+}
+
+
+.help-text{
+    font-size:1.5em;
+}

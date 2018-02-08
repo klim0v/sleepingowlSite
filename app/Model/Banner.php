@@ -46,13 +46,6 @@ class Banner extends Model
         'updated_at'
     ];
 
-    public function setLinkAttribute($value)
-    {
-        if ( 0 !== stripos($value, 'http://')) {
-            $this->attributes['link'] = 'http://' . $value;
-        }
-    }
-
     public function setImageAttribute($value)
     {
         if ($value !== $this->image) {

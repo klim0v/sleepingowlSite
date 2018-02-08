@@ -1,0 +1,150 @@
+@font-face {
+    font-family: Roboto-Light;
+    src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Medium;
+    src: url(../fonts/Roboto-Medium.ttf);
+}
+
+html{
+    min-height:100%;
+}
+
+body{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  font-family: Roboto-Light;
+  cursor:default;
+}
+
+
+.row{
+    position:absolute;
+    left:25%;
+    width:50%;
+    
+    top:50%;
+    margin-top:-96px;
+}
+
+.main-info{
+    
+    padding:20px 40px;
+    
+    background:rgba(255,255,255,0.75);
+}
+
+.main-info>.text{
+    margin-top:20px;
+    font-size:1.5em;
+    font-family: Roboto-Light;
+}
+
+.main-info>.contacts{
+    margin-top:20px;
+    
+    font-size:1.5em;
+    font-family: Roboto-Medium;
+    padding-bottom:50px;
+}
+
+.main-info>.contacts>.title{
+    margin-left:auto;
+    margin-right:auto;
+    width:175px;
+    font-family: Roboto-Medium;
+}
+
+.main-info>.contacts>.title img{
+    vertical-align:middle;
+}
+
+.main-info>.contacts>.title span{
+    margin-left:10px;
+    vertical-align:middle;
+}
+
+.main-info>.contacts .left{
+    position:absolute;
+    text-align:center;
+    margin-top:20px;
+    left:5%;
+    font-size:1.3em;
+    
+    width:45%;
+}
+
+.main-info>.contacts .right{
+    position:absolute;
+    text-align:center;
+    margin-top:20px;
+    right:5%;
+    font-size:1.3em;
+    
+    width:45%;
+}
+
+@media (min-width:  360px) {
+
+    .row{
+        left:15%;
+        width:70%;
+        
+        margin-top:-156px;
+    }
+
+    .main-info>.contacts .right{
+        margin-top:70px;
+        width:auto;
+        left:5%;
+        right:5%;
+    }
+    
+    .main-info>.contacts .left{
+        width:auto;
+        left:5%;
+        right:5%;
+    }
+    
+    .main-info>.contacts{
+        padding-bottom:100px;
+    }
+}
+
+
+@media (min-width:  1080px) {
+    .row{
+        left:25%;
+        width:50%;
+        
+        margin-top:-96px;
+    }
+
+    .main-info>.contacts{
+        padding-bottom:60px;
+    }
+    
+
+    .main-info>.contacts .right{
+        width:45%;
+        left:auto;
+        margin-top:20px;
+    }
+    
+    .main-info>.contacts .left{
+        width:45%;
+        right:auto;
+    }
+}

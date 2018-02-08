@@ -82,3 +82,4 @@ $factory->define(App\Model\Contact::class, function (Faker\Generator $faker) {
         'height'     => $faker->randomNumber(2, true) + 100
     ];
 });
+

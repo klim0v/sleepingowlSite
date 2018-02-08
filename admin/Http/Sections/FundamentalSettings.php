@@ -97,7 +97,7 @@ class FundamentalSettings extends Section implements Initializable
         // а вот создать var можно. Один раз и навсегда
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Название настройки')->required(),
-            AdminFormElement::text('key', 'Постоянный системный код')->required(),
+            AdminFormElement::text('key', 'Постоянный системный код')->required()->unique(),
             AdminFormElement::text('value', 'Значение')->required(),
             AdminFormElement::textarea('description', 'Описание'),
 
