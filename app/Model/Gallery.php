@@ -73,9 +73,8 @@ class Gallery extends Model
 
     public function setImagesAttribute($images)
     {
-        $delete = array_diff($this->images, $images);
-        Storage::disk('public')->delete(str_replace('storage/', '', $delete));
-
+        Storage::disk('public')
+            ->delete(str_replace('storage/', '', array_diff($this->images, $images)));
         $this->attributes['images'] = implode(',', $images);
     }
 
