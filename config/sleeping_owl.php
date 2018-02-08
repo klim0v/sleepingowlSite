@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'bootstrapDirectory' => base_path('Admin'),
+    'bootstrapDirectory' => app_path('Admin'),
 
     /*
     |--------------------------------------------------------------------------
