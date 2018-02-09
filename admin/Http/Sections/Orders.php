@@ -67,14 +67,14 @@ class Orders extends Section implements Initializable
     public function onEdit($id)
     {
         return AdminForm::panel()->addBody([
-            AdminFormElement::text('author', 'Автор')->required(),
-            AdminFormElement::text('email', 'Email'),
-            AdminFormElement::text('phone', 'Телефон'),
-            AdminFormElement::text('type', 'Тип')->required(),
-            AdminFormElement::textarea('text', 'Текст заявки'),
+            AdminFormElement::text('author', 'Автор')->setReadonly(1),
+            AdminFormElement::text('email', 'Email')->setReadonly(1),
+            AdminFormElement::text('phone', 'Телефон')->setReadonly(1),
+            AdminFormElement::text('type', 'Тип')->setReadonly(1),
+            AdminFormElement::textarea('text', 'Текст заявки')->setReadonly(1),
             AdminFormElement::radio('is_new', 'Статус')->setOptions(['0' => 'Просмотренна', '1' => 'Новая'])
                 ->required(),
-            AdminFormElement::datetime('created_at', 'Добавлен')->required(),
+            AdminFormElement::datetime('created_at', 'Добавлен')->setReadonly(1),
         ]);
     }
 

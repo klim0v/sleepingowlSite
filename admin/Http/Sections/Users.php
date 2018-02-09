@@ -55,11 +55,11 @@ class Users extends Section
     public function onEdit($id)
     {
         return AdminForm::panel()->addBody([
-            AdminFormElement::text('name', 'Username')->required(),
-            AdminFormElement::password('password', 'Password')->required()->addValidationRule('min:6'),
-            AdminFormElement::text('email', 'E-mail')->required()->addValidationRule('email'),
-            AdminFormElement::multiselect('roles', 'Roles', Role::class)->setDisplay('name'),
-            AdminFormElement::upload('avatar', 'Avatar')->addValidationRule('image'),
+            AdminFormElement::text('name', 'Имя пользователя')->required(),
+            AdminFormElement::password('password', 'Пароль')->required()->addValidationRule('min:6'),
+            AdminFormElement::text('email', 'Email')->required()->addValidationRule('email'),
+            AdminFormElement::multiselect('roles', 'Роли', Role::class)->setDisplay('label'),
+            AdminFormElement::upload('avatar', 'Фото')->addValidationRule('image'),
             AdminColumn::image('avatar')->setWidth('150px'),
         ]);
     }
