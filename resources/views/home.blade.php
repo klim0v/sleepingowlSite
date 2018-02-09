@@ -149,26 +149,35 @@
                             <div class="overlay"></div>
                         </div>
                         <div class="info">
-                            <span>{{$gallery->title}}</span><br>
+                            <span>{{$gallery->title}}</span>
                             <span> И ЕЩЁ {{$count_work}}<span class="portfolio-ending"></span> В НАШЕМ ПОРТФОЛИО</span>
                             <a href="{{route('galleries')}}">НАШИ РАБОТЫ</a>
                         </div>
                     @endif
                 </div>
-
-                <form class="additional col-xs-12 col-md-6" id="additional-order-form" action="/backcall_add"
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        <p>{{ \Session::get('success') }}</p>
+                    </div><br/>
+                @endif
+                <form class="additional col-xs-12 col-md-6" id="additional-order-form" action="{{route('back_call')}}"
                       method="post">
-                    <input type='hidden' name='csrfmiddlewaretoken' value='RuiEr5PkQ9CAKvvQSVbTtDxYhQg8My2J'/>
+                    {{ csrf_field() }}
                     <hr class="vertical">
                     <span class="title">Для УК и ТСЖ</span>
                     <div class="inputs">
-                        <input required name="name" placeholder="Ваше имя">
-                        <input required name="number" placeholder="Номер телефона">
+                        <input name="title" class="hidden">
+                        <input required name="author" placeholder="Имя">
+                        <input required name="phone" placeholder="Телефон" type="tel">
+                        <input required name="email" placeholder="Email" type="email">
+                        <label>
+                            <input type="checkbox" checked required>
+                            Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>
+                        </label>
                     </div>
                     <a class="for_companies" href="/static/tzh.docx">
                         <img src=/static/images/doc.png>
-                        <br>
-                        <span>Скачать <br> ком. предложение</span>
+                        <span>Скачать ком. предложение</span>
                     </a>
                     <button>ЗАКАЗАТЬ ЗВОНОК</button>
                 </form>
@@ -245,7 +254,7 @@
 
                 <div class="call col-xs-12 col-md-offset-3 col-md-4">
                     <img src=/static/images/contacts-call.png>
-                    <span>Позвонить нам<br>
+                    <span>Позвонить нам
                         <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel1'))}}">
                             {{$settings->get('tel1')}}
                         </a>
@@ -257,7 +266,7 @@
             </div>
             <div class="come-to-office info-row-2 col-xs-12">
                 <img src=/static/images/contacts-come-to-office.png>
-                <span>Приехать к нам в офис<br>г. Владимир, ул. Проспект Ленина 7</span>
+                <span>Приехать к нам в офис г. Владимир, ул. Проспект Ленина 7</span>
             </div>
         </div>
     </div>
@@ -270,97 +279,6 @@
     <img src=/static/images/move-top.png>
 </div>
 
-
-<div class="modal fade view-info-modal">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content clearfix">
-            <img class="close" data-dismiss="modal" src="/static/images/close_white.png">
-            <div class="cover">
-                <img>
-                <form method="get">
-                    <button class="get-price" type="submit">ПОЛУЧИТЬ ПРАЙС</button>
-                </form>
-                <div class="title"></div>
-            </div>
-            <div class="text">
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade view-portfolio-modal">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content clearfix">
-            <img class="close" data-dismiss="modal" src="/static/images/close_white.png">
-            <div class="images portfolio">
-
-                <div id="portfolio-item5" class="item col-md-6 col-xs-12">
-                    <div class="info">
-                        <div class="pseudo-anchor"></div>
-                        <div class="data">
-                            <img class="logo" src="/media/portfolio/logos/sb_h0gVrc3.png">
-                            <div class="item-title">Ночной клуб «Санта Барбара»</div>
-                        </div>
-                    </div>
-
-                    <div class="image" style="background-image: url('/media/portfolio/covers/cover.jpg')"></div>
-                </div>
-
-                <div id="portfolio-item6" class="item col-md-6 col-xs-12">
-                    <div class="info">
-                        <div class="pseudo-anchor"></div>
-                        <div class="data">
-                            <img class="logo" src="/media/portfolio/logos/tele2_keEO1hF.png">
-                            <div class="item-title">TELE 2</div>
-                        </div>
-                    </div>
-
-                    <div class="image" style="background-image: url('/media/portfolio/covers/cover_B51oaTm.jpg')"></div>
-                </div>
-
-                <div id="portfolio-item7" class="item col-md-6 col-xs-12">
-                    <div class="info">
-                        <div class="pseudo-anchor"></div>
-                        <div class="data">
-                            <img class="logo" src="/media/portfolio/logos/medilon.png">
-                            <div class="item-title">ООО «Медилон-Фармимэкс»</div>
-                        </div>
-                    </div>
-
-                    <div class="image" style="background-image: url('/media/portfolio/covers/155175.jpg')"></div>
-                </div>
-
-                <div id="portfolio-item8" class="item col-md-6 col-xs-12">
-                    <div class="info">
-                        <div class="pseudo-anchor"></div>
-                        <div class="data">
-                            <img class="logo" src="/media/portfolio/logos/mts_cjTH4DR.png">
-                            <div class="item-title">МТС</div>
-                        </div>
-                    </div>
-
-                    <div class="image" style="background-image: url('/media/portfolio/covers/cover_MHu1rqi.jpg')"></div>
-                </div>
-
-                <div id="portfolio-item9" class="item col-md-6 col-xs-12">
-                    <div class="info">
-                        <div class="pseudo-anchor"></div>
-                        <div class="data">
-                            <img class="logo" src="/media/portfolio/logos/24O9QSB501t6zQI2cvHP3loU5BnfW6_5Kiu7hC.png">
-                            <div class="item-title">Единая Россия</div>
-                        </div>
-                    </div>
-
-                    <div class="image"
-                         style="background-image: url('/media/portfolio/covers/3e0c263071332c093c7de68409094cff.jpg')"></div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <div class="modal fade ask-modal">
     <div class="modal-dialog">
         <form class="modal-content">
@@ -372,8 +290,8 @@
             <div class="text">
                 Наш менеджер ответит вам в ближайшее время
             </div>
-            <input required placeholder="Имя" name="name" type="text" class="center-block">
-            <input required placeholder="Электронная почта" name="email" type="mail" class="center-block">
+            <input required placeholder="Имя" name="author" type="text" class="center-block">
+            <input required placeholder="Электронная почта" name="email" type="email" class="center-block">
             <textarea required placeholder="Ваш вопрос" name="question" class="center-block"></textarea>
             <button type="submit">Отправить</button>
         </form>

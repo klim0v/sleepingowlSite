@@ -54,19 +54,21 @@ class AdminSectionsServiceProvider extends ServiceProvider
         'App\Model\Forms\FormButton'=> 'Admin\Http\Sections\Forms\FormButtons',
 
 
-        'App\Role'                  => 'Admin\Http\Sections\Roles',
-        'App\User'                  => 'Admin\Http\Sections\Users',
-
-
         'App\Model\DataTables\NewsEditableColumns' => 'Admin\Http\Sections\DataTables\EditableColumns',
         'App\Model\DataTables\NewsRefreshAsync'    => 'Admin\Http\Sections\DataTables\RefreshAsync',
         'App\Model\DataTables\NewsActions'         => 'Admin\Http\Sections\DataTables\Actions',
         'App\Model\DataTables\CountryStopPageRefresh' => 'Admin\Http\Sections\DataTables\StopPageRefresh',
 
+
+
+        'App\Role'                  => 'Admin\Http\Sections\Roles',
+        'App\User'                  => 'Admin\Http\Sections\Users',
+
         'App\Model\FundamentalSetting' => 'Admin\Http\Sections\FundamentalSettings',
         'App\Model\Banner'             => 'Admin\Http\Sections\Banners',
         'App\Model\Review'             => 'Admin\Http\Sections\Reviews',
-        'App\Model\Gallery'             => 'Admin\Http\Sections\Galleries',
+        'App\Model\Gallery'            => 'Admin\Http\Sections\Galleries',
+        'App\Model\Order'              => 'Admin\Http\Sections\Orders',
     ];
 
     /**

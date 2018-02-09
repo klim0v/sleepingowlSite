@@ -12,7 +12,7 @@ use SleepingOwl\Admin\Traits\OrderableModel;
  *
  * @property int $id
  * @property string $author
- * @property string $description
+ * @property string $text
  * @property string|null $logo
  * @property string|null $background
  * @property int $published
@@ -22,20 +22,28 @@ use SleepingOwl\Admin\Traits\OrderableModel;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereAuthor($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereBackground($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereLogo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review wherePublished($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $is_new
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review isNew()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereIsNew($value)
  */
 class Review extends Model
 {
+    protected $attributes = [
+        'is_new' => 1 ,
+    ];
+
     protected $fillable = [
         'author',
-        'description',
+        'text',
         'logo',
         'background',
+        'is_new',
         'published',
     ];
 
@@ -57,5 +65,10 @@ class Review extends Model
 
     public function scopePublished($query){
         return $query->where('published', 1);
+    }
+
+
+    public function scopeIsNew($query){
+        return $query->where('is_new', 1);
     }
 }

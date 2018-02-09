@@ -45,9 +45,7 @@ class FundamentalSettings extends Section implements Initializable
     public function initialize()
     {
         // Добавление пункта меню и счетчика кол-ва записей в разделе
-        $this->addToNavigation($priority = 5000, function() {
-            return \App\Model\FundamentalSetting::count();
-        });
+        $this->addToNavigation($priority = 5000);
 
 //        $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
 //            //...

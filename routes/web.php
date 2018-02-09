@@ -34,7 +34,9 @@ Route::group(['middleware' => 'web'], function () {
     $this->get('logout', 'Auth\LoginController@logout')->name('logout');
     $this->post('logout', 'Auth\LoginController@logout');
 
+    Route::get('/', 'HomeController@index')->name('home');
 
-    Route::get('/', 'HomeController@index');
+    Route::post('/', 'HomeController@addBackCall')->name('back_call');
+
     Route::get('/galleries', 'GalleryController@index')->name('galleries');
 });

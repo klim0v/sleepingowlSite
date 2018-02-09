@@ -51,7 +51,7 @@ class Galleries extends Section implements Initializable
                 AdminColumn::text('id', '#')->setWidth('30px'),
                 AdminColumn::text('title', 'Название')->setWidth('200px'),
                 AdminColumn::text('slug', 'Слаг'),
-                AdminColumn::text('description', 'Текст отзыва'),
+                AdminColumn::text('description', 'Описание'),
                 AdminColumn::image('cover', 'Обложка'),
                 AdminColumn::count('images', 'Галлерея'),
                 AdminColumnEditable::checkbox('published', 'Опубликован')->setLabel('Опубликован'),
@@ -70,7 +70,7 @@ class Galleries extends Section implements Initializable
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Название')->required(),
             AdminFormElement::text('slug', 'Слаг')->required()->unique(),
-            AdminFormElement::ckeditor('description', 'Текст отзыва')->required(),
+            AdminFormElement::ckeditor('description', 'Описание')->required(),
             AdminFormElement::image('cover', 'Обложка'),
             AdminFormElement::images('images', 'Галлерея'),
             AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
