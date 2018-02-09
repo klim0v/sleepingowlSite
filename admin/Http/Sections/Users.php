@@ -61,7 +61,7 @@ class Users extends Section
             AdminFormElement::multiselect('roles', 'Роли', Role::class)->setDisplay('label'),
             AdminFormElement::upload('avatar', 'Фото')->addValidationRule('image'),
             AdminColumn::image('avatar')->setWidth('150px'),
-        ]);
+        ])->setHtmlAttribute('enctype', 'multipart/form-data');
     }
 
     /**

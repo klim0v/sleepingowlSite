@@ -188,44 +188,46 @@
             <div class="arrow left">
                 <img src=/static/images/arrow-left.png>
             </div>
-            <div class="slide">
-                <div class="main">
-                    <img class="background">
-                    <div class="overflow"></div>
-                    <div class="slide-info">
-                        <div class="pseudo-anchor"></div>
-                        <div class="client-info clearfix">
-                            <img class="logo col-xs-4">
-                            <div class="text col-xs-7">
-                                <span class="title"></span>
-                                <p class="info">
 
-                                </p>
-                            </div>
-                        </div>
-                        <button class="gallery">галерея</button>
-                    </div>
-                </div>
+            {{--<div class="slide">--}}
+                {{--<div class="main">--}}
+                    {{--<img class="background">--}}
+                    {{--<div class="overflow"></div>--}}
+                    {{--<div class="slide-info">--}}
+                        {{--<div class="pseudo-anchor"></div>--}}
+                        {{--<div class="client-info clearfix">--}}
+                            {{--<img class="logo col-xs-4">--}}
+                            {{--<div class="text col-xs-7">--}}
+                                {{--<span class="title"></span>--}}
+                                {{--<p class="info">--}}
 
-                <div class="advanced">
-                    <img class="background">
-                    <div class="overflow"></div>
-                    <div class="slide-info">
-                        <div class="pseudo-anchor"></div>
-                        <div class="client-info clearfix">
-                            <img class="logo col-xs-4">
-                            <div class="text col-xs-7">
-                                <span class="title"></span>
-                                <p class="info">
+                                {{--</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<button class="gallery">ВСЕ ОТЗЫВЫ</button>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                                </p>
-                            </div>
-                        </div>
-                        <button class="gallery">галерея</button>
-                    </div>
-                </div>
+                {{--<div class="advanced">--}}
+                    {{--<img class="background">--}}
+                    {{--<div class="overflow"></div>--}}
+                    {{--<div class="slide-info">--}}
+                        {{--<div class="pseudo-anchor"></div>--}}
+                        {{--<div class="client-info clearfix">--}}
+                            {{--<img class="logo col-xs-4">--}}
+                            {{--<div class="text col-xs-7">--}}
+                                {{--<span class="title"></span>--}}
+                                {{--<p class="info">--}}
 
-            </div>
+                                {{--</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<button class="gallery">галерея</button>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+            {{--</div>--}}
+
             <div class="nav-group" data-toggle="buttons">
                 <div class="btn item active">
                     <input type="radio">
