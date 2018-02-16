@@ -54,7 +54,10 @@ return [
     |
     */
 
-    'from' => ['address' => 'blizhekdomu@yandex.ru', 'name' => 'Ближе к дому'],
+    'from' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'blizhekdomu@yandex.ru'),
+        'name' => env('MAIL_FROM_NAME', 'Ближе к дому'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

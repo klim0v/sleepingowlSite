@@ -31,12 +31,12 @@ Route::group(['middleware' => 'web'], function () {
     // Authentication Routes...
     $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
     $this->post('login', 'Auth\LoginController@login');
-    $this->get('logout', 'Auth\LoginController@logout')->name('logout');
-    $this->post('logout', 'Auth\LoginController@logout');
+    $this->any('logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::post('/', 'HomeController@addBackCall')->name('back_call');
 
     Route::get('/galleries', 'GalleryController@index')->name('galleries');
+    Route::get('/reviews', 'ReviewController@index')->name('reviews');
 });

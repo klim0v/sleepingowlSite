@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::published()->get();
-        $reviews = Review::published()->get();
+        $reviews = Review::published()->onMain()->get();
         $gallery = Gallery::published()->onMain()->get(['title', 'cover'])->first();
         $countGal = Gallery::published()->count() - 1;
         $count_work = trans_choice('my.count_work', $countGal, ['value' => $countGal]);
@@ -46,7 +46,7 @@ class HomeController extends Controller
         $order = new Order(['type' => 'Для УК и ТСЖ']);
         $order->fill($request->only($order->getFillable()));
         $order->save();
-        Mail::to('blizhekdomu@yandex.ru')->send(new OrderShipped($order));
+        Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
         return redirect()->back()->with(['success' => 'Форма успещно отправленна']);
     }
 
@@ -60,7 +60,7 @@ class HomeController extends Controller
         $review = new Review();
         $review->fill($request->only($review->getFillable()));
         $review->save();
-        Mail::to('blizhekdomu@yandex.ru')->send(new OrderShipped($order));
+        Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
         return redirect()->back()->with(['success' => 'Форма успещно отправленна']);
     }
 }

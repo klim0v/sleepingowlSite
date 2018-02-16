@@ -21,6 +21,7 @@ class CreateReviewsTable extends Migration
             $table->string('background')->nullable();
             $table->boolean('published')->index();
             $table->boolean('is_new');
+            $table->boolean('on_main');
             $table->timestamps();
         });
     }

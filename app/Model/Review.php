@@ -31,6 +31,9 @@ use SleepingOwl\Admin\Traits\OrderableModel;
  * @property int $is_new
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review isNew()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereIsNew($value)
+ * @property int $on_main
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review onMain()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Review whereOnMain($value)
  */
 class Review extends Model
 {
@@ -44,6 +47,7 @@ class Review extends Model
         'logo',
         'background',
         'is_new',
+        'on_main',
         'published',
     ];
 
@@ -63,12 +67,18 @@ class Review extends Model
         $this->attributes['background'] = $value;
     }
 
-    public function scopePublished($query){
+    public function scopePublished($query)
+    {
         return $query->where('published', 1);
     }
 
-
-    public function scopeIsNew($query){
+    public function scopeIsNew($query)
+    {
         return $query->where('is_new', 1);
+    }
+
+    public function scopeOnMain($query)
+    {
+        return $query->where('on_main', 1);
     }
 }

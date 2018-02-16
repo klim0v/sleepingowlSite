@@ -166,7 +166,7 @@
                     <hr class="vertical">
                     <span class="title">Для УК и ТСЖ</span>
                     <div class="inputs">
-                        <input name="title" class="hidden">
+                        {{--<input name="title" placeholder="Заголовок" style="display: none">--}}
                         <input required name="author" placeholder="Имя">
                         <input required name="phone" placeholder="Телефон" type="tel">
                         <input required name="email" placeholder="Email" type="email">
@@ -177,9 +177,9 @@
                     </div>
                     <a class="for_companies" href="/static/tzh.docx">
                         <img src=/static/images/doc.png>
-                        <span>Скачать ком. предложение</span>
+                        <span>Скачать <br>ком. предложение</span>
                     </a>
-                    <button>ЗАКАЗАТЬ ЗВОНОК</button>
+                    <input type="submit" value="ЗАКАЗАТЬ ЗВОНОК">
                 </form>
             </div>
         </div>
@@ -189,24 +189,26 @@
                 <img src=/static/images/arrow-left.png>
             </div>
 
-            {{--<div class="slide">--}}
-                {{--<div class="main">--}}
-                    {{--<img class="background">--}}
-                    {{--<div class="overflow"></div>--}}
-                    {{--<div class="slide-info">--}}
-                        {{--<div class="pseudo-anchor"></div>--}}
-                        {{--<div class="client-info clearfix">--}}
-                            {{--<img class="logo col-xs-4">--}}
-                            {{--<div class="text col-xs-7">--}}
-                                {{--<span class="title"></span>--}}
-                                {{--<p class="info">--}}
-
-                                {{--</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<button class="gallery">ВСЕ ОТЗЫВЫ</button>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+            <div class="slide">
+                @foreach($reviews as $review)
+                <div class="main">
+                    <img src="{{$review->background}}" class="background">
+                    <div class="overflow"></div>
+                    <div class="slide-info">
+                        <div class="pseudo-anchor"></div>
+                        <div class="client-info clearfix">
+                            <img src="{{$review->logo}}" class="logo col-xs-4">
+                            <div class="text col-xs-7">
+                                <span class="title">{{$review->author}}</span>
+                                <p class="info">
+                                    {!! $review->text !!}
+                                </p>
+                            </div>
+                        </div>
+                        <a href="{{route('reviews')}}" class="gallery">ВСЕ ОТЗЫВЫ</a>
+                    </div>
+                </div>
+                @endforeach
 
                 {{--<div class="advanced">--}}
                     {{--<img class="background">--}}
@@ -226,7 +228,7 @@
                     {{--</div>--}}
                 {{--</div>--}}
 
-            {{--</div>--}}
+            </div>
 
             <div class="nav-group" data-toggle="buttons">
                 <div class="btn item active">
@@ -268,7 +270,7 @@
             </div>
             <div class="come-to-office info-row-2 col-xs-12">
                 <img src=/static/images/contacts-come-to-office.png>
-                <span>Приехать к нам в офис г. Владимир, ул. Проспект Ленина 7</span>
+                <span>Приехать к нам в офис <br> г. Владимир, ул. Проспект Ленина 7</span>
             </div>
         </div>
     </div>
