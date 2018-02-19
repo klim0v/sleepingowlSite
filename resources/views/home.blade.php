@@ -43,7 +43,7 @@
             <span class="icon-bar"></span>
         </button>
 
-        <img class="navbar-logo" src=/static/images/navbar-logo.png>
+        <img class="navbar-logo" src="/static/images/navbar-logo.png" alt="Ближе к дому" title="Ближе к дому">
 
 
         <div class="menu_main_list_container hidden-xs hidden-sm">
@@ -176,7 +176,7 @@
                         </label>
                     </div>
                     <a class="for_companies" href="/static/tzh.docx">
-                        <img src=/static/images/doc.png>
+                        <img src="/static/images/doc.png">
                         <span>Скачать <br>ком. предложение</span>
                     </a>
                     <input type="submit" value="ЗАКАЗАТЬ ЗВОНОК">
@@ -186,7 +186,7 @@
         <div id="reviews" class="slider clearfix hidden-xs">
             <span>ОТЗЫВЫ</span>
             <div class="arrow left">
-                <img src=/static/images/arrow-left.png>
+                <img src="/static/images/arrow-left.png">
             </div>
 
             <div class="slide">
@@ -236,18 +236,18 @@
                 </div>
             </div>
             <div class="arrow right">
-                <img src=/static/images/arrow-right.png>
+                <img src="/static/images/arrow-right.png">
             </div>
         </div>
         <div id="contacts" class="contacts">
             <div class="title col-xs-12">
                 <span>Как с нами связаться?</span>
-                <img src=/static/images/contacts-title.png>
+                <img src="/static/images/contacts-title.png">
             </div>
             <div class="info-row-1 col-xs-12">
                 <div class="write col-xs-12 col-md-4">
                     <div class="action-container" data-toggle="modal" data-target=".ask-modal">
-                        <img src=/static/images/contacts-write.png>
+                        <img src="/static/images/contacts-write.png">
                         <span>Написать нам</span>
                     </div>
                     <div class="mail">
@@ -257,7 +257,7 @@
                 </div>
 
                 <div class="call col-xs-12 col-md-offset-3 col-md-4">
-                    <img src=/static/images/contacts-call.png>
+                    <img src="/static/images/contacts-call.png">
                     <span>Позвонить нам
                         <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel1'))}}">
                             {{$settings->get('tel1')}}
@@ -269,7 +269,7 @@
                 </div>
             </div>
             <div class="come-to-office info-row-2 col-xs-12">
-                <img src=/static/images/contacts-come-to-office.png>
+                <img src="/static/images/contacts-come-to-office.png">
                 <span>Приехать к нам в офис <br>{{$settings->get('address')}}</span>
             </div>
         </div>
@@ -280,7 +280,7 @@
 </div>
 
 <div class="move-top">
-    <img src=/static/images/move-top.png>
+    <img src="/static/images/move-top.png">
 </div>
 
 <div class="modal fade ask-modal">
