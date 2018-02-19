@@ -1,10 +1,4 @@
-{{--@extends('layouts.app')--}}
-
-{{--@section('content')--}}
-
-{{--@endsection--}}
-
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -19,7 +13,7 @@
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap -->
-    <link href=/static/css/bootstrap.min.css rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -155,9 +149,9 @@
                         </div>
                     @endif
                 </div>
-                @if (\Session::has('success'))
+                @if (\Session::has('back_call'))
                     <div class="alert alert-success">
-                        <p>{{ \Session::get('success') }}</p>
+                        <p>{{ \Session::get('back_call') }}</p>
                     </div><br/>
                 @endif
                 <form class="additional col-xs-12 col-md-6" id="additional-order-form" action="{{route('back_call')}}"
@@ -179,7 +173,8 @@
                         <img src="/static/images/doc.png">
                         <span>Скачать <br>ком. предложение</span>
                     </a>
-                    <input type="submit" value="ЗАКАЗАТЬ ЗВОНОК">
+                    {{--<input type="submit" value="ЗАКАЗАТЬ ЗВОНОК">--}}
+                    <button type="submit">ЗАКАЗАТЬ ЗВОНОК</button>
                 </form>
             </div>
         </div>
@@ -274,19 +269,22 @@
             </div>
         </div>
     </div>
-    <div class="map" id="map">
-
-    </div>
+    <div class="map" id="map"></div>
 </div>
 
 <div class="move-top">
     <img src="/static/images/move-top.png">
 </div>
 
-<div class="modal fade ask-modal">
+<div  class="modal fade ask-modal">
     <div class="modal-dialog">
-        <form class="modal-content">
-            <input type='hidden' name='csrfmiddlewaretoken' value='RuiEr5PkQ9CAKvvQSVbTtDxYhQg8My2J'/>
+        @if (\Session::has('ask_question'))
+            <div class="alert alert-success">
+                <p>{{ \Session::get('ask_question') }}</p>
+            </div><br/>
+        @endif
+        <form class="modal-content" method="post" action="{{route('ask_question')}}">
+            {{ csrf_field() }}
             <div class="title">
                 <span>Задать вопрос</span>
                 <img class="close" data-dismiss="modal" src="/static/images/close_dark.png">
@@ -296,18 +294,22 @@
             </div>
             <input required placeholder="Имя" name="author" type="text" class="center-block">
             <input required placeholder="Электронная почта" name="email" type="email" class="center-block">
-            <textarea required placeholder="Ваш вопрос" name="question" class="center-block"></textarea>
+            <textarea required placeholder="Ваш вопрос" name="text" class="center-block"></textarea>
+            <label>
+                <input type="checkbox" checked required>
+                Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>
+            </label>
             <button type="submit">Отправить</button>
         </form>
     </div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-{{--<script src="/static/js/jquery-1.11.3.min.js"></script>--}}
+<script src="/static/js/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-{{--<script src="/static/js/bootstrap.min.js"></script>--}}
-{{--<script src="/static/js/bootstrap-toolkit.min.js"></script>--}}
-{{--<script src="/static/js/jquery.magnific-popup.min.js"></script>--}}
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/bootstrap-toolkit.min.js"></script>
+<script src="/static/js/jquery.magnific-popup.min.js"></script>
 
 {{--<script src="/static/js/elements/ask.js"></script>--}}
 {{--<script src=/static/js/elements/picture_slider.js></script>--}}
@@ -320,7 +322,6 @@
 <script>
     ymaps.ready(init);
     var myMap;
-
     function init() {
         myMap = new ymaps.Map("map", {
             center: [{{$settings->get('geometry')}}],
@@ -328,10 +329,7 @@
             zoom: 18
         });
         myMap.controls
-            .add('zoomControl', {left: 5, top: 5})
-        ;
-
-
+            .add('zoomControl', {left: 5, top: 5});
         marker = new ymaps.Placemark([{{$settings->get('geometry')}}], {
             balloonContent: "<span class=\"map-balloon\">{{$settings->get('address')}}</span>"
         }, {
@@ -342,7 +340,6 @@
             balloonImageSize: [229, 75],
             balloonShadow: false
         });
-
         myMap.geoObjects
             .add(marker);
         marker.balloon.open()

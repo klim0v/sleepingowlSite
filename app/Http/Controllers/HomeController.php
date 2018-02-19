@@ -47,7 +47,21 @@ class HomeController extends Controller
         $order->fill($request->only($order->getFillable()));
         $order->save();
         Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
-        return redirect()->back()->with(['success' => 'Форма успещно отправленна']);
+        return redirect()->back()->with(['back_call' => 'Форма успешно отправлена']);
+    }
+
+    /**
+     * @param NewOrderRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
+     */
+    public function askQuestion(NewOrderRequest $request)
+    {
+        $order = new Order(['type' => 'Вопрос']);
+        $order->fill($request->only($order->getFillable()));
+        $order->save();
+        Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
+        return redirect()->back()->with(['ask_question' => 'Форма успешно отправлена']);
     }
 
     /**
@@ -61,6 +75,6 @@ class HomeController extends Controller
         $review->fill($request->only($review->getFillable()));
         $review->save();
         Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
-        return redirect()->back()->with(['success' => 'Форма успещно отправленна']);
+        return redirect()->back()->with(['add_review' => 'Форма успешно отправлена']);
     }
 }
