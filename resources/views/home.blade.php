@@ -49,19 +49,19 @@
         <div class="menu_main_list_container hidden-xs hidden-sm">
             <ul class="nav navbar-nav navbar-right menu_main_list">
                 <li>
-                    <div class="item nav-about"><a>О НАС</a></div>
+                    <div class="item nav-about"><a href="#about">О НАС</a></div>
                     <hr>
                 </li>
                 <li>
-                    <div class="item nav-services"><a>УСЛУГИ</a></div>
+                    <div class="item nav-services"><a href="#services">УСЛУГИ</a></div>
                     <hr>
                 </li>
                 <li>
-                    <div class="item nav-reviews"><a>ОТЗЫВЫ</a></div>
+                    <div class="item nav-reviews"><a href="#reviews">ОТЗЫВЫ</a></div>
                     <hr>
                 </li>
                 <li>
-                    <div class="item nav-contacts"><a>КОНТАКТЫ</a></div>
+                    <div class="item nav-contacts"><a href="#contacts">КОНТАКТЫ</a></div>
                 </li>
             </ul>
         </div>
@@ -69,22 +69,22 @@
         <div class="collapse navbar-collapse menu_main_list_vertical_container " id="navbar-main">
             <ul class="nav navbar-nav navbar-right menu_main_list_vertical hidden-md hidden-lg">
                 <li>
-                    <div class="item nav-about"><a>О НАС</a>
+                    <div class="item nav-about"><a href="#about">О НАС</a>
                         <div class="pseudo-anchor"></div>
                     </div>
                 </li>
                 <li>
-                    <div class="item nav-services"><a>УСЛУГИ</a>
+                    <div class="item nav-services"><a href="#services">УСЛУГИ</a>
                         <div class="pseudo-anchor"></div>
                     </div>
                 </li>
                 <li>
-                    <div class="item nav-reviews"><a>ОТЗЫВЫ</a>
+                    <div class="item nav-reviews"><a href="#reviews">ОТЗЫВЫ</a>
                         <div class="pseudo-anchor"></div>
                     </div>
                 </li>
                 <li>
-                    <div class="item nav-contacts"><a>КОНТАКТЫ</a>
+                    <div class="item nav-contacts"><a href="#contacts">КОНТАКТЫ</a>
                         <div class="pseudo-anchor"></div>
                     </div>
                 </li>
@@ -99,7 +99,7 @@
     </div>
 
     <div class="content container">
-        <div class="about clearfix">
+        <div id="about" class="about clearfix">
             <hr>
             <span class="title">О НАС</span>
             <p class="text">
@@ -126,7 +126,7 @@
 
             </div>
         </div>
-        <div class="services clearfix">
+        <div id="services" class="services clearfix">
             <img class="title" src=/static/images/services-title.png>
             <div class="items">
                 @foreach($banners as $banner)
@@ -183,7 +183,7 @@
                 </form>
             </div>
         </div>
-        <div class="slider clearfix hidden-xs">
+        <div id="reviews" class="slider clearfix hidden-xs">
             <span>ОТЗЫВЫ</span>
             <div class="arrow left">
                 <img src=/static/images/arrow-left.png>
@@ -239,7 +239,7 @@
                 <img src=/static/images/arrow-right.png>
             </div>
         </div>
-        <div class="contacts">
+        <div id="contacts" class="contacts">
             <div class="title col-xs-12">
                 <span>Как с нами связаться?</span>
                 <img src=/static/images/contacts-title.png>
@@ -270,7 +270,7 @@
             </div>
             <div class="come-to-office info-row-2 col-xs-12">
                 <img src=/static/images/contacts-come-to-office.png>
-                <span>Приехать к нам в офис <br> г. Владимир, ул. Проспект Ленина 7</span>
+                <span>Приехать к нам в офис <br>{{$settings->get('address')}}</span>
             </div>
         </div>
     </div>
@@ -322,9 +322,8 @@
     var myMap;
 
     function init() {
-        ;
         myMap = new ymaps.Map("map", {
-            center: [56.121445, 40.380277],
+            center: [{{$settings->get('geometry')}}],
             behaviors: ['default', 'scrollZoom'],
             zoom: 18
         });
@@ -333,8 +332,8 @@
         ;
 
 
-        marker = new ymaps.Placemark([56.121291, 40.380491], {
-            balloonContent: '<span class="map-balloon">г. Владимир, ул. Проспект Ленина 7</span>'
+        marker = new ymaps.Placemark([{{$settings->get('geometry')}}], {
+            balloonContent: "<span class=\"map-balloon\">{{$settings->get('address')}}</span>"
         }, {
             balloonContentSize: [229, 75],
             balloonLayout: "default#imageWithContent",
@@ -348,50 +347,6 @@
             .add(marker);
         marker.balloon.open()
     }
-
-
-    $.extend(true, $.magnificPopup.defaults, {
-        tClose: 'Закарыть (Esc)',
-        tLoading: 'Загрузка...',
-        gallery: {
-            tPrev: 'Предыдущая',
-            tNext: 'Следующая',
-            tCounter: '%curr% из %total%'
-        },
-        image: {
-            tError: '<a href="%url%">Изображение</a> не удалось загрузить.'
-        }
-    });
-
-
-    new ViewInfo($(".services"), function (modalWindow) {
-        modalWindow.find(".tab:first-of-type").click();
-    });
-
-    new TopMenuController($(".navbar-logo"), [
-        {'element': $(".nav-about"), 'target': $(".about")},
-        {'element': $(".nav-services"), 'target': $(".services")},
-        {'element': $(".nav-reviews"), 'target': $(".service-footer")},
-        {'element': $(".nav-contacts"), 'target': $(".contacts")}
-    ], $('.menu_main').height());
-
-    new MoveTopButton($(".move-top"));
-
-    var portfolioCount = 5 - 1;
-    var ending = $(".portfolio-ending");
-    var endingValue = "";
-
-    if (portfolioCount < 5 || portfolioCount > 20) {
-        var numValue = portfolioCount % 10;
-        if (numValue == 1)
-            endingValue = "а";
-        else if (numValue > 1 && numValue < 5)
-            endingValue = "ы";
-    }
-
-    ending.html(endingValue);
-
-
 </script>
 </body>
 </html>

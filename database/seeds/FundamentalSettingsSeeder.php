@@ -42,6 +42,20 @@ class FundamentalSettingsSeeder extends Seeder
                 'created_at' => $datetime,
                 'updated_at' => $datetime
             ],
+            [
+                'title' => 'Координаты на карте',
+                'key' => 'geometry',
+                'value' => '56.121291, 40.380491',
+                'created_at' => $datetime,
+                'updated_at' => $datetime
+            ],
+            [
+                'title' => 'Адрес',
+                'key' => 'address',
+                'value' => 'г. Владимир, ул. Проспект Ленина 7',
+                'created_at' => $datetime,
+                'updated_at' => $datetime
+            ],
         ];
 
         \Illuminate\Support\Facades\DB::table('fundamental_settings')

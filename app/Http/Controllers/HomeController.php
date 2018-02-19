@@ -26,7 +26,7 @@ class HomeController extends Controller
         $gallery = Gallery::published()->onMain()->get(['title', 'cover'])->first();
         $countGal = Gallery::published()->count() - 1;
         $count_work = trans_choice('my.count_work', $countGal, ['value' => $countGal]);
-        $contacts = ['tel1', 'tel2', 'email1', 'email2'];
+        $contacts = ['tel1', 'tel2', 'email1', 'email2', 'geometry', 'address'];
         $settings = FundamentalSetting::whereIn('key' , $contacts)->pluck('value', 'key');
         return view('home')
             ->with('banners', $banners)
