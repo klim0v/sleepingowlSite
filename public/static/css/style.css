@@ -827,7 +827,7 @@ hr{
 }
 
 
-.contacts>div span, .contacts>div a{
+.contacts>div span a, .contacts>div a, .contacts>div span{
     display:block;
     font-family:Roboto-Medium;
     font-size:2em;
@@ -866,7 +866,7 @@ hr{
     color:#c67a29;
 }
 
-.contacts .call span{
+.contacts .call span, .contacts .call a{
     color:#46a729;
 }
 

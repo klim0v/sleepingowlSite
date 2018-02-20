@@ -23,13 +23,13 @@ function ViewPortfolio(cover,itemsData,onShow){
             });
             
             button.click();
-    }
+    };
     
     var displayer=function(){
         var model=$(this).data("info");
         var container=main.find("images");
         displayGallery(model.images);
-    }
+    };
     
     itemsData.forEach(function(info){
             info.view.data("info",info);

@@ -9,7 +9,6 @@
     <meta name="description"
           content="г. Владимир. Рекламное агенство Ближе к дому. Мы представляем услуги: реклама в лифтах, реклама у подъездов, изготовление вывесок и объемных букв, полиграфия, дизайн, светодиодная продукция.">
 
-
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap -->
@@ -23,7 +22,68 @@
     <![endif]-->
 
     <link href=/static/css/style.css rel="stylesheet">
-    {{--<link href="/static/css/magnific-popup.css" rel="stylesheet">--}}
+    <link href="/static/css/magnific-popup.css" rel="stylesheet">
+    <style>
+        .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+            background-color: #373737;
+            border: 0;
+        }
+        .dropdown-menu {
+            background-color: #373737;
+        }
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu>.dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+
+        .dropdown-submenu:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu>a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        .dropdown-submenu:hover>a:after {
+            border-left-color: #fff;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+        .dropdown-submenu.pull-left>.dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+        .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+            text-decoration: none;
+            color: #262626;
+            background-color: #d1a14a;
+        }
+    </style>
 </head>
 <body>
 
@@ -40,21 +100,44 @@
         <img class="navbar-logo" src="/static/images/navbar-logo.png" alt="Ближе к дому" title="Ближе к дому">
 
 
-        <div class="menu_main_list_container hidden-xs hidden-sm">
+        <div class="menu_main_list_container hidden-xs hidden-sm smooth-scroll">
             <ul class="nav navbar-nav navbar-right menu_main_list">
                 <li>
                     <div class="item nav-about"><a href="#about">О НАС</a></div>
                     <hr>
                 </li>
                 <li>
-                    <div class="item nav-services"><a href="#services">УСЛУГИ</a></div>
+                    <div class="item nav-services btn-group dropdown">
+                        <a href="#services" id="dLabel"
+                           data-target="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">УСЛУГИ</a>
+                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                            <li><a href="#">Some action</a></li>
+                            <li><a href="#">Some other action</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Hover me for more options</a>
+                                <ul class="dropdown-menu">
+                                    {{--<li><a tabindex="-1" href="#">Second level</a></li>--}}
+                                    {{--<li class="dropdown-submenu">--}}
+                                        {{--<a href="#">Even More..</a>--}}
+                                        {{--<ul class="dropdown-menu">--}}
+                                            {{--<li><a href="#">3rd level</a></li>--}}
+                                            {{--<li><a href="#">3rd level</a></li>--}}
+                                        {{--</ul>--}}
+                                    {{--</li>--}}
+                                    <li><a href="#">Second level</a></li>
+                                    <li><a href="#">Second level</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                     <hr>
                 </li>
                 <li>
                     <div class="item nav-reviews"><a href="#reviews">ОТЗЫВЫ</a></div>
                     <hr>
                 </li>
-                <li>
+           <    <li>
                     <div class="item nav-contacts"><a href="#contacts">КОНТАКТЫ</a></div>
                 </li>
             </ul>
@@ -253,14 +336,15 @@
 
                 <div class="call col-xs-12 col-md-offset-3 col-md-4">
                     <img src="/static/images/contacts-call.png">
-                    <span>Позвонить нам
+                    <span>Позвонить нам</span>
+                    <div class="mail">
                         <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel1'))}}">
                             {{$settings->get('tel1')}}
                         </a>
                         <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel2'))}}">
                             {{$settings->get('tel2')}}
                         </a>
-                    </span>
+                    </div>
                 </div>
             </div>
             <div class="come-to-office info-row-2 col-xs-12">
@@ -311,7 +395,7 @@
 <script src="/static/js/bootstrap-toolkit.min.js"></script>
 <script src="/static/js/jquery.magnific-popup.min.js"></script>
 
-{{--<script src="/static/js/elements/ask.js"></script>--}}
+<script src="/static/js/elements/app.js"></script>
 {{--<script src=/static/js/elements/picture_slider.js></script>--}}
 {{--<script src=/static/js/elements/view_portfolio.js></script>--}}
 {{--<script src=/static/js/elements/view_info.js></script>--}}
@@ -344,6 +428,15 @@
             .add(marker);
         marker.balloon.open()
     }
+    new TopMenuController($(".navbar-logo"), [
+        {'element': $(".nav-about"), 'target': $(".about")},
+        {'element': $(".nav-services"), 'target': $(".services")},
+        {'element': $(".nav-reviews"), 'target': $(".service-footer")},
+        {'element': $(".nav-contacts"), 'target': $(".contacts")}
+    ], $('.menu_main').height());
+
+    new MoveTopButton($(".move-top"));
+
 </script>
 </body>
 </html>
