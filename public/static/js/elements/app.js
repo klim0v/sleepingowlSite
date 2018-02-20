@@ -1,12 +1,4 @@
-function ViewInfo()
-{
-    var scrollToContacts = function () {
-        var pos = $(".contacts").offset().top - $('.menu_main').height();
-        $("html, body").stop().animate({scrollTop: pos}, 800);
-    }
-}
 SCROLL_TIME = 800;
-
 function TopMenuController(logo, items, topOffset) {
     var scrollTo = function (pos) {
         $("html, body").stop().animate({scrollTop: pos}, SCROLL_TIME);
@@ -20,7 +12,6 @@ function TopMenuController(logo, items, topOffset) {
         });
     });
 }
-
 function MoveTopButton(topBtn) {
     var isVisible = false;
     topBtn.fadeOut();
@@ -43,3 +34,11 @@ function MoveTopButton(topBtn) {
         }
     });
 }
+new TopMenuController($(".navbar-logo"), [
+    {'element': $(".nav-about"), 'target': $(".about")},
+    {'element': $(".nav-services"), 'target': $(".services")},
+    {'element': $(".nav-reviews"), 'target': $(".service-footer")},
+    {'element': $(".nav-contacts"), 'target': $(".contacts")}
+], $('.menu_main').height());
+
+new MoveTopButton($(".move-top"));

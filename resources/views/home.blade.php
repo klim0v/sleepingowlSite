@@ -24,131 +24,29 @@
     <link href=/static/css/style.css rel="stylesheet">
     <link href="/static/css/magnific-popup.css" rel="stylesheet">
     <style>
-        .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-            background-color: #373737;
-            border: 0;
-        }
 
-        .dropdown-menu {
-            background-color: #373737;
-        }
-
-        .dropdown-submenu {
-            position: relative;
-        }
-
-        .dropdown-submenu > .dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top: -6px;
-            margin-left: -1px;
-            -webkit-border-radius: 0 6px 6px 6px;
-            -moz-border-radius: 0 6px 6px;
-            border-radius: 0 6px 6px 6px;
-        }
-
-        .dropdown-submenu:hover > .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-submenu > a:after {
-            display: block;
-            content: " ";
-            float: right;
-            width: 0;
-            height: 0;
-            border-color: transparent;
-            border-style: solid;
-            border-width: 5px 0 5px 5px;
-            border-left-color: #ccc;
-            margin-top: 5px;
-            margin-right: -10px;
-        }
-
-        .dropdown-submenu:hover > a:after {
-            border-left-color: #fff;
-        }
-
-        .dropdown-submenu.pull-left {
-            float: none;
-        }
-
-        .dropdown-submenu.pull-left > .dropdown-menu {
-            left: -100%;
-            margin-left: 10px;
-            -webkit-border-radius: 6px 0 6px 6px;
-            -moz-border-radius: 6px 0 6px 6px;
-            border-radius: 6px 0 6px 6px;
-        }
-
-        .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-            text-decoration: none;
-            color: #262626;
-            background-color: #d1a14a;
-        }
-
-        .inputs label{
-            font-family:Roboto;
-            font-size:1em;
-            color:#f0f0f0;
-        }
-        .services .items .item a {
-            position: absolute;
-            left: 32.5%;
-            bottom: 15%;
-            padding: 10px 50px;
-            border-radius: 2px;
-            border: 0;
-            outline: none;
-            background: rgba(0,0,0,0.6);
-            font-family: Roboto-Medium;
-            font-size: 1.5em;
-            color: #f0f0f0;
-        }
-        .service-footer .portfolio .info a {
-            display: block;
-            border: 0;
-            outline: none;
-            background: #5ba406;
-            border-radius: 2px;
-            font-family: Roboto-Medium;
-            font-size: 1.5em;
-            color: #f0f0f0;
-            position: relative;
-            margin-top: 10%;
-            padding: 5px 0;
-            width: 100%;
-        }
-        .services .items .item a{
-            font-size:1.25em;
-            left:22.5%;
-        }
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-fixed-top">
     <div class="container-fluid menu_main">
-
         <button type="button" class="navbar-toggle collapsed clearfix" data-toggle="collapse" data-target="#navbar-main"
                 aria-expanded="false">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-
         <img class="navbar-logo" src="/static/images/navbar-logo.png" alt="Ближе к дому" title="Ближе к дому">
-
-
         <div class="menu_main_list_container hidden-xs hidden-sm smooth-scroll">
             <ul class="nav navbar-nav navbar-right menu_main_list">
                 <li>
-                    <div class="item nav-about"><a href="#about">О НАС</a></div>
+                    <div class="item nav-about"><a>О НАС</a></div>
                     <hr>
                 </li>
                 <li>
                     <div class="item nav-services btn-group dropdown">
-                        <a href="#services" id="dLabel"
+                        <a id="dLabel"
                            data-target="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="true">УСЛУГИ</a>
                         <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
@@ -175,12 +73,12 @@
                     <hr>
                 </li>
                 <li>
-                    <div class="item nav-reviews"><a href="#reviews">ОТЗЫВЫ</a></div>
+                    <div class="item nav-reviews"><a>ОТЗЫВЫ</a></div>
                     <hr>
                 </li>
                 <
                 <li>
-                    <div class="item nav-contacts"><a href="#contacts">КОНТАКТЫ</a></div>
+                    <div class="item nav-contacts"><a>КОНТАКТЫ</a></div>
                 </li>
             </ul>
         </div>
@@ -188,22 +86,22 @@
         <div class="collapse navbar-collapse menu_main_list_vertical_container " id="navbar-main">
             <ul class="nav navbar-nav navbar-right menu_main_list_vertical hidden-md hidden-lg">
                 <li>
-                    <div class="item nav-about"><a href="#about">О НАС</a>
+                    <div class="item nav-about"><a>О НАС</a>
                         <div class="pseudo-anchor"></div>
                     </div>
                 </li>
                 <li>
-                    <div class="item nav-services"><a href="#services">УСЛУГИ</a>
+                    <div class="item nav-services"><a>УСЛУГИ</a>
                         <div class="pseudo-anchor"></div>
                     </div>
                 </li>
                 <li>
-                    <div class="item nav-reviews"><a href="#reviews">ОТЗЫВЫ</a>
+                    <div class="item nav-reviews"><a>ОТЗЫВЫ</a>
                         <div class="pseudo-anchor"></div>
                     </div>
                 </li>
                 <li>
-                    <div class="item nav-contacts"><a href="#contacts">КОНТАКТЫ</a>
+                    <div class="item nav-contacts"><a>КОНТАКТЫ</a>
                         <div class="pseudo-anchor"></div>
                     </div>
                 </li>
@@ -439,11 +337,6 @@
 <script src="/static/js/jquery.magnific-popup.min.js"></script>
 
 <script src="/static/js/elements/app.js"></script>
-{{--<script src=/static/js/elements/picture_slider.js></script>--}}
-{{--<script src=/static/js/elements/view_portfolio.js></script>--}}
-{{--<script src=/static/js/elements/view_info.js></script>--}}
-{{--<script src=/static/js/elements/top_menu_controller.js></script>--}}
-{{--<script src=/static/js/elements/move_top.js></script>--}}
 
 <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
 <script>
@@ -472,16 +365,6 @@
             .add(marker);
         marker.balloon.open()
     }
-
-    new TopMenuController($(".navbar-logo"), [
-        {'element': $(".nav-about"), 'target': $(".about")},
-        {'element': $(".nav-services"), 'target': $(".services")},
-        {'element': $(".nav-reviews"), 'target': $(".service-footer")},
-        {'element': $(".nav-contacts"), 'target': $(".contacts")}
-    ], $('.menu_main').height());
-
-    new MoveTopButton($(".move-top"));
-
 </script>
 </body>
 </html>
