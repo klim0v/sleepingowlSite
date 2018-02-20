@@ -24,18 +24,20 @@
     <link href=/static/css/style.css rel="stylesheet">
     <link href="/static/css/magnific-popup.css" rel="stylesheet">
     <style>
-        .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+        .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
             background-color: #373737;
             border: 0;
         }
+
         .dropdown-menu {
             background-color: #373737;
         }
+
         .dropdown-submenu {
             position: relative;
         }
 
-        .dropdown-submenu>.dropdown-menu {
+        .dropdown-submenu > .dropdown-menu {
             top: 0;
             left: 100%;
             margin-top: -6px;
@@ -45,11 +47,11 @@
             border-radius: 0 6px 6px 6px;
         }
 
-        .dropdown-submenu:hover>.dropdown-menu {
+        .dropdown-submenu:hover > .dropdown-menu {
             display: block;
         }
 
-        .dropdown-submenu>a:after {
+        .dropdown-submenu > a:after {
             display: block;
             content: " ";
             float: right;
@@ -63,7 +65,7 @@
             margin-right: -10px;
         }
 
-        .dropdown-submenu:hover>a:after {
+        .dropdown-submenu:hover > a:after {
             border-left-color: #fff;
         }
 
@@ -71,17 +73,55 @@
             float: none;
         }
 
-        .dropdown-submenu.pull-left>.dropdown-menu {
+        .dropdown-submenu.pull-left > .dropdown-menu {
             left: -100%;
             margin-left: 10px;
             -webkit-border-radius: 6px 0 6px 6px;
             -moz-border-radius: 6px 0 6px 6px;
             border-radius: 6px 0 6px 6px;
         }
-        .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+
+        .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
             text-decoration: none;
             color: #262626;
             background-color: #d1a14a;
+        }
+
+        .inputs label{
+            font-family:Roboto;
+            font-size:1em;
+            color:#f0f0f0;
+        }
+        .services .items .item a {
+            position: absolute;
+            left: 32.5%;
+            bottom: 15%;
+            padding: 10px 50px;
+            border-radius: 2px;
+            border: 0;
+            outline: none;
+            background: rgba(0,0,0,0.6);
+            font-family: Roboto-Medium;
+            font-size: 1.5em;
+            color: #f0f0f0;
+        }
+        .service-footer .portfolio .info a {
+            display: block;
+            border: 0;
+            outline: none;
+            background: #5ba406;
+            border-radius: 2px;
+            font-family: Roboto-Medium;
+            font-size: 1.5em;
+            color: #f0f0f0;
+            position: relative;
+            margin-top: 10%;
+            padding: 5px 0;
+            width: 100%;
+        }
+        .services .items .item a{
+            font-size:1.25em;
+            left:22.5%;
         }
     </style>
 </head>
@@ -109,7 +149,8 @@
                 <li>
                     <div class="item nav-services btn-group dropdown">
                         <a href="#services" id="dLabel"
-                           data-target="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">УСЛУГИ</a>
+                           data-target="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="true">УСЛУГИ</a>
                         <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                             <li><a href="#">Some action</a></li>
                             <li><a href="#">Some other action</a></li>
@@ -119,11 +160,11 @@
                                 <ul class="dropdown-menu">
                                     {{--<li><a tabindex="-1" href="#">Second level</a></li>--}}
                                     {{--<li class="dropdown-submenu">--}}
-                                        {{--<a href="#">Even More..</a>--}}
-                                        {{--<ul class="dropdown-menu">--}}
-                                            {{--<li><a href="#">3rd level</a></li>--}}
-                                            {{--<li><a href="#">3rd level</a></li>--}}
-                                        {{--</ul>--}}
+                                    {{--<a href="#">Even More..</a>--}}
+                                    {{--<ul class="dropdown-menu">--}}
+                                    {{--<li><a href="#">3rd level</a></li>--}}
+                                    {{--<li><a href="#">3rd level</a></li>--}}
+                                    {{--</ul>--}}
                                     {{--</li>--}}
                                     <li><a href="#">Second level</a></li>
                                     <li><a href="#">Second level</a></li>
@@ -137,7 +178,8 @@
                     <div class="item nav-reviews"><a href="#reviews">ОТЗЫВЫ</a></div>
                     <hr>
                 </li>
-           <    <li>
+                <
+                <li>
                     <div class="item nav-contacts"><a href="#contacts">КОНТАКТЫ</a></div>
                 </li>
             </ul>
@@ -207,13 +249,13 @@
             <img class="title" src=/static/images/services-title.png>
             <div class="items">
                 @foreach($banners as $banner)
-                <div class="item col-md-6 {{$banner->color}}">
-                    <img src="{{$banner->image}}">
-                    <span class="title">{{$banner->title}}</span>
-                    <a href="{{$banner->link}}">Подробнее</a>
-                    <hr class="vertical">
-                    <hr class="horizontal">
-                </div>
+                    <div class="item col-md-6 {{$banner->color}}">
+                        <img src="{{$banner->image}}">
+                        <span class="title">{{$banner->title}}</span>
+                        <a class="" href="{{$banner->link}}">Подробнее</a>
+                        <hr class="vertical">
+                        <hr class="horizontal">
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -227,6 +269,7 @@
                         </div>
                         <div class="info">
                             <span>{{$gallery->title}}</span>
+                            <br>
                             <span> И ЕЩЁ {{$count_work}}<span class="portfolio-ending"></span> В НАШЕМ ПОРТФОЛИО</span>
                             <a href="{{route('galleries')}}">НАШИ РАБОТЫ</a>
                         </div>
@@ -246,15 +289,15 @@
                         {{--<input name="title" placeholder="Заголовок" style="display: none">--}}
                         <input required name="author" placeholder="Имя">
                         <input required name="phone" placeholder="Телефон" type="tel">
-                        <input required name="email" placeholder="Email" type="email">
-                        <label>
-                            <input type="checkbox" checked required>
-                            Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>
-                        </label>
+                        {{--<input required name="email" placeholder="Email" type="email">--}}
+                        {{--<label>--}}
+                        {{--<input type="checkbox" checked required>--}}
+                        {{--Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>--}}
+                        {{--</label>--}}
                     </div>
                     <a class="for_companies" href="/static/tzh.docx">
-                        <img src="/static/images/doc.png">
-                        <span>Скачать <br>ком. предложение</span>
+                        <img src="/static/images/doc.png"><br>
+                        <span>Скачать <br> ком. предложение</span>
                     </a>
                     {{--<input type="submit" value="ЗАКАЗАТЬ ЗВОНОК">--}}
                     <button type="submit">ЗАКАЗАТЬ ЗВОНОК</button>
@@ -269,41 +312,41 @@
 
             <div class="slide">
                 @foreach($reviews as $review)
-                <div class="main">
-                    <img src="{{$review->background}}" class="background">
-                    <div class="overflow"></div>
-                    <div class="slide-info">
-                        <div class="pseudo-anchor"></div>
-                        <div class="client-info clearfix">
-                            <img src="{{$review->logo}}" class="logo col-xs-4">
-                            <div class="text col-xs-7">
-                                <span class="title">{{$review->author}}</span>
-                                <p class="info">
-                                    {!! $review->text !!}
-                                </p>
+                    <div class="main">
+                        <img src="{{$review->background}}" class="background">
+                        <div class="overflow"></div>
+                        <div class="slide-info">
+                            <div class="pseudo-anchor"></div>
+                            <div class="client-info clearfix">
+                                <img src="{{$review->logo}}" class="logo col-xs-4">
+                                <div class="text col-xs-7">
+                                    <span class="title">{{$review->author}}</span>
+                                    <p class="info">
+                                        {!! $review->text !!}
+                                    </p>
+                                </div>
                             </div>
+                            <a href="{{route('reviews')}}" class="gallery">ВСЕ ОТЗЫВЫ</a>
                         </div>
-                        <a href="{{route('reviews')}}" class="gallery">ВСЕ ОТЗЫВЫ</a>
                     </div>
-                </div>
                 @endforeach
 
                 {{--<div class="advanced">--}}
-                    {{--<img class="background">--}}
-                    {{--<div class="overflow"></div>--}}
-                    {{--<div class="slide-info">--}}
-                        {{--<div class="pseudo-anchor"></div>--}}
-                        {{--<div class="client-info clearfix">--}}
-                            {{--<img class="logo col-xs-4">--}}
-                            {{--<div class="text col-xs-7">--}}
-                                {{--<span class="title"></span>--}}
-                                {{--<p class="info">--}}
+                {{--<img class="background">--}}
+                {{--<div class="overflow"></div>--}}
+                {{--<div class="slide-info">--}}
+                {{--<div class="pseudo-anchor"></div>--}}
+                {{--<div class="client-info clearfix">--}}
+                {{--<img class="logo col-xs-4">--}}
+                {{--<div class="text col-xs-7">--}}
+                {{--<span class="title"></span>--}}
+                {{--<p class="info">--}}
 
-                                {{--</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<button class="gallery">галерея</button>--}}
-                    {{--</div>--}}
+                {{--</p>--}}
+                {{--</div>--}}
+                {{--</div>--}}
+                {{--<button class="gallery">галерея</button>--}}
+                {{--</div>--}}
                 {{--</div>--}}
 
             </div>
@@ -360,7 +403,7 @@
     <img src="/static/images/move-top.png">
 </div>
 
-<div  class="modal fade ask-modal">
+<div class="modal fade ask-modal">
     <div class="modal-dialog">
         @if (\Session::has('ask_question'))
             <div class="alert alert-success">
@@ -406,6 +449,7 @@
 <script>
     ymaps.ready(init);
     var myMap;
+
     function init() {
         myMap = new ymaps.Map("map", {
             center: [{{$settings->get('geometry')}}],
@@ -428,6 +472,7 @@
             .add(marker);
         marker.balloon.open()
     }
+
     new TopMenuController($(".navbar-logo"), [
         {'element': $(".nav-about"), 'target': $(".about")},
         {'element': $(".nav-services"), 'target': $(".services")},
