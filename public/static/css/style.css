@@ -870,6 +870,18 @@ hr{
     color:#46a729;
 }
 
+.contacts .call .action-container{
+    opacity:0.85;
+}
+
+
+.contacts .call .action-container:hover{
+    opacity:1;
+    cursor:pointer;
+
+}
+
+
 
 /*-------------------- MODAL -------------------------*/
 .view-info-modal .modal-content{
