@@ -54,8 +54,9 @@ class Galleries extends Section implements Initializable
                 AdminColumn::text('description', 'Описание'),
                 AdminColumn::image('cover', 'Обложка'),
                 AdminColumn::count('images', 'Галлерея'),
-                AdminColumnEditable::checkbox('published', 'Опубликован')->setLabel('Опубликован'),
-                AdminColumnEditable::checkbox('on_main', 'На главной')->setLabel('На главной'),
+                AdminColumnEditable::checkbox('published', 'Опубликован', 'Не опубликован')
+                    ->setLabel('Опубликован'),
+                AdminColumnEditable::checkbox('on_main', 'Да', 'Нет')->setLabel('На главную'),
                 AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
     }

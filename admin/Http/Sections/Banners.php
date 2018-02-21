@@ -67,7 +67,8 @@ class Banners extends Section implements Initializable
                 AdminColumn::url('link', 'Ссылка')->setWidth('200px'),
                 AdminColumn::text('color', 'Цвет фона надписи'),
                 AdminColumn::image('image', 'Изображение'),
-                AdminColumnEditable::checkbox('published', 'Published')->setLabel('Опубликован')
+                AdminColumnEditable::checkbox('published', 'Опубликован', 'Не публикован')
+                    ->setLabel('Опубликован')
             )->paginate(15);
     }
 

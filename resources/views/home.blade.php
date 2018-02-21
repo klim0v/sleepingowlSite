@@ -280,7 +280,7 @@
                 <div class="call col-xs-12 col-md-offset-3 col-md-4 wow bounceIn" data-wow-delay="1s">
                     <div class="action-container" data-toggle="modal" data-target=".ring-form">
                         <img class="animated infinite bounce" src="/static/images/contacts-call.png">
-                        <span>Заказать обратный звонок</span>
+                        <span>Заказать звонок</span>
                     </div>
                     <div class="mail">
                         <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel1'))}}">

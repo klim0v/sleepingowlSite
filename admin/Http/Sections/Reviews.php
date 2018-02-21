@@ -53,9 +53,12 @@ class Reviews extends Section implements Initializable
                 AdminColumn::text('text', 'Текст отзыва'),
                 AdminColumn::image('logo', 'Логотип'),
                 AdminColumn::image('background', 'Фоновое изображение'),
-                AdminColumnEditable::checkbox('published', 'Опубликован')->setLabel('Опубликован'),
-                AdminColumnEditable::checkbox('is_new', 'Статус')->setLabel('Новый'),
-                AdminColumnEditable::checkbox('on_main', 'На главную')->setLabel('На главную'),
+                AdminColumnEditable::checkbox('published', 'Опубликован', 'Не опубликован')
+                    ->setLabel('Опубликован'),
+                AdminColumnEditable::checkbox('is_new', 'Новый', 'Просмотрен')
+                    ->setLabel('Статус'),
+                AdminColumnEditable::checkbox('on_main', 'Да', 'Нет')
+                    ->setLabel('На главную'),
                 AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
     }

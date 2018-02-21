@@ -24,6 +24,9 @@
             box-sizing: border-box;
             z-index: 100;
         }
+        body {
+            background-color: #000000;
+        }
     </style>
 </head>
 <body>
