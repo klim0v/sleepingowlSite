@@ -37,6 +37,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::post('/back_call', 'HomeController@addBackCall')->name('back_call');
     Route::post('/ask_question', 'HomeController@askQuestion')->name('ask_question');
+    Route::post('/back_ring', 'HomeController@backRing')->name('back_ring');
     Route::post('/add_review', 'HomeController@addReview')->name('add_review');
 
     Route::get('/galleries', 'GalleryController@index')->name('galleries');

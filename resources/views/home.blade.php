@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ближе к дому</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +26,6 @@
     <link href=/static/css/animate.css rel="stylesheet">
     <link href="/static/css/magnific-popup.css" rel="stylesheet">
     <style>
-
     </style>
 </head>
 <body>
@@ -179,7 +179,8 @@
                         <p>{{ \Session::get('back_call') }}</p>
                     </div><br/>
                 @endif
-                <form class="additional col-xs-12 col-md-6" id="additional-order-form" action="{{route('back_call')}}"
+                <form class="additional col-xs-12 col-md-6" onsubmit="sendForm(this); return false;"
+                      id="additional-order-form" action="{{route('back_call')}}"
                       method="post">
                     {{ csrf_field() }}
                     <hr class="vertical">
@@ -266,7 +267,7 @@
             </div>
             <div class="info-row-1 col-xs-12">
                 <div class="write col-xs-12 col-md-4 wow bounceIn" data-wow-delay="1s">
-                    <div class="action-container" data-toggle="modal" data-target=".ask-modal">
+                    <div class="action-container" data-toggle="modal" data-target=".ask-form">
                         <img class="animated infinite shake" src="/static/images/contacts-write.png">
                         <span>Написать нам</span>
                     </div>
@@ -277,8 +278,10 @@
                 </div>
 
                 <div class="call col-xs-12 col-md-offset-3 col-md-4 wow bounceIn" data-wow-delay="1s">
-                    <img class="animated infinite bounce" src="/static/images/contacts-call.png">
-                    <span>Позвонить нам</span>
+                    <div class="action-container" data-toggle="modal" data-target=".ring-form">
+                        <img class="animated infinite bounce" src="/static/images/contacts-call.png">
+                        <span>Заказать обратный звонок</span>
+                    </div>
                     <div class="mail">
                         <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel1'))}}">
                             {{$settings->get('tel1')}}
@@ -302,31 +305,60 @@
     <img src="/static/images/move-top.png">
 </div>
 
-<div class="modal fade ask-modal">
+<div class="modal fade ask-modal ring-form">
     <div class="modal-dialog">
-        @if (\Session::has('ask_question'))
+        @if (\Session::has('back_ring'))
+            <div class="alert alert-success">
+                <p>{{ \Session::get('back_ring') }}</p>
+            </div><br/>
+        @else
+            <form class="modal-content ajax" method="post" onsubmit="sendForm(this); return false;" action="{{route('back_ring')}}">
+                {{ csrf_field() }}
+                <div class="title">
+                    <span>Заказать обратный звонок</span>
+                    <img class="close" data-dismiss="modal" src="/static/images/close_dark.png">
+                </div>
+                <div class="text">
+                    Наш менеджер перезвонит вам в ближайшее время
+                </div>
+                <input required placeholder="Имя" name="author" type="text" class="center-block">
+                <input required placeholder="Телефон" name="phone" type="tel" class="center-block">
+                {{--<label>--}}
+                    {{--<input type="checkbox" checked required>--}}
+                    {{--Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>--}}
+                {{--</label>--}}
+                <button type="submit">Отправить</button>
+            </form>
+        @endif
+    </div>
+</div>
+
+<div class="modal fade ask-modal ask-form">
+    <div class="modal-dialog">
+        @if (\Session::has('back_ring'))
             <div class="alert alert-success">
                 <p>{{ \Session::get('ask_question') }}</p>
             </div><br/>
+        @else
+            <form class="modal-content ajax" method="post" onsubmit="sendForm(this); return false;" action="{{route('ask_question')}}">
+                {{ csrf_field() }}
+                <div class="title">
+                    <span>Задать вопрос</span>
+                    <img class="close" data-dismiss="modal" src="/static/images/close_dark.png">
+                </div>
+                <div class="text">
+                    Наш менеджер ответит вам в ближайшее время
+                </div>
+                <input required placeholder="Имя" name="author" type="text" class="center-block">
+                <input required placeholder="Электронная почта" name="email" type="email" class="center-block">
+                <textarea required placeholder="Ваш вопрос" name="text" class="center-block"></textarea>
+                {{--<label>--}}
+                    {{--<input type="checkbox" checked required>--}}
+                    {{--Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>--}}
+                {{--</label>--}}
+                <button type="submit">Отправить</button>
+            </form>
         @endif
-        <form class="modal-content" method="post" action="{{route('ask_question')}}">
-            {{ csrf_field() }}
-            <div class="title">
-                <span>Задать вопрос</span>
-                <img class="close" data-dismiss="modal" src="/static/images/close_dark.png">
-            </div>
-            <div class="text">
-                Наш менеджер ответит вам в ближайшее время
-            </div>
-            <input required placeholder="Имя" name="author" type="text" class="center-block">
-            <input required placeholder="Электронная почта" name="email" type="email" class="center-block">
-            <textarea required placeholder="Ваш вопрос" name="text" class="center-block"></textarea>
-            {{--<label>--}}
-                {{--<input type="checkbox" checked required>--}}
-                {{--Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>--}}
-            {{--</label>--}}
-            <button type="submit">Отправить</button>
-        </form>
     </div>
 </div>
 
@@ -343,6 +375,7 @@
 <script>
     new WOW().init();
 </script>
+<script src="/static/js/jquery.inputmask.bundle.js"></script>
 <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
 <script>
     ymaps.ready(init);
@@ -370,6 +403,42 @@
             .add(marker);
         marker.balloon.open()
     }
+
+    function sendForm(elem) {
+        event.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: $(elem).attr('action'),
+            type: "POST",
+            data: $(elem).serialize(),
+            dataType: "json",
+            success: function(data) {
+                $(elem).html('<div class="alert alert-success">' + data.success + '</div>');
+            },
+            error:function (data) {
+                var errors = $.parseJSON(data.responseText);
+
+                $(elem).find('.help-block').remove();
+                $.each(errors['errors'], function(index, value) {
+                    console.log(index + ' => ' + value);
+                    $(elem).find('input[name=' + index + ']').after('<span class="help-block">' + value + '</span>');
+                });
+            },
+            complete:function () {
+                try {}
+                finally {
+                }
+            }
+        });
+        return false;
+    }
+
+    $('input[name=phone]').inputmask({ mask: "9 (999) 999-99-99", "clearIncomplete": true });
 
 </script>
 </body>

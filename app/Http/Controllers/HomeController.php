@@ -10,6 +10,7 @@ use App\Model\Banner;
 use App\Model\FundamentalSetting;
 use App\Model\Gallery;
 use App\Model\Review;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -47,12 +48,17 @@ class HomeController extends Controller
         $order->fill($request->only($order->getFillable()));
         $order->save();
         Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => 'Письмо успешно отправлено!'
+            ]);
+        }
         return redirect()->back()->with(['back_call' => 'Форма успешно отправлена']);
     }
 
     /**
      * @param NewOrderRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return JsonResponse|\Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      */
     public function askQuestion(NewOrderRequest $request)
@@ -61,7 +67,33 @@ class HomeController extends Controller
         $order->fill($request->only($order->getFillable()));
         $order->save();
         Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => 'Вопрос успешно отправлен!'
+            ]);
+        }
+
         return redirect()->back()->with(['ask_question' => 'Форма успешно отправлена']);
+    }
+
+    /**
+     * @param NewOrderRequest $request
+     * @return JsonResponse|\Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
+     */
+    public function backRing(NewOrderRequest $request)
+    {
+        $order = new Order(['type' => 'Обратный звонок']);
+        $order->fill($request->only($order->getFillable()));
+        $order->save();
+        Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => 'Заявка успешно отправлена!'
+            ]);
+        }
+
+        return redirect()->back()->with(['back_ring' => 'Форма успешно отправлена']);
     }
 
     /**

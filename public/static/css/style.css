@@ -1678,14 +1678,14 @@ hr{
     }
 }
 
-.action-container img {
+.write img {
     -webkit-animation-duration: 3s;
     -webkit-animation-delay: 2s;
     /*-webkit-animation-iteration-count: infinite;*/
 }
 
 .call img {
-    /*-webkit-animation-duration: 3s;*/
+    /*-webkit-animation-duration: 2s;*/
     /*-webkit-animation-delay: 2s;*/
     /*-webkit-animation-iteration-count: infinite;*/
 }
