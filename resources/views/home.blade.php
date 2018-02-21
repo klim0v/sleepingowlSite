@@ -22,6 +22,7 @@
     <![endif]-->
 
     <link href=/static/css/style.css rel="stylesheet">
+    <link href=/static/css/animate.css rel="stylesheet">
     <link href="/static/css/magnific-popup.css" rel="stylesheet">
     <style>
 
@@ -128,15 +129,15 @@
 
             <div class="achievements clearfix">
                 <div class="title col-md-12">Наши принципы</div>
-                <div class="item first col-md-4">
+                <div class="item first col-md-4 wow bounceInLeft">
                     <img src=/static/images/achievement-item-1.png>
                     <div>КРЕАТИВНОСТЬ</div>
                 </div>
-                <div class="item second col-md-4">
+                <div class="item second col-md-4 wow bounceInUp">
                     <img src=/static/images/achievement-item-2.png>
                     <div>КАЧЕСТВО</div>
                 </div>
-                <div class="item third col-md-4">
+                <div class="item third col-md-4 wow bounceInRight">
                     <img src=/static/images/achievement-item-3.png>
                     <div>ПУНКТУАЛЬНОСТЬ</div>
                 </div>
@@ -144,10 +145,10 @@
             </div>
         </div>
         <div id="services" class="services clearfix">
-            <img class="title" src=/static/images/services-title.png>
+            <img class="title wow bounceInDown" src="/static/images/services-title.png">
             <div class="items">
                 @foreach($banners as $banner)
-                    <div class="item col-md-6 {{$banner->color}}">
+                    <div class="item col-md-6 {{$banner->color}} wow zoomIn">
                         <img src="{{$banner->image}}">
                         <span class="title">{{$banner->title}}</span>
                         <a class="" href="{{$banner->link}}">Подробнее</a>
@@ -230,21 +231,21 @@
                 @endforeach
 
                 {{--<div class="advanced">--}}
-                {{--<img class="background">--}}
-                {{--<div class="overflow"></div>--}}
-                {{--<div class="slide-info">--}}
-                {{--<div class="pseudo-anchor"></div>--}}
-                {{--<div class="client-info clearfix">--}}
-                {{--<img class="logo col-xs-4">--}}
-                {{--<div class="text col-xs-7">--}}
-                {{--<span class="title"></span>--}}
-                {{--<p class="info">--}}
+                    {{--<img class="background">--}}
+                    {{--<div class="overflow"></div>--}}
+                    {{--<div class="slide-info">--}}
+                        {{--<div class="pseudo-anchor"></div>--}}
+                        {{--<div class="client-info clearfix">--}}
+                            {{--<img class="logo col-xs-4">--}}
+                            {{--<div class="text col-xs-7">--}}
+                                {{--<span class="title"></span>--}}
+                                {{--<p class="info">--}}
 
-                {{--</p>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--<button class="gallery">галерея</button>--}}
-                {{--</div>--}}
+                                {{--</p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<button class="gallery">галерея</button>--}}
+                    {{--</div>--}}
                 {{--</div>--}}
 
             </div>
@@ -259,14 +260,14 @@
             </div>
         </div>
         <div id="contacts" class="contacts">
-            <div class="title col-xs-12">
+            <div class="title col-xs-12 wow swing">
                 <span>Как с нами связаться?</span>
                 <img src="/static/images/contacts-title.png">
             </div>
             <div class="info-row-1 col-xs-12">
-                <div class="write col-xs-12 col-md-4">
+                <div class="write col-xs-12 col-md-4 wow bounceIn" data-wow-delay="1s">
                     <div class="action-container" data-toggle="modal" data-target=".ask-modal">
-                        <img src="/static/images/contacts-write.png">
+                        <img class="animated infinite shake" src="/static/images/contacts-write.png">
                         <span>Написать нам</span>
                     </div>
                     <div class="mail">
@@ -275,8 +276,8 @@
                     </div>
                 </div>
 
-                <div class="call col-xs-12 col-md-offset-3 col-md-4">
-                    <img src="/static/images/contacts-call.png">
+                <div class="call col-xs-12 col-md-offset-3 col-md-4 wow bounceIn" data-wow-delay="1s">
+                    <img class="animated infinite bounce" src="/static/images/contacts-call.png">
                     <span>Позвонить нам</span>
                     <div class="mail">
                         <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel1'))}}">
@@ -288,13 +289,13 @@
                     </div>
                 </div>
             </div>
-            <div class="come-to-office info-row-2 col-xs-12">
+            <div class="come-to-office info-row-2 col-xs-12 wow bounceInLeft" data-wow-delay="1s">
                 <img src="/static/images/contacts-come-to-office.png">
                 <span>Приехать к нам в офис <br>{{$settings->get('address')}}</span>
             </div>
         </div>
     </div>
-    <div class="map" id="map"></div>
+    <div class="map wow fadeIn" data-wow-duration="5s" id="map"></div>
 </div>
 
 <div class="move-top">
@@ -320,10 +321,10 @@
             <input required placeholder="Имя" name="author" type="text" class="center-block">
             <input required placeholder="Электронная почта" name="email" type="email" class="center-block">
             <textarea required placeholder="Ваш вопрос" name="text" class="center-block"></textarea>
-            <label>
-                <input type="checkbox" checked required>
-                Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>
-            </label>
+            {{--<label>--}}
+                {{--<input type="checkbox" checked required>--}}
+                {{--Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>--}}
+            {{--</label>--}}
             <button type="submit">Отправить</button>
         </form>
     </div>
@@ -338,6 +339,10 @@
 
 <script src="/static/js/elements/app.js"></script>
 
+<script src="/static/js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
 <script>
     ymaps.ready(init);
@@ -365,6 +370,7 @@
             .add(marker);
         marker.balloon.open()
     }
+
 </script>
 </body>
 </html>

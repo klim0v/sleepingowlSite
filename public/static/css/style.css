@@ -384,7 +384,7 @@ hr{
 
 
 
-.services .items .item button{
+.services .items .item a{
     position:absolute;
     left:32.5%;
     bottom:15%;
@@ -401,7 +401,7 @@ hr{
     color:#f0f0f0;
 }
 
-.services .items .item button:hover{
+.services .items .item a:hover{
      background:rgba(255,151,0,0.6);
 }
 
@@ -1323,263 +1323,6 @@ hr{
 }
 
 
-
-@media (min-width:  0px) {
-    .menu_main .navbar-logo{
-        display:none;
-    }
-
-    .ask-modal .modal-content{
-        left:0;
-        width:100%;
-    }
-
-
-    .slider .client-info .text .title {
-        font-size: 1.2em;
-    }
-    
-    .slider .client-info .text .info {
-        font-size: 0.8em;
-    }
-    
-    .slider .slide-info button {
-        font-size: 1em;
-    }
-    
-    .contacts div{
-        margin-top:40px;
-    }
-
-    
-    .service-footer hr.vertical {
-        display:none;
-    }
-    
-    .slider>span {
-        font-size:1.6em;
-    }
-    
-    .service-footer .portfolio {
-        padding-right:5%;
-    }
-    
-    .service-footer .additional {
-        padding-left:5%;
-        padding-right:5%;
-        
-        margin-top:50px;
-    }
-    
-    .about .achievements{
-        padding-bottom:0;
-    }
-    
-    .about .achievements .title{
-        margin-bottom:20px;
-    }
-       
-    
-    .achievements .item{
-        margin-top:50px;
-    }
-    
-    .services {
-        margin-top: 50px;
-    }
-    
-    .services >.title {
-        width: 70%;
-    }
-    
-    .services .items .item span{
-        font-size:1.25em;
-    }
-
-
-
-    .services .items .item button{
-        font-size:1.25em;
-        left:22.5%;
-    }
-    
-    .service-footer .additional button{
-        left:15%;
-        width:75%;
-    }
-    
-
-    .service-footer .portfolio .info{
-        display:block;
-        width:76%;
-        margin-left:14%;
-    }
-    
-    .service-footer .additional .for_companies{
-        margin-top:30px;
-        display:block;
-        width:100%;
-    }
-    
-    
-}
-
-
-@media (min-width:  320px) {
-    .menu_main .navbar-logo{
-        display:inline-block;
-    }
-}
-
-@media (min-width:  480px) {
-
-    .service-footer .portfolio .info{
-        display:inline-block;
-        width:40%;
-        margin-left:4%;
-    }
-
-    .service-footer .additional button{
-        left:40%;
-        width:50%;
-    }
-
-    .services .items .item span{
-        font-size:2.25em;
-    }
-
-
-
-    .services .items .item button{
-        font-size:1.5em;
-        left:32.5%;
-    }
-    
-    .service-footer .additional .for_companies{
-        margin-top:0px;
-        display:inline-block;
-        width:40%;
-    }
-
-}
-
-
-@media (min-width:  620px) {
-
-    .service-footer .portfolio .info{
-        display:inline-block;
-        width:40%;
-        margin-left:4%;
-    }
-
-    .service-footer .additional button{
-        left:40%;
-        width:50%;
-    }
-
-    .services .items .item span{
-        font-size:2.25em;
-    }
-
-
-
-    .services .items .item button{
-        font-size:1.5em;
-        left:32.5%;
-    }
-    
-    .service-footer .additional .for_companies{
-        margin-top:0px;
-        display:inline-block;
-        width:40%;
-    }
-}
-
-
-
-@media (min-width:  992px) {
-    .ask-modal .modal-content{
-        width:80%;
-        left:10%;
-    }
-
-    .slider .client-info .text .title {
-        font-size: 2.3em;
-    }
-    
-    .slider .client-info .text .info {
-        font-size: 1.2em;
-    }
-    
-    .slider .slide-info button {
-        font-size: 1.6em;
-    }
-    
-    .contacts div{
-        margin-top:0px;
-    }
-    
-    .service-footer hr.vertical {
-        display:block;
-    }
-    
-    .slider>span {
-        font-size:2.6em;
-    }
-    
-    .service-footer .portfolio {
-        padding:0;
-    }
-    
-    .service-footer .additional {
-        padding:0;
-        padding-left:5%;
-        
-        margin-top:0;
-    }
-    
-    .about .achievements .title{
-        margin-bottom:50px;
-    }
-    
-    .about .achievements{
-        padding: 70px 0;
-    }
-    
-    .achievements .item{
-        margin-top:0px;
-    }
-    
-    .services {
-        margin-top: 80px;
-    }
-    
-    .services>.title {
-        width: 40%;
-    }
-
-}
-
-
-@media (min-width:  1200px) {
-    .slider .client-info .text .title {
-        font-size: 2.7em;
-    }
-    
-    .slider .client-info .text .info {
-        font-size: 1.6em;
-    }
-    
-    .slider .slide-info button {
-        font-size: 2em;
-    }
-    
-    .slider>span {
-        font-size:3em;
-    }
-
-}
-
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #373737;
     border: 0;
@@ -1678,4 +1421,271 @@ hr{
 .services .items .item a{
     font-size:1.25em;
     left:22.5%;
+}
+
+@media (min-width:  0px) {
+    .menu_main .navbar-logo{
+        display:none;
+    }
+
+    .ask-modal .modal-content{
+        left:0;
+        width:100%;
+    }
+
+
+    .slider .client-info .text .title {
+        font-size: 1.2em;
+    }
+    
+    .slider .client-info .text .info {
+        font-size: 0.8em;
+    }
+    
+    .slider .slide-info button {
+        font-size: 1em;
+    }
+    
+    .contacts div{
+        margin-top:40px;
+    }
+
+    
+    .service-footer hr.vertical {
+        display:none;
+    }
+    
+    .slider>span {
+        font-size:1.6em;
+    }
+    
+    .service-footer .portfolio {
+        padding-right:5%;
+    }
+    
+    .service-footer .additional {
+        padding-left:5%;
+        padding-right:5%;
+        
+        margin-top:50px;
+    }
+    
+    .about .achievements{
+        padding-bottom:0;
+    }
+    
+    .about .achievements .title{
+        margin-bottom:20px;
+    }
+       
+    
+    .achievements .item{
+        margin-top:50px;
+    }
+    
+    .services {
+        margin-top: 50px;
+    }
+    
+    .services >.title {
+        width: 70%;
+    }
+    
+    .services .items .item span{
+        font-size:1.25em;
+    }
+
+
+
+    .services .items .item a{
+        font-size:1.25em;
+        left:22.5%;
+    }
+    
+    .service-footer .additional button{
+        left:15%;
+        width:75%;
+    }
+    
+
+    .service-footer .portfolio .info{
+        display:block;
+        width:76%;
+        margin-left:14%;
+    }
+    
+    .service-footer .additional .for_companies{
+        margin-top:30px;
+        display:block;
+        width:100%;
+    }
+    
+    
+}
+
+
+@media (min-width:  320px) {
+    .menu_main .navbar-logo{
+        display:inline-block;
+    }
+}
+
+@media (min-width:  480px) {
+
+    .service-footer .portfolio .info{
+        display:inline-block;
+        width:40%;
+        margin-left:4%;
+    }
+
+    .service-footer .additional button{
+        left:40%;
+        width:50%;
+    }
+
+    .services .items .item span{
+        font-size:2.25em;
+    }
+
+
+
+    .services .items .item a{
+        font-size:1.5em;
+        left:32.5%;
+    }
+    
+    .service-footer .additional .for_companies{
+        margin-top:0px;
+        display:inline-block;
+        width:40%;
+    }
+
+}
+
+
+@media (min-width:  620px) {
+
+    .service-footer .portfolio .info{
+        display:inline-block;
+        width:40%;
+        margin-left:4%;
+    }
+
+    .service-footer .additional button{
+        left:40%;
+        width:50%;
+    }
+
+    .services .items .item span{
+        font-size:2.25em;
+    }
+
+
+
+    .services .items .item a{
+        font-size:1.5em;
+        left:32.5%;
+    }
+    
+    .service-footer .additional .for_companies{
+        margin-top:0px;
+        display:inline-block;
+        width:40%;
+    }
+}
+
+
+
+@media (min-width:  992px) {
+    .ask-modal .modal-content{
+        width:80%;
+        left:10%;
+    }
+
+    .slider .client-info .text .title {
+        font-size: 2.3em;
+    }
+    
+    .slider .client-info .text .info {
+        font-size: 1.2em;
+    }
+    
+    .slider .slide-info button {
+        font-size: 1.6em;
+    }
+    
+    .contacts div{
+        margin-top:0px;
+    }
+    
+    .service-footer hr.vertical {
+        display:block;
+    }
+    
+    .slider>span {
+        font-size:2.6em;
+    }
+    
+    .service-footer .portfolio {
+        padding:0;
+    }
+    
+    .service-footer .additional {
+        padding:0;
+        padding-left:5%;
+        
+        margin-top:0;
+    }
+    
+    .about .achievements .title{
+        margin-bottom:50px;
+    }
+    
+    .about .achievements{
+        padding: 70px 0;
+    }
+    
+    .achievements .item{
+        margin-top:0px;
+    }
+    
+    .services {
+        margin-top: 80px;
+    }
+    
+    .services>.title {
+        width: 40%;
+    }
+
+}
+
+
+@media (min-width:  1200px) {
+    .slider .client-info .text .title {
+        font-size: 2.7em;
+    }
+    
+    .slider .client-info .text .info {
+        font-size: 1.6em;
+    }
+    
+    .slider .slide-info a {
+        font-size: 2em;
+    }
+    
+    .slider>span {
+        font-size:3em;
+    }
+}
+
+.action-container img {
+    -webkit-animation-duration: 3s;
+    -webkit-animation-delay: 2s;
+    /*-webkit-animation-iteration-count: infinite;*/
+}
+
+.call img {
+    /*-webkit-animation-duration: 3s;*/
+    /*-webkit-animation-delay: 2s;*/
+    /*-webkit-animation-iteration-count: infinite;*/
 }

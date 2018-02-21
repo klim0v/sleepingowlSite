@@ -55,6 +55,7 @@ class Reviews extends Section implements Initializable
                 AdminColumn::image('background', 'Фоновое изображение'),
                 AdminColumnEditable::checkbox('published', 'Опубликован')->setLabel('Опубликован'),
                 AdminColumnEditable::checkbox('is_new', 'Статус')->setLabel('Новый'),
+                AdminColumnEditable::checkbox('on_main', 'На главную')->setLabel('На главную'),
                 AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
     }
@@ -71,9 +72,14 @@ class Reviews extends Section implements Initializable
             AdminFormElement::ckeditor('text', 'Текст отзыва')->required(),
             AdminFormElement::image('logo', 'Логотип компании'),
             AdminFormElement::image('background', 'Фоновое изображение'),
-            AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
+            AdminFormElement::radio('published', 'Опубликовано')
+                ->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
                 ->required(),
-            AdminFormElement::radio('is_new', 'Статус')->setOptions(['0' => 'Просмотрен', '1' => 'Новый'])
+            AdminFormElement::radio('is_new', 'Статус')
+                ->setOptions(['0' => 'Просмотрен', '1' => 'Новый'])
+                ->required(),
+            AdminFormElement::radio('on_main', 'Показывать на главной странице')
+                ->setOptions(['0' => 'Не показывать', '1' => 'Показывать'])
                 ->required(),
             AdminFormElement::datetime('created_at', 'Добавлен')->required(),
         ]);
