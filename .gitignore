@@ -1,4 +1,4 @@
-composer.lock
+#composer.lock
 /node_modules
 /public/storage
 /storage/*.key
