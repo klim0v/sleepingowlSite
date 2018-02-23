@@ -93,7 +93,8 @@ class Orders extends Section implements Initializable
     public function initialize()
     {
         $this->addToNavigation($priority = 20, function() {
-            return \App\Model\Order::isNew()->count();
+            $count = \App\Model\Order::isNew()->count();
+            return $count ? '+' . $count : null;
         });
     }
 

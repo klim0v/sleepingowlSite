@@ -113,7 +113,8 @@ class Reviews extends Section implements Initializable
     public function initialize()
     {
         $this->addToNavigation($priority = 10, function() {
-            return Review::isNew()->count();
+            $count = Review::isNew()->count();
+            return $count ? '+' . $count : null;
         });
     }
 

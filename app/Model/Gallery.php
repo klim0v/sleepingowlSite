@@ -40,6 +40,10 @@ class Gallery extends Model
 
     protected $fillable = [
         'title',
+        'heading',
+        'meta_title',
+        'meta_discription',
+        'title',
         'slug',
         'description',
         'cover',

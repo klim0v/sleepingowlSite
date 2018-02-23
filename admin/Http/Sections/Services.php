@@ -21,7 +21,7 @@ use SleepingOwl\Admin\Section;
  *
  * @see http://sleepingowladmin.ru/docs/model_configuration_section
  */
-class Galleries extends Section implements Initializable
+class Services extends Section implements Initializable
 {
     /**
      * @see http://sleepingowladmin.ru/docs/model_configuration#ограничение-прав-доступа
@@ -33,7 +33,7 @@ class Galleries extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Галлерея';
+    protected $title = 'Услуги';
 
     /**
      * @var string
@@ -53,10 +53,8 @@ class Galleries extends Section implements Initializable
                 AdminColumn::text('slug', 'Слаг'),
                 AdminColumn::text('description', 'Описание'),
                 AdminColumn::image('cover', 'Обложка'),
-                AdminColumn::count('images', 'Галлерея'),
                 AdminColumnEditable::checkbox('published', 'Опубликован', 'Не опубликован')
                     ->setLabel('Опубликован'),
-                AdminColumnEditable::checkbox('on_main', 'Да', 'Нет')->setLabel('На главную'),
                 AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
     }
@@ -76,10 +74,8 @@ class Galleries extends Section implements Initializable
             AdminFormElement::text('slug', 'Слаг')->required()->unique(),
             AdminFormElement::ckeditor('description', 'Описание')->required(),
             AdminFormElement::image('cover', 'Обложка'),
-            AdminFormElement::images('images', 'Галлерея'),
             AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
                 ->required(),
-            AdminFormElement::checkbox('on_main', 'Показать на главной странице'),
             AdminFormElement::datetime('created_at', 'Добавлен')->required(),
         ]);
     }
@@ -99,7 +95,6 @@ class Galleries extends Section implements Initializable
     {
         $gallery = Gallery::findOrFail($id);
         Storage::disk('public')->delete(str_replace('storage/', '', $gallery->cover));
-        Storage::disk('public')->delete(str_replace('storage/', '', $gallery->images));
 
     }
 
@@ -108,18 +103,18 @@ class Galleries extends Section implements Initializable
      */
     public function initialize()
     {
-        $this->addToNavigation($priority = 20);
+        $this->addToNavigation($priority = 30);
     }
 
     public function getIcon()
     {
-        return 'fa fa-camera';
+        return 'fa fa-money';
     }
 
 
     //заголовок для создания записи
     public function getCreateTitle()
     {
-        return 'Создание галлереи';
+        return 'Создание услуги';
     }
 }
