@@ -12,18 +12,14 @@
     <link rel="stylesheet" media="screen" href="static/css/bootstrap.min.css">
     <style>
         .panel {
-            /*font-family: 'Source Sans Pro';*/
-            /*font-size: 1.3em;*/
             position: absolute;
-            /*z-index: 10;*/
             width: 400px;
             height: 300px;
-            background: #eee;
             top: 50%;
             left: 50%;
             margin: -135px 0 0 -150px;
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 50px;
             box-sizing: border-box;
             z-index: 100;
         }
@@ -46,7 +42,7 @@
 
             <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-                <input class="form-control" type="email" name="email" placeholder="Email" autofocus="">
+                <input class="form-control" type="email" name="email" placeholder="Email" value="admin@site.com" required>
             </div>
             <span class="help-block" id="email">
                 @if ($errors->has('email'))
@@ -56,7 +52,7 @@
 
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                <input class="form-control" name="password" type="password" placeholder="Пароль">
+                <input class="form-control" name="password" type="password" placeholder="Пароль" autofocus="" required >
             </div>
             <span class="help-block" id="password">
                 @if ($errors->has('password'))
@@ -80,6 +76,7 @@
                 <i class="fa fa-btn fa-sign-in"></i> Авторизоваться
             </button>
         </form>
+
     </div>
 </div>
 <!--</div>-->
@@ -88,11 +85,15 @@
 <!-- scripts -->
 <script src="particles/particles.js"></script>
 <script src="particles/js/app.js"></script>
-
 <script src="/static/js/jquery-1.11.3.min.js"></script>
 <script>
     function sendForm(elem) {
         event.preventDefault();
+        $(elem).after('<div class="text-center" id="loading">' +
+            '<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>' +
+            '<span class="sr-only">Saving. Hang tight!</span>' +
+            '</div>');
+        $(elem).find('.help-block > strong').remove();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -107,21 +108,15 @@
                 return window.location = "{{ route('admin.dashboard') }}";
             },
             error: function (data) {
+                $('#loading').remove();
                 var errors = $.parseJSON(data.responseText);
 
-                $(elem).find('.help-block > strong').remove();
                 $.each(errors['errors'], function (index, value) {
                     console.log(index + ' => ' + value);
                     $(elem).find('#' + index).append('<strong>' + value + '</strong>');
                 });
 
                 return false;
-            },
-            complete: function () {
-                try {
-                }
-                finally {
-                }
             }
         });
     }
