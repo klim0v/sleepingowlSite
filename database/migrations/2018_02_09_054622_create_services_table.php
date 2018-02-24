@@ -15,12 +15,17 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('parent_id')->nullable();
+            $table->integer('lft')->nullable();
+            $table->integer('rgt')->nullable();
+            $table->integer('depth')->nullable();
+            $table->integer('order')->default(0);
             $table->string('title');
             $table->string('heading')->comment('Заголовок H1')->nullable();
             $table->string('meta_description')->comment('Meta description')->nullable();
             $table->string('meta_title')->comment('Meta title')->nullable();
             $table->string('slug')->unique();
-            $table->text('description');
+            $table->text('text');
             $table->string('cover');
             $table->boolean('published')->index();
             $table->timestamps();

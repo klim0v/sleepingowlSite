@@ -37,7 +37,7 @@
         <h3 class="panel-title">Пожалуйста авторизуйтесь</h3>
     </div>
     <div class="panel-body">
-        <form class="form-horizontal" role="form" method="POST" onsubmit="sendForm(this);" action="{{ route('login') }}">
+        <form class="form-horizontal" role="form" method="POST" onsubmit="sendForm(this); return false;" action="{{ route('login') }}">
             {!! csrf_field() !!}
 
             <div class="input-group margin-bottom-sm">
@@ -87,9 +87,9 @@
 <script src="particles/js/app.js"></script>
 <script src="/static/js/jquery-1.11.3.min.js"></script>
 <script>
-    function sendForm(elem) {
-        event.preventDefault();
-        $(elem).after('<div class="text-center" id="loading">' +
+    function sendForm(elem ) {
+
+        $(elem).after('<div id="loading">' +
             '<i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>' +
             '<span class="sr-only">Saving. Hang tight!</span>' +
             '</div>');

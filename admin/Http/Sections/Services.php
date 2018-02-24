@@ -45,18 +45,7 @@ class Services extends Section implements Initializable
      */
     public function onDisplay()
     {
-        return AdminDisplay::datatablesAsync()  /*->table()->with('users')*/
-        ->setHtmlAttribute('class', 'table-primary')
-            ->setColumns(
-                AdminColumn::text('id', '#')->setWidth('30px'),
-                AdminColumn::text('title', 'Название')->setWidth('200px'),
-                AdminColumn::text('slug', 'Слаг'),
-                AdminColumn::text('description', 'Описание'),
-                AdminColumn::image('cover', 'Обложка'),
-                AdminColumnEditable::checkbox('published', 'Опубликован', 'Не опубликован')
-                    ->setLabel('Опубликован'),
-                AdminColumn::datetime('created_at', 'Добавлен')
-            )->paginate(15);
+        return AdminDisplay::tree()->setMaxDepth(2)->setValue('title');
     }
 
     /**
@@ -69,10 +58,10 @@ class Services extends Section implements Initializable
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Название')->required(),
             AdminFormElement::text('heading', 'Заголовок H1')->required(),
-            AdminFormElement::text('Meta title', 'Meta title')->required(),
-            AdminFormElement::text('Meta description', 'Meta description')->required(),
+            AdminFormElement::text('meta_title', 'Meta title')->required(),
+            AdminFormElement::text('meta_description', 'Meta description')->required(),
             AdminFormElement::text('slug', 'Слаг')->required()->unique(),
-            AdminFormElement::ckeditor('description', 'Описание')->required(),
+            AdminFormElement::ckeditor('text', 'Текст')->required(),
             AdminFormElement::image('cover', 'Обложка'),
             AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
                 ->required(),

@@ -2,13 +2,11 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Baum\Node;
 use Illuminate\Support\Facades\Storage;
-use SleepingOwl\Admin\Traits\OrderableModel;
 
 
-class Service extends Model
+class Service extends Node
 {
 
     protected $fillable = [
@@ -18,7 +16,7 @@ class Service extends Model
         'meta_discription',
         'title',
         'slug',
-        'description',
+        'text',
         'cover',
         'published',
     ];
