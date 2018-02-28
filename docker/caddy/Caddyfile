@@ -1,4 +1,4 @@
-http://demo.soa.com {
+http://ad33.loc {
     tls off
     root /app/public
     gzip

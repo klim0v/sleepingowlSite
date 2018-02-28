@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:7.1-fpm
 
 WORKDIR /app
 
@@ -22,7 +22,7 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/  && \
         (yes | pecl install imagick) && \
         docker-php-ext-install \
-            mcrypt \
+#            mcrypt \
             bcmath \
             mbstring \
             zip \
@@ -42,9 +42,9 @@ COPY ./docker/php/fpm_www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./docker/php/docker-php-ext-imagick.ini /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini
 COPY ./docker/php/php.ini /usr/local/etc/php/
 
-# PHP 7.0 Compiled Modules (see commented out commans at the end of this file)
+# PHP 7.1 Compiled Modules (see commented out commans at the end of this file)
 # XDebug
-COPY ./docker/php/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20151012/
+COPY ./docker/php/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20160303/
 
 
 COPY . /app
@@ -56,7 +56,7 @@ ENV COMPOSER_HOME /composer
 ENV PATH /composer/vendor/bin:$PATH
 # Allow Composer to be run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_VERSION 1.4.2
+ENV COMPOSER_VERSION 1.6.2
 
 # Setup the Composer installer
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
