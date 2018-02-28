@@ -67,10 +67,10 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} && rm -rf /tmp/composer-setup.php
 
 # Install PHPUnit
-RUN curl -L -o /tmp/phpunit.phar  https://phar.phpunit.de/phpunit.phar \
-  && mv /tmp/phpunit.phar /usr/local/bin/phpunit \
-  && chmod +x /usr/local/bin/phpunit
+#RUN curl -L -o /tmp/phpunit.phar  https://phar.phpunit.de/phpunit.phar \
+#  && mv /tmp/phpunit.phar /usr/local/bin/phpunit \
+#  && chmod +x /usr/local/bin/phpunit
 
-RUN composer install && composer update
+RUN composer install
 
 
