@@ -17,11 +17,8 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->string('author');
             $table->text('text');
-            $table->string('logo')->nullable();
-            $table->string('background')->nullable();
             $table->boolean('published')->index();
             $table->boolean('is_new');
-            $table->boolean('on_main');
             $table->timestamps();
         });
     }

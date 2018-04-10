@@ -25,8 +25,6 @@ class Country extends Model
 {
     use OrderableModel;
 
-
-
     protected $table = 'countries';
 
     protected $fillable = ['title', 'test'];

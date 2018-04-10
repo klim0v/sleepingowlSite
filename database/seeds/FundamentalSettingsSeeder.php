@@ -11,50 +11,31 @@ class FundamentalSettingsSeeder extends Seeder
      */
     public function run()
     {
-        $datetime = date('Y-m-d H:i:s');
-
         $settings = [
             [
-                'title' => 'Основной номер телефона',
-                'key' => 'tel1',
+                'title' => 'Название компании',
+                'key' => 'app_name',
+                'value' => 'Ближе к дому',
+            ],
+            [
+                'title' => 'Номер телефона',
+                'key' => 'tel',
                 'value' => '8(4922) 222-808',
-                'created_at' => $datetime,
-                'updated_at' => $datetime
             ],
             [
-                'title' => 'Дополнительный номер телефона',
-                'key' => 'tel2',
-                'value' => '8-920-620-7620',
-                'created_at' => $datetime,
-                'updated_at' => $datetime
-            ],
-            [
-                'title' => 'Основной Email',
-                'key' => 'email1',
+                'title' => 'Email',
+                'key' => 'email',
                 'value' => 'lift_33@mail.ru',
-                'created_at' => $datetime,
-                'updated_at' => $datetime
-            ],
-            [
-                'title' => 'Дополнительный Email',
-                'key' => 'email2',
-                'value' => 'info@ad33.ru',
-                'created_at' => $datetime,
-                'updated_at' => $datetime
-            ],
-            [
-                'title' => 'Координаты на карте',
-                'key' => 'geometry',
-                'value' => '56.121291, 40.380491',
-                'created_at' => $datetime,
-                'updated_at' => $datetime
             ],
             [
                 'title' => 'Адрес',
                 'key' => 'address',
                 'value' => 'г. Владимир, ул. Проспект Ленина 7',
-                'created_at' => $datetime,
-                'updated_at' => $datetime
+            ],
+            [
+                'title' => 'О нас (в футере)',
+                'key' => 'about',
+                'value' => 'Наша компания один из лидеров на рынке рекламных услуг г. Владимира. Над каждым проектом работает команда настоящих профессионалов, которые подходят к каждой своей задаче с необходимой долей перфекционизма и креативности.',
             ],
         ];
 

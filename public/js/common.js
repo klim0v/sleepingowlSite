@@ -2,13 +2,13 @@ $(function() {
 
 
 		// ------ Backgrounds ------
-		$('.header').parallax({imageSrc: 'img/main_header_bg.jpg'});
-		$('.online_consulting').parallax({imageSrc: 'img/consult_bg.jpg'});
-		$('.how_do_we_work').parallax({imageSrc: 'img/process_bg.jpg'});
-		$('.skills').parallax({imageSrc: 'img/skills_bg.jpg'});
-		$('.footer').parallax({imageSrc: 'img/footer_bg.jpg'});
+		$('.header').parallax({imageSrc: '/img/main_header_bg.jpg'});
+		$('.online_consulting').parallax({imageSrc: '/img/consult_bg.jpg'});
+		$('.how_do_we_work').parallax({imageSrc: '/img/process_bg.jpg'});
+		$('.skills').parallax({imageSrc: '/img/skills_bg.jpg'});
+		$('.footer').parallax({imageSrc: '/img/footer_bg.jpg'});
 		// Blog page
-		$('.header_blog').parallax({imageSrc: 'img/blog_page_bg_1.jpg'});
+		$('.header_blog').parallax({imageSrc: '/img/blog_page_bg_1.jpg'});
 
 
 		// ------ Sub Menu --------

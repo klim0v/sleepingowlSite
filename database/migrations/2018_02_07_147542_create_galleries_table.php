@@ -23,8 +23,6 @@ class CreateGalleriesTable extends Migration
             $table->text('description');
             $table->string('cover');
             $table->text('images');
-            $table->boolean('published')->index();
-            $table->boolean('on_main');
             $table->timestamps();
         });
     }

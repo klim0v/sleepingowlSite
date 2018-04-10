@@ -77,7 +77,7 @@ class FundamentalSettings extends Section implements Initializable
         // поле key - нельзя редактировать, ибо нефиг системообразующий код редактировать
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Название настройки')->required(),
-            AdminFormElement::text('value', 'Значение')->required(),
+            AdminFormElement::textarea('value', 'Значение')->required(),
             AdminFormElement::textarea('description', 'Описание'),
             AdminFormElement::text('id', 'ID')->setReadonly(1),
             AdminFormElement::text('key', 'Ключ')->setReadonly(1),
@@ -96,32 +96,10 @@ class FundamentalSettings extends Section implements Initializable
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Название настройки')->required(),
             AdminFormElement::text('key', 'Постоянный системный код')->required()->unique(),
-            AdminFormElement::text('value', 'Значение')->required(),
+            AdminFormElement::textarea('value', 'Значение')->required(),
             AdminFormElement::textarea('description', 'Описание'),
 
         ]);
-    }
-
-//    /**
-//     * @return void
-//     */
-//    public function onDelete($id)
-//    {
-//        // remove if unused
-//    }
-//
-//    /**
-//     * @return void
-//     */
-//    public function onRestore($id)
-//    {
-//        // remove if unused
-//    }
-
-    //заголовок для создания записи
-    public function getCreateTitle()
-    {
-        return 'Создание базовой настройки';
     }
 
     // иконка для пункта меню - шестеренка

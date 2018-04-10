@@ -29,8 +29,6 @@ class CreateFundamentalSettingsTable extends Migration
             $table
                 ->string('description', 254)
                 ->comment('Описание параметра для вывода в админке в качестве подказки');
-            $table
-                ->timestamps();
         });
     }
 

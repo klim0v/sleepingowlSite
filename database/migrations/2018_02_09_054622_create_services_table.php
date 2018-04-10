@@ -25,7 +25,9 @@ class CreateServicesTable extends Migration
             $table->string('meta_description')->comment('Meta description')->nullable();
             $table->string('meta_title')->comment('Meta title')->nullable();
             $table->string('slug')->unique();
-            $table->text('text');
+            $table->text('annotation');
+            $table->text('description');
+            $table->string('icon');
             $table->string('cover');
             $table->boolean('published')->index();
             $table->timestamps();
@@ -39,6 +41,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('services');
     }
 }

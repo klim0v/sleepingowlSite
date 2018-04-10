@@ -33,17 +33,16 @@ Route::group(['middleware' => 'web'], function () {
     $this->post('login', 'Auth\LoginController@login');
     $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
-    Route::get('/', 'PageController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/portfolio', 'PageController@portfolio')->name('portfolio');
     Route::get('/about-as', 'PageController@aboutAs')->name('about_as');
-    Route::get('/services', 'PageController@singleServices')->name('services');
-    Route::get('/services/{id}', 'PageController@singleServices')->name('single_services');
+    Route::get('/services', 'ServiceController@services')->name('services');
+    Route::get('/services/{slug}/{slug2?}', 'ServiceController@singleServices')->name('single_services');
+    Route::get('/blog', 'PublicationController@blog')->name('blog');
+    Route::get('/blog/{slug}', 'PublicationController@blogSingle')->name('blog_single');
 
     Route::post('/back_call', 'FeedBackController@addBackCall')->name('back_call');
     Route::post('/ask_question', 'FeedBackController@askQuestion')->name('ask_question');
     Route::post('/back_ring', 'FeedBackController@backRing')->name('back_ring');
     Route::post('/add_review', 'FeedBackController@addReview')->name('add_review');
-
-    Route::get('/galleries', 'GalleryController@index')->name('galleries');
-    Route::get('/reviews', 'ReviewController@index')->name('reviews');
 });

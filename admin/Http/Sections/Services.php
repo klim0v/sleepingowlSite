@@ -61,9 +61,12 @@ class Services extends Section implements Initializable
             AdminFormElement::text('meta_title', 'Meta title')->required(),
             AdminFormElement::text('meta_description', 'Meta description')->required(),
             AdminFormElement::text('slug', 'Слаг')->required()->unique(),
-            AdminFormElement::ckeditor('text', 'Текст')->required(),
+            AdminFormElement::ckeditor('annotation', 'Аннотация')->required(),
+            AdminFormElement::ckeditor('description', 'Описание')->required(),
+            AdminFormElement::image('icon', 'Иконка'),
             AdminFormElement::image('cover', 'Обложка'),
-            AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
+            AdminFormElement::radio('published', 'Опубликовано')
+                ->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
                 ->required(),
             AdminFormElement::datetime('created_at', 'Добавлен')->required(),
         ]);
@@ -82,8 +85,9 @@ class Services extends Section implements Initializable
      */
     public function onDelete($id)
     {
-        $gallery = Gallery::findOrFail($id);
+        $gallery = Gallery::find($id);
         Storage::disk('public')->delete(str_replace('storage/', '', $gallery->cover));
+        Storage::disk('public')->delete(str_replace('storage/', '', $gallery->icon));
 
     }
 
