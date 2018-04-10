@@ -1,445 +1,1318 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Ближе к дому</title>
+
+    <meta charset="utf-8">
+
+    <title>Delicate</title>
+    <meta name="description" content="">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="г. Владимир. Рекламное агенство Ближе к дому. Мы представляем услуги: реклама в лифтах, реклама у подъездов, изготовление вывесок и объемных букв, полиграфия, дизайн, светодиодная продукция.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
 
-    <!-- Bootstrap -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link href=/static/css/style.css rel="stylesheet">
-    <link href=/static/css/animate.css rel="stylesheet">
-    <link href="/static/css/magnific-popup.css" rel="stylesheet">
-    <style>
-    </style>
 </head>
+
 <body>
 
-<nav class="navbar navbar-fixed-top">
-    <div class="container-fluid menu_main">
-        <button type="button" class="navbar-toggle collapsed clearfix" data-toggle="collapse" data-target="#navbar-main"
-                aria-expanded="false">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <img class="navbar-logo" src="/static/images/navbar-logo.png" alt="Ближе к дому" title="Ближе к дому">
-        <div class="menu_main_list_container hidden-xs hidden-sm smooth-scroll">
-            <ul class="nav navbar-nav navbar-right menu_main_list">
-                <li>
-                    <div class="item nav-about"><a>О НАС</a></div>
-                    <hr>
-                </li>
-                <li>
-                    <div class="item nav-services btn-group dropdown">
-                        <a id="dLabel"
-                           data-target="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="true">УСЛУГИ</a>
-                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                            <li><a href="#">Some action</a></li>
-                            <li><a href="#">Some other action</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="-1" href="#">Hover me for more options</a>
-                                <ul class="dropdown-menu">
-                                    {{--<li><a tabindex="-1" href="#">Second level</a></li>--}}
-                                    {{--<li class="dropdown-submenu">--}}
-                                    {{--<a href="#">Even More..</a>--}}
-                                    {{--<ul class="dropdown-menu">--}}
-                                    {{--<li><a href="#">3rd level</a></li>--}}
-                                    {{--<li><a href="#">3rd level</a></li>--}}
-                                    {{--</ul>--}}
-                                    {{--</li>--}}
-                                    <li><a href="#">Second level</a></li>
-                                    <li><a href="#">Second level</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <hr>
-                </li>
-                <li>
-                    <div class="item nav-reviews"><a>ОТЗЫВЫ</a></div>
-                    <hr>
-                </li>
-                <
-                <li>
-                    <div class="item nav-contacts"><a>КОНТАКТЫ</a></div>
-                </li>
-            </ul>
+<!-- Header section -->
+<header class="header">
+    <div id="particles-js"></div>
+    <!-- Navigation -->
+    <nav class="navigation hidden-xs hidden-sm hidden-md">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+
+            <li class="hov_submenu">
+
+                <a href="#">Blog</a>
+
+                <ul class="submenu">
+                    <li><a href="blog_1.html">Blog #1</a></li>
+                    <li><a href="blog_2.html">Blog #2</a></li>
+                    <li><a href="blog_single.html">Blog Single</a></li>
+                </ul>
+
+            </li>
+
+            <li class="hov_submenu">
+
+                <a href="#">Services</a>
+
+                <ul class="submenu">
+                    <li><a href="services_1.html">Services #1</a></li>
+                    <li><a href="services_2.html">Services #2</a></li>
+                    <li><a href="#">Single Services</a></li>
+                </ul>
+
+            </li>
+
+            <li><a href="about_us.html">About Us</a></li>
+
+            <li class="hov_submenu">
+
+                <a href="#">Pages</a>
+
+                <ul class="submenu">
+                    <li><a href="404.html">404</a></li>
+                </ul>
+
+            </li>
+
+            <li class="hov_submenu">
+
+                <a href="#">Portfolio</a>
+
+                <ul class="submenu">
+                    <li><a href="portfolio.html">Portfolio #1</a></li>
+                    <li><a href="portfolio_2.html">Portfolio #2</a></li>
+                </ul>
+
+            </li>
+
+        </ul>
+    </nav>
+    <!-- End Navigation  -->
+
+    <!-- Navigation for small devices -->
+    <nav class="sm-navigation">
+
+        <ul class="sm-menu">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="hov_submenu">
+
+                <a href="#">Blog</a>
+
+                <ul class="submenu">
+                    <li><a href="blog_1.html">Blog #1</a></li>
+                    <li><a href="blog_2.html">Blog #2</a></li>
+                    <li><a href="blog_single.html">Blog Single</a></li>
+                </ul>
+
+            </li>
+
+            <li class="hov_submenu">
+
+                <a href="#">Services</a>
+
+                <ul class="submenu">
+                    <li><a href="services_1.html">Services #1</a></li>
+                    <li><a href="services_2.html">Services #2</a></li>
+                    <li><a href="single_services.html">Single Services</a></li>
+                </ul>
+
+            </li>
+
+            <li><a href="about_us.html">About Us</a></li>
+
+            <li class="hov_submenu">
+
+                <a href="#">Pages</a>
+
+                <ul class="submenu">
+                    <li><a href="404.html">404</a></li>
+                </ul>
+
+            </li>
+
+            <li class="hov_submenu">
+
+                <a href="#">Portfolio</a>
+
+                <ul class="submenu">
+                    <li><a href="portfolio.html">Portfolio #1</a></li>
+                    <li><a href="portfolio_2.html">Portfolio #2</a></li>
+                </ul>
+
+            </li>
+        </ul>
+
+
+        <ul class="social-menu">
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+
+        <div class="close">
+            <i class="fas fa-times"></i>
         </div>
 
-        <div class="collapse navbar-collapse menu_main_list_vertical_container " id="navbar-main">
-            <ul class="nav navbar-nav navbar-right menu_main_list_vertical hidden-md hidden-lg">
-                <li>
-                    <div class="item nav-about"><a>О НАС</a>
-                        <div class="pseudo-anchor"></div>
-                    </div>
+    </nav>
+    <!-- End Navigation for small devices -->
+
+    <a href="#" class="hamburger second hamburger--spin hidden-lg" id="open_menu">
+        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+    </a>
+
+    <div class="container">
+        <!-- Top line -->
+        <div class="top_line col-lg-12">
+
+            <ul>
+
+                <li class="left"><i class="far fa-envelope"></i> delicate@info.com</li>
+                <li class="center"><i class="fa fa-mobile" aria-hidden="true"></i> +123 - 456 - 789</li>
+                <li class="right">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
                 </li>
-                <li>
-                    <div class="item nav-services"><a>УСЛУГИ</a>
-                        <div class="pseudo-anchor"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item nav-reviews"><a>ОТЗЫВЫ</a>
-                        <div class="pseudo-anchor"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item nav-contacts"><a>КОНТАКТЫ</a>
-                        <div class="pseudo-anchor"></div>
-                    </div>
-                </li>
+
             </ul>
-        </div>
-    </div>
-</nav>
+            <!-- Search -->
+            <div class="search">
 
-<div>
-    <div class="header container-fluid">
-        <img src='/static/images/top-title.jpg'>
-    </div>
+                <i class="fa fa-search" aria-hidden="true"></i>
 
-    <div class="content container">
-        <div id="about" class="about clearfix">
-            <hr>
-            <span class="title">О НАС</span>
-            <p class="text">
-                Наша компания один из лидеров на рынке рекламных услуг г. Владимира. Над каждым проектом работает
-                команда настоящих профессионалов, которые подходят к каждой своей задаче с необходимой долей
-                перфекционизма и креативности. Результатом является качественная и выполненная в срок работа, которой Вы
-                довольны.
-            </p>
+                <div class="search_input">
 
-            <div class="achievements clearfix">
-                <div class="title col-md-12">Наши принципы</div>
-                <div class="item first col-md-4 wow bounceInLeft">
-                    <img src=/static/images/achievement-item-1.png>
-                    <div>КРЕАТИВНОСТЬ</div>
-                </div>
-                <div class="item second col-md-4 wow bounceInUp">
-                    <img src=/static/images/achievement-item-2.png>
-                    <div>КАЧЕСТВО</div>
-                </div>
-                <div class="item third col-md-4 wow bounceInRight">
-                    <img src=/static/images/achievement-item-3.png>
-                    <div>ПУНКТУАЛЬНОСТЬ</div>
+                    <form action="#">
+
+                        <input type="text" placeholder="Search...">
+                        <input type="submit" class="submit_button" value="Go!">
+
+                    </form>
+
                 </div>
 
             </div>
+            <!-- End Search -->
+
         </div>
-        <div id="services" class="services clearfix">
-            <img class="title wow bounceInDown" src="/static/images/services-title.png">
-            <div class="items">
-                @foreach($banners as $banner)
-                    <div class="item col-md-6 {{$banner->color}} wow zoomIn">
-                        <img src="{{$banner->image}}">
-                        <span class="title">{{$banner->title}}</span>
-                        <a class="" href="{{$banner->link}}">Подробнее</a>
-                        <hr class="vertical">
-                        <hr class="horizontal">
-                    </div>
-                @endforeach
+        <!-- End Top line -->
+
+        <!-- Caption -->
+        <div class="caption">
+
+            <div class="top_phrase col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                WE ARE
             </div>
+
+            <h1 class="col-lg-12 col-md-12">CREATIVE AGENCY</h1>
+
+            <div class="bottom_phrase col-lg-12 col-md-12">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </div>
+
         </div>
-        <div class="service-footer clearfix">
-            <div class="content clearfix">
-                <div class="portfolio col-xs-12 col-md-6">
-                    @if ($gallery)
-                        <div class="image">
-                            <img src={{$gallery->cover}}>
-                            <div class="overlay"></div>
-                        </div>
-                        <div class="info">
-                            <span>{{$gallery->title}}</span>
-                            <br>
-                            <span> И ЕЩЁ {{$count_work}}<span class="portfolio-ending"></span> В НАШЕМ ПОРТФОЛИО</span>
-                            <a href="{{route('galleries')}}">НАШИ РАБОТЫ</a>
-                        </div>
-                    @endif
+        <!-- End Caption -->
+
+        <div class="button col-lg-12 col-md-12">
+
+            <a href="#"><span>ABOUT US</span></a>
+
+        </div>
+
+        <div class="godown col-lg-12 col-md-12">
+
+            <a href="#"><i class="fas fa-angle-down"></i></a>
+
+        </div>
+
+    </div>
+
+</header>
+<!-- End Header section -->
+
+<!-- Welcome section -->
+<section class="welcome_section">
+
+    <div class="container no-pd">
+        <!-- Caption -->
+        <h1 class="section_caption">
+            Welcome to Delicate
+        </h1>
+
+        <div class="lower_caption">
+            Maecenas ut metus fermentum, convallis dui nec, dictum risus. Pellentesque sagittis pretium lacus quis pulv
+            inar. In sollicitudin id urna vestibulum finibus.
+        </div>
+        <!-- End Caption -->
+
+        <!-- Counts -->
+        <div class="col-lg-4">
+            <!-- Experience -->
+            <div class="count-1">
+
+                <img src=img/153x121.png alt="">
+
+                <div class="count_caption">
+                    15 Years of experience
                 </div>
-                @if (\Session::has('back_call'))
-                    <div class="alert alert-success">
-                        <p>{{ \Session::get('back_call') }}</p>
-                    </div><br/>
-                @endif
-                <form class="additional col-xs-12 col-md-6" onsubmit="sendForm(this); return false;"
-                      id="additional-order-form" action="{{route('back_call')}}"
-                      method="post">
-                    {{ csrf_field() }}
-                    <hr class="vertical">
-                    <span class="title">Для УК и ТСЖ</span>
-                    <div class="inputs">
-                        {{--<input name="title" placeholder="Заголовок" style="display: none">--}}
-                        <input required name="author" placeholder="Имя">
-                        <input required name="phone" placeholder="Телефон" type="tel">
-                        {{--<input required name="email" placeholder="Email" type="email">--}}
-                        {{--<label>--}}
-                        {{--<input type="checkbox" checked required>--}}
-                        {{--Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>--}}
-                        {{--</label>--}}
+
+                <div class="count_description">
+                    Lorem ipsum dolor sit amet, consec
+                    tetur adipiscing elit. Curabitur et cur
+                    sus nisi. Proin sit amet erat nec
+                    odio rutrum sollicitudin.
+                </div>
+
+            </div>
+            <!-- End Experience -->
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Happy client -->
+            <div class="count-2">
+
+                <img src="img/121x121.png" alt="">
+
+                <div class="count_caption">
+                    900+ Happy clients
+                </div>
+
+                <div class="count_description">
+                    Lorem ipsum dolor sit amet, consec
+                    tetur adipiscing elit. Curabitur et cur
+                    sus nisi. Proin sit amet erat nec
+                    odio rutrum sollicitudin.
+                </div>
+
+            </div>
+            <!-- End Happy client -->
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Awards -->
+            <div class="count-3">
+
+                <img src="img/142x121.png" alt="">
+
+                <div class="count_caption">
+                    50+ Awards
+                </div>
+
+                <div class="count_description">
+                    Lorem ipsum dolor sit amet, consec
+                    tetur adipiscing elit. Curabitur et cur
+                    sus nisi. Proin sit amet erat nec
+                    odio rutrum sollicitudin.
+                </div>
+
+            </div>
+            <!-- End Awards -->
+        </div>
+        <!-- End Counts -->
+    </div>
+
+</section>
+<!-- End Welcome section -->
+
+<!-- Services section -->
+<section class="services">
+
+    <div class="container">
+
+        <h1 class="section_caption">Services</h1>
+        <!-- UX/UI Design -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
+
+            <div class="item_service">
+
+                <img src="img/98x90.png" alt="UX/UI Design">
+
+                <div class="item_service_name">UX/UI DESIGN</div>
+
+                <div class="item_service_description">
+                    Lorem ipsum dolor sit
+                    amet, consectetur
+                    adipiscing elit.
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Analytics -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
+
+            <div class="item_service">
+
+                <img src="img/92x90.png" alt="UX/UI Design">
+
+                <div class="item_service_name">ANALYTICS</div>
+
+                <div class="item_service_description">
+                    Lorem ipsum dolor sit
+                    amet, consectetur
+                    adipiscing elit.
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End Analytics -->
+
+        <!-- Programming -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
+
+            <div class="item_service">
+
+                <img src="img/74x90.png" alt="UX/UI Design">
+
+                <div class="item_service_name">PROGRAMMING</div>
+
+                <div class="item_service_description">
+                    Lorem ipsum dolor sit
+                    amet, consectetur
+                    adipiscing elit.
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End Programming -->
+
+        <!-- Consulting -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
+
+            <div class="item_service">
+
+                <img src="img/105x90.png" alt="UX/UI Design">
+
+                <div class="item_service_name">CONSULTING</div>
+
+                <div class="item_service_description">
+                    Lorem ipsum dolor sit
+                    amet, consectetur
+                    adipiscing elit.
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End Consulting -->
+
+        <!-- Planning -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
+
+            <div class="item_service">
+
+                <img src="img/74x90.png" alt="UX/UI Design">
+
+                <div class="item_service_name">PLANNING</div>
+
+                <div class="item_service_description">
+                    Lorem ipsum dolor sit
+                    amet, consectetur
+                    adipiscing elit.
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End Planning -->
+
+        <!-- Support -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
+
+            <div class="item_service">
+
+                <img src="img/87x90.png" alt="UX/UI Design">
+
+                <div class="item_service_name">SUPPORT</div>
+
+                <div class="item_service_description">
+                    Lorem ipsum dolor sit
+                    amet, consectetur
+                    adipiscing elit.
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End Support -->
+
+    </div>
+
+</section>
+<!-- End Services section -->
+
+<!-- Online consulting section -->
+<section class="online_consulting">
+
+    <div class="container">
+
+        <!-- Caption -->
+        <h1 class="section_caption white">Online consulting</h1>
+
+        <div class="lower_caption grey">
+            Maecenas ut metus fermentum, convallis dui nec, dictum risus. Pellentesque sagittis pretium lacus quis pulv
+            inar. In sollicitudin id urna vestibulum finibus.
+        </div>
+        <!-- End Caption -->
+
+        <!-- Form -->
+        <form action="#" class="consult_form">
+            <!-- Name -->
+            <div class="col-lg-6 col-md-6">
+                <input type="text" placeholder="Your Name">
+                <span class="tringle"></span>
+            </div>
+            <!-- End Name -->
+
+            <!-- Email -->
+            <div class="col-lg-6 col-md-6">
+                <input type="text" placeholder="E-mail">
+                <span class="tringle"></span>
+            </div>
+            <!-- End Email -->
+
+            <!-- Phone -->
+            <div class="col-lg-6 col-md-6">
+
+                <input type="text" placeholder="Phone">
+                <span class="tringle"></span>
+
+                <div class="callme_check">
+
+                    <label><input type="checkbox"> <span>Call Me</span></label>
+
+                </div>
+
+            </div>
+            <!-- End Phone -->
+            <div class="col-lg-6 col-md-6">
+                <input type="text" placeholder="Message">
+                <span class="tringle"></span>
+            </div>
+            <!-- Message -->
+
+            <!-- End Message -->
+
+        </form>
+        <!-- End Form -->
+
+        <div class="button send col-lg-12 col-md-12">
+
+            <a href="#"><span>SEND</span></a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- End Online consulting section -->
+
+<!-- Latest works section -->
+<section class="latest_works">
+
+    <div class="container">
+        <!-- Caption -->
+        <h1 class="section_caption">Latest works</h1>
+        <!-- End Caption -->
+
+        <!-- Filter -->
+        <div class="filter">
+            <ul>
+                <li><a href="#">ALL</a></li>
+                <li><a href="#">CONSULTING</a></li>
+                <li><a href="#">WORDPRESS</a></li>
+                <li><a href="#">UX/UI DESIGN</a></li>
+            </ul>
+        </div>
+        <!-- End Filter -->
+
+        <!-- Items -->
+
+        <!-- Item-1 -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+            <div class="work_item">
+                <a href="#">
+                    <img src="img/351x234.png" alt="">
+                    <div class="work_info">Project #1 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
+                </a>
+            </div>
+
+        </div>
+        <!-- End Item-1 -->
+
+        <!-- Item-2 -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+            <div class="work_item">
+                <a href="#">
+                    <img src="img/351x234.png" alt="">
+                    <div class="work_info">Project #2 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
+                </a>
+            </div>
+
+        </div>
+        <!-- End Item-2 -->
+
+        <!-- Item-3 -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+            <div class="work_item">
+                <a href="#">
+                    <img src="img/351x234.png" alt="">
+                    <div class="work_info">Project #3 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
+                </a>
+            </div>
+
+        </div>
+        <!-- End Item-3 -->
+
+        <!-- Item-4 -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+            <div class="work_item">
+                <a href="#">
+                    <img src="img/351x234.png" alt="">
+                    <div class="work_info">Project #4 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
+                </a>
+            </div>
+
+        </div>
+        <!-- End Item-4 -->
+
+        <!-- Item-5 -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+            <div class="work_item">
+                <a href="#">
+                    <img src="img/351x234.png" alt="">
+                    <div class="work_info">Project #5 <span>5 <i class="far fa-comment"></i> / 02.08.2018</span></div>
+                </a>
+            </div>
+
+        </div>
+        <!-- End Item-5 -->
+
+        <!-- Item-6 -->
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+            <div class="work_item">
+                <a href="#">
+                    <img src="img/351x234.png" alt="">
+                    <div class="work_info">Project #6 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
+                </a>
+            </div>
+
+        </div>
+        <!-- End Item-6 -->
+
+        <!-- End Items -->
+
+        <div class="button loadmore col-lg-12 col-md-12">
+
+            <a href="#"><span>LOAD MORE</span></a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- End Latest works section -->
+
+<!-- How do we work section -->
+<section class="how_do_we_work">
+
+    <div class="container">
+
+        <h1 class="section_caption white">How do we work?</h1>
+
+        <!-- Item-1 -->
+        <div class="col-lg-3 col-md-3 col-sm-12">
+
+            <div class="step">
+
+                <div class="num">1.</div><div class="cap">PLANNING</div>
+
+                <div class="des">
+                    Lorem ipsum dolor sit amet
+                    consectetur adipiscing elit.
+                    Pellentesque fringilla mollis
+                    ex vel ultrices. Aliquam
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End Item-1 -->
+
+        <!-- Item-2 -->
+        <div class="col-lg-3 col-md-3 col-sm-12">
+
+            <div class="step">
+
+                <div class="num">2.</div><div class="cap">DESIGN</div>
+
+                <div class="des">
+                    Lorem ipsum dolor sit amet
+                    consectetur adipiscing elit.
+                    Pellentesque fringilla mollis
+                    ex vel ultrices. Aliquam
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Item-2 -->
+
+
+
+        <!-- Item-3 -->
+        <div class="col-lg-3 col-md-3 col-sm-12">
+
+            <div class="step">
+
+                <div class="num">3.</div><div class="cap">MAGIC</div>
+
+                <div class="des">
+                    Lorem ipsum dolor sit amet
+                    consectetur adipiscing elit.
+                    Pellentesque fringilla mollis
+                    ex vel ultrices. Aliquam
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End Item-3 -->
+
+        <!-- Item-4 -->
+        <div class="col-lg-3 col-md-3 col-sm-12">
+
+            <div class="step">
+
+                <div class="num">4.</div><div class="cap">DEPLOY</div>
+
+                <div class="des">
+                    Lorem ipsum dolor sit amet
+                    consectetur adipiscing elit.
+                    Pellentesque fringilla mollis
+                    ex vel ultrices. Aliquam
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End Item-4 -->
+    </div>
+
+</section>
+<!-- End How do we work section -->
+
+<!-- Our Team section -->
+<section class="our_team">
+
+    <div class="container">
+
+        <!-- Caption -->
+        <h1 class="section_caption">Meet our Team</h1>
+
+        <div class="lower_caption">Maecenas ut metus fermentum, convallis dui nec, dictum risus. Pellentesque sagittis pretium lacus 	 quis pulv
+            inar. In sollicitudin id urna vestibulum finibus.
+        </div>
+        <!-- End Caption -->
+
+        <!-- Team_item-1 -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+
+            <div class="team_item">
+
+                <div class="team_hover">
+
+                    <div class="team_name">David Regan</div>
+
+                    <div class="team_description">
+                        Lorem ipsum dolor sit amet, consect
+                        etur adipiscing elit. Sed mattis vest
+                        ibulum magna, eu viverra mi
+                        euismod sed. Vivamus vel
+                        ante eu turpis
                     </div>
-                    <a class="for_companies" href="/static/tzh.docx">
-                        <img src="/static/images/doc.png"><br>
-                        <span>Скачать <br> ком. предложение</span>
+
+                    <ul class="team_social">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                    </ul>
+
+                </div>
+
+                <img src="img/350x478.png" alt="">
+
+            </div>
+
+        </div>
+        <!-- End Team_item-1 -->
+
+        <!-- Team_item-2 -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+
+            <div class="team_item">
+
+                <div class="team_hover">
+
+                    <div class="team_name">Kate Delicate</div>
+
+                    <div class="team_description">
+                        Lorem ipsum dolor sit amet, consect
+                        etur adipiscing elit. Sed mattis vest
+                        ibulum magna, eu viverra mi
+                        euismod sed. Vivamus vel
+                        ante eu turpis
+                    </div>
+
+                    <ul class="team_social">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                    </ul>
+
+                </div>
+
+                <img src="img/350x478.png" alt="">
+
+            </div>
+
+        </div>
+        <!-- End Team_item-2 -->
+
+        <!-- Team_item-3 -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+
+            <div class="team_item">
+
+                <div class="team_hover">
+
+                    <div class="team_name">John Michels</div>
+
+                    <div class="team_description">
+                        Lorem ipsum dolor sit amet, consect
+                        etur adipiscing elit. Sed mattis vest
+                        ibulum magna, eu viverra mi
+                        euismod sed. Vivamus vel
+                        ante eu turpis
+                    </div>
+
+                    <ul class="team_social">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                    </ul>
+
+                </div>
+
+                <img src="img/350x478.png" alt="">
+
+
+            </div>
+
+        </div>
+        <!-- End Team_item-3 -->
+
+    </div>
+
+</section>
+
+<!-- Skills/Testimonials section -->
+<section class="skills">
+
+    <div class="container">
+
+        <!-- Captions -->
+        <div class="col-lg-6">
+            <h1 class="double_caption">Our Skills</h1>
+        </div>
+
+        <div class="col-lg-6">
+            <h1 class="double_caption">Testimonials</h1>
+        </div>
+        <!-- End Captions -->
+
+        <!-- Skills -->
+        <div class="col-lg-6">
+
+            <div class="skills_container">
+
+                <!-- Skill_1 -->
+                <div class="skill_1">
+                    <div class="bar"><div class="bar_color"><p>70%</p></div></div>
+                    <div class="skill_name">WORDPRESS</div>
+                </div>
+                <!-- End Skill_1 -->
+
+                <!-- Skill_2 -->
+                <div class="skill_2">
+                    <div class="bar"><div class="bar_color"><p>80%</p></div></div>
+                    <div class="skill_name">PROGRAMMING</div>
+                </div>
+                <!-- End Skill_2 -->
+
+                <!-- Skill_3 -->
+                <div class="skill_3">
+                    <div class="bar"><div class="bar_color"><p>90%</p></div></div>
+                    <div class="skill_name">DESIGN</div>
+                </div>
+                <!-- End Skill_3 -->
+
+                <!-- Skill_4 -->
+                <div class="skill_4">
+                    <div class="bar"><div class="bar_color"><p>60%</p></div></div>
+                    <div class="skill_name">TESTING</div>
+                </div>
+                <!-- End Skill_4 -->
+
+            </div>
+
+        </div>
+        <!-- End Skills -->
+
+        <!-- Testimonials -->
+        <div class="col-lg-6">
+
+            <div class="owl-carousel">
+
+                <!-- Item_1 -->
+                <div class="item">
+
+                    <img src="img/128x128.png" alt="">
+
+                    <div class="comment_name">Eric Morgan</div>
+
+                    <div class="comment_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+                        tis vestibulum magna, eu viverra mi euismod sed.
+                        ante eu turpis ornare laoreet.
+                    </div>
+
+                </div>
+                <!-- End Item_1 -->
+
+                <!-- Item_2 -->
+                <div class="item">
+
+                    <img src="img/128x128.png" alt="">
+
+                    <div class="comment_name">John Yankee</div>
+
+                    <div class="comment_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
+                        tis vestibulum magna, eu viverra mi euismod sed.
+                        ante eu turpis ornare laoreet.
+                    </div>
+
+                </div>
+                <!-- End Item_2 -->
+
+            </div>
+
+        </div>
+        <!-- End Testimonials -->
+    </div>
+
+</section>
+<!-- End Skills/Testimonials section -->
+
+<!-- Plans section -->
+<section class="plans">
+
+    <div class="container">
+        <!-- Caption -->
+        <h1 class="section_caption">Our Plans</h1>
+
+        <div class="lower_caption">
+            Maecenas ut metus fermentum, convallis dui nec, dictum risus. Pellentesque sagittis pretium lacus quis pulv
+            inar. In sollicitudin id urna vestibulum finibus.
+        </div>
+        <!-- End Caption -->
+
+        <!-- Item_1 -->
+        <div class="col-lg-4 col-md-4">
+
+            <div class="plan_bg">
+                <!-- Price -->
+                <div class="plan_price">
+                    75<sup>$</sup>
+                    <div class="per_month">PER MONTH</div>
+                </div>
+                <!-- End Price -->
+
+                <!-- Plan name -->
+                <div class="plan_name">
+                    SMALL
+                </div>
+                <!-- End Plan name -->
+
+                <!-- Plan features -->
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 50+ Coffee cups</li>
+                    <li><i class="fas fa-check"></i> Free wi-fi</li>
+                    <li><i class="fas fa-check"></i> Cool tutorial</li>
+                    <li class='no-active'><i class="fas fa-times"></i> Free consultation</li>
+                    <li class='no-active'><i class="fas fa-times"></i> Support</li>
+                    <li class='no-active'><i class="fas fa-times"></i> 100+ Free lessons</li>
+                    <li class='no-active'><i class="fas fa-times"></i> Life time acces</li>
+                </ul>
+                <!-- End Plan features -->
+
+                <!-- Button -->
+                <div class="button plan">
+
+                    <a href="#"><span>SELECT PLAN</span></a>
+
+                </div>
+                <!-- End Button -->
+            </div>
+
+        </div>
+        <!-- End Item_1 -->
+
+        <!-- Item_2 -->
+        <div class="col-lg-4 col-md-4">
+
+            <div class="plan_bg green">
+                <!-- Price -->
+                <div class="plan_price">
+                    100<sup>$</sup>
+                    <div class="per_month">PER MONTH</div>
+                </div>
+                <!-- End Price -->
+
+                <!-- Plan name -->
+                <div class="plan_name">
+                    MEDIUM
+                </div>
+                <!-- End Plan name -->
+
+                <!-- Plan features -->
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 50+ Coffee cups</li>
+                    <li><i class="fas fa-check"></i> Free wi-fi</li>
+                    <li><i class="fas fa-check"></i> Cool tutorial</li>
+                    <li><i class="fas fa-check"></i> Free consultation</li>
+                    <li><i class="fas fa-check"></i> Support</li>
+                    <li class='no-active'><i class="fas fa-times"></i> 100+ Free lessons</li>
+                    <li class='no-active'><i class="fas fa-times"></i> Life time acces</li>
+                </ul>
+                <!-- End Plan features -->
+
+                <!-- Button -->
+                <div class="button plan">
+
+                    <a href="#"><span>SELECT PLAN</span></a>
+
+                </div>
+                <!-- End Button -->
+            </div>
+
+        </div>
+        <!-- End Item_2 -->
+
+        <!-- Item_3 -->
+        <div class="col-lg-4 col-md-4">
+
+            <div class="plan_bg red">
+                <!-- Price -->
+                <div class="plan_price">
+                    125<sup>$</sup>
+                    <div class="per_month">PER MONTH</div>
+                </div>
+                <!-- End Price -->
+
+                <!-- Plan name -->
+                <div class="plan_name">
+                    LARGE
+                </div>
+                <!-- End Plan name -->
+
+                <!-- Plan features -->
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 50+ Coffee cups</li>
+                    <li><i class="fas fa-check"></i> Free wi-fi</li>
+                    <li><i class="fas fa-check"></i> Cool tutorial</li>
+                    <li><i class="fas fa-check"></i> Free consultation</li>
+                    <li><i class="fas fa-check"></i> Support</li>
+                    <li><i class="fas fa-check"></i> 100+ Free lessons</li>
+                    <li><i class="fas fa-check"></i> Life time acces</li>
+                </ul>
+                <!-- End Plan features -->
+
+                <!-- Button -->
+                <div class="button plan">
+
+                    <a href="#"><span>SELECT PLAN</span></a>
+
+                </div>
+                <!-- End Button -->
+            </div>
+
+        </div>
+        <!-- End Item_3 -->
+
+    </div>
+
+</section>
+<!-- End Plans section -->
+
+<!-- Frequently asked questions -->
+<section class="questions">
+
+    <div class="container">
+        <!-- Caption -->
+        <h1 class="section_caption">Frequently askes questions</h1>
+        <!-- End Caption -->
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+
+            <ul>
+                <!-- Quetsion_1 -->
+                <li>
+                    <a href="#" class="open_explain">How can I change files? <i class="fas fa-caret-right"></i>
+                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
+                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
+                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
+                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
+                        </div>
                     </a>
-                    {{--<input type="submit" value="ЗАКАЗАТЬ ЗВОНОК">--}}
-                    <button type="submit">ЗАКАЗАТЬ ЗВОНОК</button>
-                </form>
-            </div>
-        </div>
-        <div id="reviews" class="slider clearfix hidden-xs">
-            <span>ОТЗЫВЫ</span>
-            <div class="arrow left">
-                <img src="/static/images/arrow-left.png">
-            </div>
-
-            <div class="slide">
-                @foreach($reviews as $review)
-                    <div class="main">
-                        <img src="{{$review->background}}" class="background">
-                        <div class="overflow"></div>
-                        <div class="slide-info">
-                            <div class="pseudo-anchor"></div>
-                            <div class="client-info clearfix">
-                                <img src="{{$review->logo}}" class="logo col-xs-4">
-                                <div class="text col-xs-7">
-                                    <span class="title">{{$review->author}}</span>
-                                    <p class="info">
-                                        {!! $review->text !!}
-                                    </p>
-                                </div>
-                            </div>
-                            <a href="{{route('reviews')}}" class="gallery">ВСЕ ОТЗЫВЫ</a>
+                </li>
+                <!-- End Quetsion_1 -->
+                <!-- Quetsion_2 -->
+                <li>
+                    <a href="#" class="open_explain">Is it supported item? <i class="fas fa-caret-right"></i>
+                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
+                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
+                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
+                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
                         </div>
-                    </div>
-                @endforeach
+                    </a>
+                </li>
+                <!-- End Quetsion_2 -->
+                <!-- Quetsion_3 -->
+                <li>
+                    <a href="#" class="open_explain">Can I share it with friends? <i class="fas fa-caret-right"></i>
+                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
+                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
+                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
+                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
+                        </div>
+                    </a>
+                </li>
+                <!-- End Quetsion_3 -->
+                <!-- Quetsion_4 -->
+                <li>
+                    <a href="#" class="open_explain">How can i change the title? <i class="fas fa-caret-right"></i>
+                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
+                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
+                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
+                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
+                        </div>
+                    </a>
+                </li>
+                <!-- End Quetsion_4 -->
+                <!-- Quetsion_5 -->
+                <li>
+                    <a href="#" class="open_explain">Is it responsive? <i class="fas fa-caret-right"></i>
+                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
+                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
+                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
+                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
+                        </div>
+                    </a>
+                </li>
+                <!-- End Quetsion_5 -->
+                <!-- Quetsion_6 -->
+                <li>
+                    <a href="#" class="open_explain">All fonts are free? <i class="fas fa-caret-right"></i>
+                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
+                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
+                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
+                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
+                        </div>
+                    </a>
+                </li>
+                <!-- End Quetsion_6 -->
+                <!-- Quetsion_7 -->
+                <li>
+                    <a href="#" class="open_explain">All images are free? <i class="fas fa-caret-right"></i>
+                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
+                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
+                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
+                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
+                        </div>
+                    </a>
+                </li>
+                <!-- End Quetsion_7 -->
 
-                {{--<div class="advanced">--}}
-                    {{--<img class="background">--}}
-                    {{--<div class="overflow"></div>--}}
-                    {{--<div class="slide-info">--}}
-                        {{--<div class="pseudo-anchor"></div>--}}
-                        {{--<div class="client-info clearfix">--}}
-                            {{--<img class="logo col-xs-4">--}}
-                            {{--<div class="text col-xs-7">--}}
-                                {{--<span class="title"></span>--}}
-                                {{--<p class="info">--}}
+                <!-- Quetsion_8 -->
+                <li>
+                    <a href="#" class="open_explain">Can i change animations? <i class="fas fa-caret-right"></i>
+                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
+                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
+                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
+                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
+                        </div>
+                    </a>
+                </li>
+                <!-- End Quetsion_8 -->
 
-                                {{--</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<button class="gallery">галерея</button>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+            </ul>
 
-            </div>
-
-            <div class="nav-group" data-toggle="buttons">
-                <div class="btn item active">
-                    <input type="radio">
-                </div>
-            </div>
-            <div class="arrow right">
-                <img src="/static/images/arrow-right.png">
-            </div>
         </div>
-        <div id="contacts" class="contacts">
-            <div class="title col-xs-12 wow swing">
-                <span>Как с нами связаться?</span>
-                <img src="/static/images/contacts-title.png">
-            </div>
-            <div class="info-row-1 col-xs-12">
-                <div class="write col-xs-12 col-md-4 wow bounceIn" data-wow-delay="1s">
-                    <div class="action-container" data-toggle="modal" data-target=".ask-form">
-                        <img class="animated infinite shake" src="/static/images/contacts-write.png">
-                        <span>Написать нам</span>
-                    </div>
-                    <div class="mail">
-                        <a href="mailto:{{$settings->get('email1')}}">{{$settings->get('email1')}}</a>
-                        <a href="mailto:{{$settings->get('email2')}}">{{$settings->get('email2')}}</a>
-                    </div>
-                </div>
 
-                <div class="call col-xs-12 col-md-offset-3 col-md-4 wow bounceIn" data-wow-delay="1s">
-                    <div class="action-container" data-toggle="modal" data-target=".ring-form">
-                        <img class="animated infinite bounce" src="/static/images/contacts-call.png">
-                        <span>Заказать звонок</span>
-                    </div>
-                    <div class="mail">
-                        <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel1'))}}">
-                            {{$settings->get('tel1')}}
-                        </a>
-                        <a href="tel:{{preg_replace('/\D/', '', $settings->get('tel2'))}}">
-                            {{$settings->get('tel2')}}
-                        </a>
-                    </div>
-                </div>
+        <!-- Questions image -->
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+
+            <div class="question_img">
+                <img src="img/640x442.png" alt="">
             </div>
-            <div class="come-to-office info-row-2 col-xs-12 wow bounceInLeft" data-wow-delay="1s">
-                <img src="/static/images/contacts-come-to-office.png">
-                <span>Приехать к нам в офис <br>{{$settings->get('address')}}</span>
-            </div>
+
         </div>
-    </div>
-    <div class="map wow fadeIn" data-wow-duration="5s" id="map"></div>
-</div>
+        <!-- End Questions image -->
 
-<div class="move-top">
-    <img src="/static/images/move-top.png">
-</div>
+        <!-- Question form -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-<div class="modal fade ask-modal ring-form">
-    <div class="modal-dialog">
-        @if (\Session::has('back_ring'))
-            <div class="alert alert-success">
-                <p>{{ \Session::get('back_ring') }}</p>
-            </div><br/>
-        @else
-            <form class="modal-content ajax" method="post" onsubmit="sendForm(this); return false;" action="{{route('back_ring')}}">
-                {{ csrf_field() }}
-                <div class="title">
-                    <span>Заказать обратный звонок</span>
-                    <img class="close" data-dismiss="modal" src="/static/images/close_dark.png">
-                </div>
-                <div class="text">
-                    Наш менеджер перезвонит вам в ближайшее время
-                </div>
-                <input required placeholder="Имя" name="author" type="text" class="center-block">
-                <input required placeholder="Телефон" name="phone" type="tel" class="center-block">
-                {{--<label>--}}
-                    {{--<input type="checkbox" checked required>--}}
-                    {{--Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>--}}
-                {{--</label>--}}
-                <button type="submit">Отправить</button>
+            <div class="quest_form_caption">
+                Didn't find an answer? Contact Us!
+            </div>
+
+            <form action="#" class="form_question">
+                <input type="text" placeholder="Your E-Mail" class="input_placeholder">
+                <input type="button" class="submit_button" value="SEND">
             </form>
-        @endif
-    </div>
-</div>
 
-<div class="modal fade ask-modal ask-form">
-    <div class="modal-dialog">
-        @if (\Session::has('back_ring'))
-            <div class="alert alert-success">
-                <p>{{ \Session::get('ask_question') }}</p>
-            </div><br/>
-        @else
-            <form class="modal-content ajax" method="post" onsubmit="sendForm(this); return false;" action="{{route('ask_question')}}">
-                {{ csrf_field() }}
-                <div class="title">
-                    <span>Задать вопрос</span>
-                    <img class="close" data-dismiss="modal" src="/static/images/close_dark.png">
-                </div>
-                <div class="text">
-                    Наш менеджер ответит вам в ближайшее время
-                </div>
-                <input required placeholder="Имя" name="author" type="text" class="center-block">
-                <input required placeholder="Электронная почта" name="email" type="email" class="center-block">
-                <textarea required placeholder="Ваш вопрос" name="text" class="center-block"></textarea>
-                {{--<label>--}}
-                    {{--<input type="checkbox" checked required>--}}
-                    {{--Согласен с <a href="" target="_blank" style="">политикой конфиденциальности</a>--}}
-                {{--</label>--}}
-                <button type="submit">Отправить</button>
+        </div>
+        <!-- End Question form -->
+
+    </div>
+
+</section>
+<!-- End Frequently asked questions -->
+
+<!-- Footer -->
+<section class="footer">
+
+    <div class="container">
+
+        <!-- Contact -->
+        <div class="col-lg-3">
+
+            <div class="footer_caption">
+                Contact
+            </div>
+
+            <ul class="footer_list">
+                <li><i class="far fa-envelope"></i> info@delicate.com</li>
+                <li><i class="fas fa-phone"></i> +123 - 456 - 789</li>
+                <li><i class="fas fa-map-marker-alt"></i> London, Baker-Street 221B</li>
+            </ul>
+
+            <form action="#" class="footer_form">
+                <input type="text" placeholder="Your E-Mail" class="footer_input">
+                <a href="#" class="send_footer_button"><i class="fas fa-paper-plane"></i></a>
             </form>
-        @endif
+
+        </div>
+        <!-- End Contact -->
+
+        <!-- About Us -->
+        <div class="col-lg-5">
+
+            <div class="footer_caption ml">
+                About Us
+            </div>
+
+            <div class="about_us_footer">
+                We are creative and modern web studio.
+                Newest technologies it’s about us. We keep
+                up with time, your web site will contain all
+                of the best and modern trends. We are
+                making web since 2005.
+                Huge experience - is a best helper.
+            </div>
+
+        </div>
+        <!-- End About Us -->
+
+        <!-- Recent Project -->
+        <div class="col-lg-4">
+
+            <div class="footer_caption">
+                Recent Projects
+            </div>
+
+
+            <div class="owl-carousel footer_carousel">
+
+                <!-- Item_1 -->
+                <div class="item">
+
+                    <a href="#"><img src="img/240x165.png" alt=""></a>
+
+                </div>
+                <!-- End Item_1 -->
+
+            </div>
+
+        </div>
+        <!-- End Recent Project -->
+
+        <!-- Footer navigation -->
+        <div class="col-lg-12">
+
+            <div class="footer_caption_nav">
+                DELICATE
+            </div>
+
+            <nav class="footer_nav">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">DEMOS</a></li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">PAGES</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">PURCHASE</a></li>
+                </ul>
+            </nav>
+
+        </div>
+        <!-- End Footer navigation -->
+
     </div>
-</div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/static/js/jquery-1.11.3.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/bootstrap-toolkit.min.js"></script>
-<script src="/static/js/jquery.magnific-popup.min.js"></script>
+    <!-- Footer info -->
 
-<script src="/static/js/elements/app.js"></script>
+    <div class="footer_info">
+        2017 All rights reserved ©
+    </div>
+    <!-- End Footer info -->
 
-<script src="/static/js/wow.min.js"></script>
-<script>
-    new WOW().init();
-</script>
-<script src="/static/js/jquery.inputmask.bundle.js"></script>
-<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
-<script>
-    ymaps.ready(init);
-    var myMap;
+</section>
+<!-- End Footer -->
 
-    function init() {
-        myMap = new ymaps.Map("map", {
-            center: [{{$settings->get('geometry')}}],
-            behaviors: ['default', 'scrollZoom'],
-            zoom: 18
-        });
-        myMap.controls
-            .add('zoomControl', {left: 5, top: 5});
-        marker = new ymaps.Placemark([{{$settings->get('geometry')}}], {
-            balloonContent: "<span class=\"map-balloon\">{{$settings->get('address')}}</span>"
-        }, {
-            balloonContentSize: [229, 75],
-            balloonLayout: "default#imageWithContent",
-            balloonImageHref: '/static/images/marker-background.png',
-            balloonImageOffset: [-105, -90],
-            balloonImageSize: [229, 75],
-            balloonShadow: false
-        });
-        myMap.geoObjects
-            .add(marker);
-        marker.balloon.open()
-    }
-
-    function sendForm(elem) {
-        event.preventDefault();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $.ajax({
-            url: $(elem).attr('action'),
-            type: "POST",
-            data: $(elem).serialize(),
-            dataType: "json",
-            success: function(data) {
-                $(elem).html('<div class="alert alert-success">' + data.success + '</div>');
-            },
-            error:function (data) {
-                var errors = $.parseJSON(data.responseText);
-
-                $(elem).find('.help-block').remove();
-                $.each(errors['errors'], function(index, value) {
-                    console.log(index + ' => ' + value);
-                    $(elem).find('input[name=' + index + ']').after('<span class="help-block">' + value + '</span>');
-                });
-            },
-            complete:function () {
-                try {}
-                finally {
-                }
-            }
-        });
-        return false;
-    }
-
-    $('input[name=phone]').inputmask({ mask: "9 (999) 999-99-99", "clearIncomplete": true });
-
-</script>
+<link rel="stylesheet" href="css/main.min.css">
+<script src="js/scripts.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>
