@@ -13,27 +13,37 @@
 
 $factory->define(App\Model\Gallery::class, function (Faker\Generator $faker) {
     return [
-        'title'     => $faker->sentence(4),
+        'title'     => $faker->sentence(3),
         'name'     => $faker->sentence(1),
         'heading'     => $faker->sentence(4),
         'meta_title'     => $faker->sentence(4),
         'meta_description'     => $faker->sentence(14),
         'slug' => $faker->slug,
-        'description'  => $faker->paragraph(5),
+        'description'  => $faker->paragraph(50),
     ];
 });
 
 $factory->define(App\Model\Service::class, function (Faker\Generator $faker) {
     return [
-        'title'     => $faker->sentence(4),
+        'title'     => $faker->sentence(3),
         'name'     => $faker->sentence(1),
         'heading'     => $faker->sentence(4),
         'meta_title'     => $faker->sentence(4),
         'meta_description'     => $faker->sentence(14),
         'slug' => $faker->slug,
         'annotation'  => $faker->paragraph(5),
-        'description'  => $faker->paragraph(15),
+        'description'  => $faker->paragraph(50),
     ];
 });
 
+$factory->define(App\Model\Page::class, function (Faker\Generator $faker) {
+    return [
+        'title'     => $faker->sentence(3),
+        'name'     => $faker->sentence(1),
+        'heading'     => $faker->sentence(4),
+        'meta_title'     => $faker->sentence(4),
+        'meta_description'     => $faker->sentence(14),
+        'description'  => $faker->paragraph(50),
 
+    ];
+});

@@ -33,7 +33,7 @@ class PageOrders extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Pages (order)';
+    protected $title = 'Страницы';
 
     /**
      * @var string
@@ -45,7 +45,7 @@ class PageOrders extends Section implements Initializable
      */
     public function initialize()
     {
-        $this->addToNavigation()->setIcon('fa fa-sitemap')->setBadge(new Badge('New'));
+        $this->addToNavigation()->setIcon('fa fa-sitemap');
     }
 
     /**
@@ -64,16 +64,14 @@ class PageOrders extends Section implements Initializable
     public function onEdit($id)
     {
         return AdminForm::form()->setElements([
-            AdminFormElement::text('title', 'Title')->required(),
-            AdminFormElement::ckeditor('text', 'Text')
+            AdminFormElement::text('key', 'Ключ')->required()->setReadonly(1),
+            AdminFormElement::text('title', 'Заголовок')->required(),
+            AdminFormElement::text('name', 'Название')->required(),
+            AdminFormElement::text('heading', 'Заголовок H1')->required(),
+            AdminFormElement::text('meta_title', 'Meta Title'),
+            AdminFormElement::textarea('meta_description', 'Meta Description'),
+            AdminFormElement::ckeditor('description', 'Text'),
         ]);
     }
 
-    /**
-     * @return FormInterface
-     */
-    public function onCreate()
-    {
-        return $this->onEdit(null);
-    }
 }

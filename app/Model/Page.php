@@ -33,6 +33,18 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\Baum\Node withoutRoot()
  * @method static \Illuminate\Database\Eloquent\Builder|\Baum\Node withoutSelf()
  * @mixin \Eloquent
+ * @property string $key
+ * @property string $name
+ * @property string $heading
+ * @property string $meta_title
+ * @property string $meta_description
+ * @property string $description
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Page whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Page whereHeading($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Page whereKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Page whereMetaDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Page whereMetaTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Page whereName($value)
  */
 class Page extends Node
 {

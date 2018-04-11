@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:image" content="/path/to/image.jpg">
+    <meta property="og:image" content="@yield('og:image')">
     <link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-touch-icon-72x72.png">
@@ -38,15 +38,9 @@
 
         <nav class="navigation_blog col-lg-7 col-md-10 col-sm-10 hidden-xs">
             <ul>
-                <li><a href="{{ route('home') }}">Главная</a></li>
-
-                <li><a href="{{ route('blog') }}">Блог</a></li>
-
-                <li><a href="{{ route('services') }}">Услуги</a></li>
-
-                <li><a href="{{ route('portfolio') }}">Портфолио</a></li>
-
-                <li><a href="{{ route('about_as') }}">О компании</a></li>
+                @foreach($pages as $page)
+                    <li><a href="{{ route($page->key) }}">{{ $page->name }}</a></li>
+                @endforeach
 
             </ul>
         </nav>
@@ -58,7 +52,7 @@
         <!-- Caption -->
         <div class="caption_pages col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-            @yield('title')
+            @yield('name')
 
             <div class="breadcrumbs">Главная > @yield('breadcrumbs')</div>
 
@@ -71,15 +65,9 @@
     <nav class="sm-navigation">
 
         <ul class="sm-menu">
-            <li><a href="{{ route('home') }}">Главная</a></li>
-
-            <li><a href="{{ route('blog') }}">Блог</a></li>
-
-            <li><a href="{{ route('services') }}">Услуги</a></li>
-
-            <li><a href="{{ route('portfolio') }}">Портфолио</a></li>
-
-            <li><a href="{{ route('about_as') }}">О компании</a></li>
+            @foreach($pages as $page)
+                <li><a href="{{ route($page->key) }}">{{ $page->name }}</a></li>
+            @endforeach
         </ul>
 
 
@@ -174,11 +162,9 @@
 
             <nav class="footer_nav">
                 <ul>
-                    <li><a href="{{ route('home') }}">Главная</a></li>
-                    <li><a href="{{ route('services') }}">Услуги</a></li>
-                    <li><a href="{{ route('blog') }}">Блог</a></li>
-                    <li><a href="{{ route('portfolio') }}">Портфолио</a></li>
-                    <li><a href="{{ route('about_as') }}">О компании</a></li>
+                    @foreach($pages as $page)
+                        <li><a href="{{ route($page->key) }}">{{ $page->name }}</a></li>
+                    @endforeach
                 </ul>
             </nav>
 

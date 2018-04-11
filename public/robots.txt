@@ -1,2 +1,6 @@
 User-agent: *
-Disallow:
+
+Disallow: /admin
+
+Host: ad33.ru
+Sitemap: http://ad33.ru/sitemap.xml

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Page;
 use App\Model\Service;
 use \Illuminate\Database\Eloquent\Builder;
 
@@ -13,7 +14,10 @@ class ServiceController extends Controller
     public function services()
     {
         $services = Service::all();
-        return view('pages.services.strips')->with('services', $services);
+        $page = Page::where('key', 'services')->firstOrFail();
+        return view('pages.services.strips')
+            ->with('page', $page)
+            ->with('services', $services);
     }
 
     /**

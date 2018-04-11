@@ -31,7 +31,7 @@ class ServicesSeeder extends Seeder
         foreach ($filesObj as $file) {
             $iconFiles[] = $file->getFilename();
         }
-        factory(\App\Model\Service::class, 10)->create()->each(function(\App\Model\Service $gallery) use ($faker, $files, $iconFiles, $imagesPath, $iconsPath) {
+        factory(\App\Model\Service::class, 7)->create()->each(function(\App\Model\Service $gallery) use ($faker, $files, $iconFiles, $imagesPath, $iconsPath) {
             $image       = $faker->randomElement($files);
             $icon       = $faker->randomElement($iconFiles);
 

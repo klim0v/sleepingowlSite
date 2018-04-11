@@ -1,18 +1,20 @@
 @extends('layouts.app')
-
-@section('breadcrumbs', 'Услуги > ' . optional($service->parent)->title . ' > ' . $service->title)
+@section('meta_description', $service->meta_description)
+@section('breadcrumbs', 'Услуги > ' . optional($service->parent)->name . ' > ' . $service->name)
 @section('title', $service->title)
+@section('name', $service->name)
 @section('content')
 <!-- Description -->
 <section class="services_content">
     <!-- Services -->
     <div class="container">
-
+        <h1 class="section_caption">{{ $service->heading }}</h1>
+        <div class="filter"></div>
         <div class="col-lg-6">
             <!-- Caption -->
-            <div class="single_service_caption">
-                {{ $service->title }}
-            </div>
+            {{--<div class="single_service_caption">--}}
+                {{--{{ $service->title }}--}}
+            {{--</div>--}}
             <!-- End caption -->
 
             <!-- Desription -->

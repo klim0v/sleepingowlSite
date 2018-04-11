@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('breadcrumbs', 'Блог > ' . '')
 @section('title', '')
+{{--@section('name', $blog->name)--}}
 @section('content')
     <section class="blog_content">
 

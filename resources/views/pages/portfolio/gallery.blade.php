@@ -1,9 +1,23 @@
 @extends('layouts.app')
+@section('meta_description', $gallery->meta_description)
 @section('breadcrumbs', 'Партфолио > ' . $gallery->name)
 @section('title', $gallery->title)
+@section('name', $gallery->name)
 @section('content')
     <!-- Description -->
     <section class="portfolio_content">
+        <div class="container">
+            <!-- What do we do -->
+            <div class="col-lg-12">
+                <h1 class="section_caption">{{ $gallery->heading }}</h1>
+
+                <div class="services_description">
+                    {!! $gallery->description !!}
+                </div>
+            </div>
+
+        </div>
+        <div class="filter"></div>
         <!-- Services -->
         <div class="container-fluid">
             <!-- Items -->

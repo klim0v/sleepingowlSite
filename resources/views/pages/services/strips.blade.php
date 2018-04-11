@@ -1,6 +1,8 @@
 @extends('layouts.app')
-@section('breadcrumbs', 'Услуги')
-@section('title', 'Услуги')
+@section('breadcrumbs', $page->name)
+@section('title', $page->name)
+@section('meta_description', $page->meta_description)
+@section('name', $page->name)
 @section('content')
 <!-- Description -->
 <section class="services_content">
@@ -9,10 +11,10 @@
         <!-- What do we do -->
         <div class="col-lg-12">
 
-            <h1 class="section_caption">Наши рекламные слуги</h1>
+            <h1 class="section_caption">{{ $page->heading }}</h1>
 
             <div class="services_description">
-
+                {!! $page->description !!}
             </div>
 
             <div class="button loadmore works col-lg-12 col-md-12">

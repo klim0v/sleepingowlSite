@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Page;
+
 class PageController extends Controller
 {
     /**
@@ -9,7 +11,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('pages.home');
+        $page = Page::where('key', 'home')->firstOrFail();
+        return view('pages.home')
+            ->with('page', $page);
     }
 
     /**
@@ -17,7 +21,9 @@ class PageController extends Controller
      */
     public function aboutAs()
     {
-        return view('pages.about_us');
+        $page = Page::where('key', 'about_us')->firstOrFail();
+        return view('pages.about_us')
+            ->with('page', $page);
     }
 
 }

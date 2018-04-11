@@ -36,12 +36,6 @@ $factory->define(App\Model\Post::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Model\Page::class, function (Faker\Generator $faker) {
-    return [
-        'title' => $faker->sentence(5),
-        'text'  => $faker->paragraph(5),
-    ];
-});
 
 $factory->define(App\Model\Company::class, function (Faker\Generator $faker) {
     return [

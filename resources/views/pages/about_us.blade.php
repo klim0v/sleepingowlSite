@@ -1,26 +1,32 @@
 @extends('layouts.app')
 
-@section('breadcrumbs', 'О компании')
-@section('title', 'О компании')
+@section('meta_description', $page->meta_description)
+@section('breadcrumbs', $page->name)
+@section('title', $page->title)
+@section('name', $page->name)
 @section('content')
 <!-- Description -->
 <section class="about_us_content">
 
     <div class="container">
         <!-- About Us Text -->
+        <h1 class="section_caption">{{ $page->heading }}</h1>
+        <div class="filter"></div>
         <div class="col-lg-6 col-md-6">
 
             <div class="about_us_caption">
                 <span>20</span> Years of experience made everything
             </div>
 
+
+
             <div class="about_us_description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor egestas porta. Duis consectetur ultrices turpis, sit amet placerat lectus. Ut molestie imperdiet eros, eu fringilla augue cursus vel. In vel lectus id lorem pharetra tempus. Mauris laoreet volutpat neque, eu scelerisque orci mollis in. Nunc posuere elit in faucibus pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque semper ornare est, condimentum lobortis eros gravida id.
+                {!! $page->description !!}
             </div>
 
             <div class="button loadmore about">
 
-                <a href="#"><span>PURCHASE</span></a>
+                <a href="#"><span>Написать нам</span></a>
 
             </div>
 

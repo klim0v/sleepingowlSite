@@ -10,8 +10,15 @@ class PagesSeeder extends Seeder
     public function run()
     {
         Page::truncate();
-
-        factory(Page::class, 20)->create();
+        $keys = [
+            'home', 'services', 'portfolio', 'blog', 'about_us'
+        ];
+        $names = [
+            'Главная', 'Услуги', 'Портфолио', 'Блог', 'О компании'
+        ];
+        foreach ($keys as $i => $key) {
+            factory(Page::class)->create(['key' => $key, 'name' => $names[$i]]);
+        }
     }
 
 }

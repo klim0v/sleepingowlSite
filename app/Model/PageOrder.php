@@ -26,6 +26,18 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\PageOrder whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\PageOrder whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $key
+ * @property string $name
+ * @property string $heading
+ * @property string $meta_title
+ * @property string $meta_description
+ * @property string $description
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\PageOrder whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\PageOrder whereHeading($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\PageOrder whereKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\PageOrder whereMetaDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\PageOrder whereMetaTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\PageOrder whereName($value)
  */
 class PageOrder extends Model
 {

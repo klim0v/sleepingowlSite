@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Model\FundamentalSetting;
 use App\Model\Gallery;
+use App\Model\Page;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,8 +21,10 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer('layouts.app', function (\Illuminate\View\View $view) {
             $settings = FundamentalSetting::pluck('value', 'key');
             $lastWorks = Gallery::take(5)->pluck('cover');
+            $pages = Page::all();
             $view
                 ->with('settings', $settings)
+                ->with('pages', $pages)
                 ->with('lastWorks', $lastWorks);
         });
     }

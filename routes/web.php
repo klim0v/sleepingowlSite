@@ -33,8 +33,8 @@ Route::group(['middleware' => 'web'], function () {
     $this->post('login', 'Auth\LoginController@login');
     $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/about-as', 'PageController@aboutAs')->name('about_as');
+    Route::get('/', 'PageController@index')->name('home');
+    Route::get('/about-us', 'PageController@aboutAs')->name('about_us');
     Route::get('/portfolio', 'PortfolioController@portfolio')->name('portfolio');
     Route::get('/portfolio/{slug}', 'PortfolioController@gallery')->name('gallery');
     Route::get('/services', 'ServiceController@services')->name('services');

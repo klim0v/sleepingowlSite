@@ -52,9 +52,8 @@ class Galleries extends Section implements Initializable
                 AdminColumn::text('id', '#')->setWidth('30px'),
                 AdminColumn::text('title', 'Заголовок')->setWidth('200px'),
                 AdminColumn::text('slug', 'Слаг'),
-                AdminColumn::text('description', 'Описание'),
                 AdminColumn::image('cover', 'Обложка'),
-                AdminColumn::count('images', 'Галлерея'),
+                AdminColumn::count('images', 'Фото'),
                 AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
     }
@@ -71,7 +70,7 @@ class Galleries extends Section implements Initializable
             AdminFormElement::text('name', 'Название')->required(),
             AdminFormElement::text('heading', 'Заголовок H1')->required(),
             AdminFormElement::text('meta_title', 'Meta title')->required(),
-            AdminFormElement::text('meta_description', 'Meta description')->required(),
+            AdminFormElement::textarea('meta_description', 'Meta description')->required(),
             AdminFormElement::text('slug', 'Слаг')->required()->unique(),
             AdminFormElement::ckeditor('description', 'Описание')->required(),
             AdminFormElement::select('service_id', 'Вид предоставленной услуги', Service::class)
@@ -87,7 +86,7 @@ class Galleries extends Section implements Initializable
      */
     public function onCreate()
     {
-        return $this->onEdit(null);
+//        return $this->onEdit(null);
     }
 
     /**

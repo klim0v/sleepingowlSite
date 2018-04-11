@@ -1,6 +1,8 @@
 @extends('layouts.app')
-@section('breadcrumbs', 'Блог')
-@section('title', 'Блог')
+@section('breadcrumbs', $page->name)
+@section('title', $page->title)
+@section('name', $page->name)
+@section('meta_description', $page->meta_description)
 @section('content')
     <section class="blog_content">
 

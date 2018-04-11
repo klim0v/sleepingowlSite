@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Page;
+
 class PublicationController extends Controller
 {
     /**
@@ -9,7 +11,8 @@ class PublicationController extends Controller
      */
     public function blog()
     {
-        return view('pages.publications.strips');
+        $page = Page::where('key', 'blog')->firstOrFail();
+        return view('pages.publications.strips')->with('page', $page);
     }
 
     /**
