@@ -14,15 +14,17 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(FundamentalSettingsSeeder::class);
+        $this->call(ServicesSeeder::class);
+        $this->call(GallerySeeder::class);
 
-        $this->call(CountriesSeeder::class);
-        $this->call(CompaniesSeeder::class);
-        $this->call(ContactsSeeder::class);
-        $this->call(CompanyContactSeeder::class);
-        $this->call(PagesSeeder::class);
-        $this->call(NewsSeeder::class);
-        $this->call(PostsSeeder::class);
-        $this->call(FormsSeeder::class);
+//        $this->call(CountriesSeeder::class);
+//        $this->call(CompaniesSeeder::class);
+//        $this->call(ContactsSeeder::class);
+//        $this->call(CompanyContactSeeder::class);
+//        $this->call(PagesSeeder::class);
+//        $this->call(NewsSeeder::class);
+//        $this->call(PostsSeeder::class);
+//        $this->call(FormsSeeder::class);
     }
 
 }

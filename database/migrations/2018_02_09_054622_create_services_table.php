@@ -21,6 +21,7 @@ class CreateServicesTable extends Migration
             $table->integer('depth')->nullable();
             $table->integer('order')->default(0);
             $table->string('title');
+            $table->string('name');
             $table->string('heading')->comment('Заголовок H1')->nullable();
             $table->string('meta_description')->comment('Meta description')->nullable();
             $table->string('meta_title')->comment('Meta title')->nullable();
@@ -29,7 +30,6 @@ class CreateServicesTable extends Migration
             $table->text('description');
             $table->string('icon');
             $table->string('cover');
-            $table->boolean('published')->index();
             $table->timestamps();
         });
     }

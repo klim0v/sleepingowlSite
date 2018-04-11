@@ -56,7 +56,8 @@ class Services extends Section implements Initializable
     public function onEdit($id)
     {
         return AdminForm::panel()->addBody([
-            AdminFormElement::text('title', 'Название')->required(),
+            AdminFormElement::text('title', 'Заголовок')->required(),
+            AdminFormElement::text('name', 'Название')->required(),
             AdminFormElement::text('heading', 'Заголовок H1')->required(),
             AdminFormElement::text('meta_title', 'Meta title')->required(),
             AdminFormElement::text('meta_description', 'Meta description')->required(),
@@ -65,9 +66,6 @@ class Services extends Section implements Initializable
             AdminFormElement::ckeditor('description', 'Описание')->required(),
             AdminFormElement::image('icon', 'Иконка'),
             AdminFormElement::image('cover', 'Обложка'),
-            AdminFormElement::radio('published', 'Опубликовано')
-                ->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
-                ->required(),
             AdminFormElement::datetime('created_at', 'Добавлен')->required(),
         ]);
     }

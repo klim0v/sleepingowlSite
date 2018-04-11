@@ -20,11 +20,4 @@ class PageController extends Controller
         return view('pages.about_us');
     }
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function portfolio()
-    {
-        return view('pages.portfolio');
-    }
 }

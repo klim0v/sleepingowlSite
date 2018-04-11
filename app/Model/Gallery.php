@@ -33,6 +33,11 @@ use SleepingOwl\Admin\Traits\OrderableModel;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int|null $service_id
+ * @property-read \App\Model\Service|null $service
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereServiceId($value)
+ * @property string $name
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Gallery whereName($value)
  */
 class Gallery extends Model
 {
@@ -47,6 +52,7 @@ class Gallery extends Model
         'description',
         'cover',
         'images',
+        'service_id',
     ];
 
     protected $hidden = [
@@ -77,5 +83,13 @@ class Gallery extends Model
         Storage::disk('public')
             ->delete(str_replace('storage/', '', array_diff($this->images, $images)));
         $this->attributes['images'] = implode(',', $images);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function service(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Service::class);
     }
 }

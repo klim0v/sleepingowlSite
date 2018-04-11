@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('breadcrumbs', 'Блог > ' . '')
+@section('title', '')
 @section('content')
     <section class="blog_content">
 

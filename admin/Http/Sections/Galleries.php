@@ -8,6 +8,7 @@ use AdminDisplay;
 use AdminForm;
 use AdminFormElement;
 use App\Model\Gallery;
+use App\Model\Service;
 use Illuminate\Support\Facades\Storage;
 use SleepingOwl\Admin\Contracts\Display\DisplayInterface;
 use SleepingOwl\Admin\Contracts\Form\FormInterface;
@@ -33,7 +34,7 @@ class Galleries extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Галлерея';
+    protected $title = 'Портфолио';
 
     /**
      * @var string
@@ -49,14 +50,11 @@ class Galleries extends Section implements Initializable
         ->setHtmlAttribute('class', 'table-primary')
             ->setColumns(
                 AdminColumn::text('id', '#')->setWidth('30px'),
-                AdminColumn::text('title', 'Название')->setWidth('200px'),
+                AdminColumn::text('title', 'Заголовок')->setWidth('200px'),
                 AdminColumn::text('slug', 'Слаг'),
                 AdminColumn::text('description', 'Описание'),
                 AdminColumn::image('cover', 'Обложка'),
                 AdminColumn::count('images', 'Галлерея'),
-                AdminColumnEditable::checkbox('published', 'Опубликован', 'Не опубликован')
-                    ->setLabel('Опубликован'),
-                AdminColumnEditable::checkbox('on_main', 'Да', 'Нет')->setLabel('На главную'),
                 AdminColumn::datetime('created_at', 'Добавлен')
             )->paginate(15);
     }
@@ -69,17 +67,17 @@ class Galleries extends Section implements Initializable
     public function onEdit($id)
     {
         return AdminForm::panel()->addBody([
-            AdminFormElement::text('title', 'Название')->required(),
+            AdminFormElement::text('title', 'Заголовок')->required(),
+            AdminFormElement::text('name', 'Название')->required(),
             AdminFormElement::text('heading', 'Заголовок H1')->required(),
-            AdminFormElement::text('Meta title', 'Meta title')->required(),
-            AdminFormElement::text('Meta description', 'Meta description')->required(),
+            AdminFormElement::text('meta_title', 'Meta title')->required(),
+            AdminFormElement::text('meta_description', 'Meta description')->required(),
             AdminFormElement::text('slug', 'Слаг')->required()->unique(),
             AdminFormElement::ckeditor('description', 'Описание')->required(),
+            AdminFormElement::select('service_id', 'Вид предоставленной услуги', Service::class)
+                ->setDisplay('name'),
             AdminFormElement::image('cover', 'Обложка'),
             AdminFormElement::images('images', 'Галлерея'),
-            AdminFormElement::radio('published', 'Опубликовано')->setOptions(['0' => 'Не опубликовано', '1' => 'Опубликовано'])
-                ->required(),
-            AdminFormElement::checkbox('on_main', 'Показать на главной странице'),
             AdminFormElement::datetime('created_at', 'Добавлен')->required(),
         ]);
     }

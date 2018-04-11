@@ -34,8 +34,9 @@ Route::group(['middleware' => 'web'], function () {
     $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/portfolio', 'PageController@portfolio')->name('portfolio');
     Route::get('/about-as', 'PageController@aboutAs')->name('about_as');
+    Route::get('/portfolio', 'PortfolioController@portfolio')->name('portfolio');
+    Route::get('/portfolio/{slug}', 'PortfolioController@gallery')->name('gallery');
     Route::get('/services', 'ServiceController@services')->name('services');
     Route::get('/services/{slug}/{slug2?}', 'ServiceController@singleServices')->name('single_services');
     Route::get('/blog', 'PublicationController@blog')->name('blog');

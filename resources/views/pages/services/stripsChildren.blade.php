@@ -13,10 +13,15 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                 <div class="service_item_page second_service">
-
+                    <a href="{{ route('single_services', ['slug' => $service->slug, 'slug2' => $child->slug ]) }}">
                     <img src="/{{ $child->icon }}" alt="">
+                    </a>
 
-                    <div class="service_item_caption">{{ $child->title }}</div>
+                    <div class="service_item_caption">
+                        <a href="{{ route('single_services', ['slug' => $service->slug, 'slug2' => $child->slug ]) }}">
+                        {{ $child->title }}
+                        </a>
+                    </div>
 
                     <div class="service_item_description second_service">
                         {{ $child->annotation }}
@@ -24,7 +29,7 @@
 
                     <div class="button loadmore service_item">
 
-                        <a href="{{ route('single_services', ['slug' => $service->slug, 'slug2' => $child->slug ]) }}"><span>Подробнее</span></a>
+                        {{--<span>{{ __('my.read_more') }}</span></a>--}}
 
                     </div>
 

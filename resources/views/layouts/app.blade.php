@@ -31,7 +31,6 @@
 
 <!-- Header section -->
 <header class="header_blog">
-    <div id="particles-js"></div>
     <div class="container">
         <div class="site_name col-lg-5 col-md-2 col-sm-2">
             {{ $settings->get('app_name') }}
@@ -45,7 +44,7 @@
 
                 <li><a href="{{ route('services') }}">Услуги</a></li>
 
-                <li><a href="{{ route('portfolio') }}">Партфолио</a></li>
+                <li><a href="{{ route('portfolio') }}">Портфолио</a></li>
 
                 <li><a href="{{ route('about_as') }}">О компании</a></li>
 
@@ -114,7 +113,7 @@
         <div class="col-lg-3">
 
             <div class="footer_caption">
-                Contact
+                Контакты
             </div>
 
             <ul class="footer_list">
@@ -154,10 +153,10 @@
 
 
             <div class="owl-carousel footer_carousel">
-                @foreach(['/img/240x165.png'] as $item)
+                @foreach($lastWorks as $item)
                 <div class="item">
 
-                    <a href="#"><img src="{{ $item }}" alt=""></a>
+                    <a href="{{ route('portfolio') }}"><img src="/{{ $item }}" alt=""></a>
 
                 </div>
                 @endforeach

@@ -51,6 +51,9 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder|\Baum\Node withoutRoot()
  * @method static \Illuminate\Database\Eloquent\Builder|\Baum\Node withoutSelf()
  * @mixin \Eloquent
+ * @property string $name
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Gallery[] $galleries
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Service whereName($value)
  */
 class Service extends Node
 {
@@ -89,5 +92,13 @@ class Service extends Node
             Storage::disk('public')->delete(str_replace('storage/', '', $this->icon));
         }
         $this->attributes['icon'] = $value;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function galleries(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Gallery::class);
     }
 }

@@ -9,7 +9,7 @@ class PublicationController extends Controller
      */
     public function blog()
     {
-        return view('pages.blog');
+        return view('pages.publications.strips');
     }
 
     /**
@@ -17,6 +17,6 @@ class PublicationController extends Controller
      */
     public function blogSingle()
     {
-        return view('pages.blog_single');
+        return view('pages.publications.single');
     }
 }
