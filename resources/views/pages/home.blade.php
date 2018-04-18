@@ -375,7 +375,6 @@
 
         <!-- Form -->
         <form id="online_consult" action="{{ route('online_consult') }}#online_consult" class="consult_form" method="post" onsubmit="sendForm(this); return false;">
-
         {{ csrf_field() }}
             <!-- Name -->
             <div class="col-lg-6 col-md-6">
@@ -963,7 +962,7 @@
 
             <form id="footer_form" action="{{ route('online_consult') }}#online_consult" method="post" class="footer_form" onsubmit="sendForm(this); return false;">
                 {{ csrf_field() }}
-                <input type="email" required placeholder="Ваш E-Mail" class="footer_input">
+                <input type="email" required placeholder="Ваш E-Mail" class="footer_input" name="email">
                 <input type="submit" class="hidden" id="footer_form_submit">
                 <a href="#" class="send_footer_button" onclick="$('#footer_form_submit').click(); return false;"><i class="fas fa-paper-plane"></i></a>
             </form>
@@ -1042,7 +1041,6 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script>
     function sendForm(elem) {
-        // elem = '#' + id;
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1055,12 +1053,12 @@
             data: $(elem).serialize(),
             dataType: "json",
             success: function(data) {
-                $(elem).html('<div class="footer_caption">' + data.success + '</div>');
-                // $('body').find('div.button.send.col-lg-12.col-md-12').remove();
-            },
+                    $(elem)[0].reset();
+                    $(elem).after('<div id="success" class="quest_form_caption">' + data.success + '</div>');
+                setTimeout("$('#success').remove()", 5000);
+                    },
             error:function (data) {
-                var errors = $.parseJSON(data.responseText);
-
+                errors = $.parseJSON(data.responseText);
                 // $(elem).find('.help-block').remove();
                 $.each(errors['errors'], function(index, value) {
                     console.log(index + ' => ' + value);

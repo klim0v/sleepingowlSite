@@ -186,5 +186,41 @@
 <link rel="stylesheet" href="/css/main.min.css">
 <script src="/js/scripts.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script>
+    function sendForm(elem) {
+        // elem = '#' + id;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: $(elem).attr('action'),
+            type: "POST",
+            data: $(elem).serialize(),
+            dataType: "json",
+            success: function(data) {
+                $(elem).html('<div class="footer_caption">' + data.success + '</div>');
+                // $('body').find('div.button.send.col-lg-12.col-md-12').remove();
+            },
+            error:function (data) {
+                var errors = $.parseJSON(data.responseText);
+
+                // $(elem).find('.help-block').remove();
+                $.each(errors['errors'], function(index, value) {
+                    console.log(index + ' => ' + value);
+                    //     $(elem).find('input[name=' + index + ']').after('<span class="help-block">' + value + '</span>');
+                });
+            },
+            complete:function () {
+                try {}
+                finally {
+                }
+            }
+        });
+        return false;
+    }
+</script>
 </body>
 </html>
