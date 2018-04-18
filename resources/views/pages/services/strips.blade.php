@@ -39,11 +39,11 @@
                 <div class="col-lg-6 col-md-6 service_item_wrap col-sm-12 col-xs-12 @if ( $loop->iteration % 2 === 0 ) col-md-pull-6 @endif">
 
                     <div class="service_item_page">
-                        <a href="{{ route('single_services', ['slug' => $service->slug ]) }}">
+                        <a href="{{ route('single_service', ['slug' => $service->slug ]) }}">
                         <img src="/{{ $service->icon }}" alt="{{ $service->title }}">
                         </a>
                         <div class="service_item_caption">
-                            <a href="{{ route('single_services', ['slug' => $service->slug ]) }}">
+                            <a href="{{ route('single_service', ['slug' => $service->slug ]) }}">
                             {{ $service->title }}
                             </a>
                         </div>

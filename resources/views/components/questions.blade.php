@@ -1,6 +1,4 @@
-<section class="questions no-padding">
 
-    <div class="container">
         <!-- Caption -->
         <h1 class="section_caption">Часто задаваемые вопросы</h1>
         <!-- End Caption -->
@@ -110,7 +108,3 @@
 
         </div>
         <!-- End Questions image -->
-
-    </div>
-
-</section>

@@ -38,7 +38,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/portfolio', 'PortfolioController@portfolio')->name('portfolio');
     Route::get('/portfolio/{slug}', 'PortfolioController@gallery')->name('gallery');
     Route::get('/services', 'ServiceController@services')->name('services');
-    Route::get('/services/{slug}/{slug2?}', 'ServiceController@singleServices')->name('single_services');
+    Route::get('/services/{slug}/{slug2?}', 'ServiceController@singleServices')->name('single_service');
     Route::get('/blog', 'PublicationController@blog')->name('blog');
     Route::get('/blog/{slug}', 'PublicationController@blogSingle')->name('blog_single');
 

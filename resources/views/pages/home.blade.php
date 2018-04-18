@@ -1,18 +1,18 @@
 
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="ru">
 
 <head>
 
     <meta charset="utf-8">
 
-    <title>Delicate</title>
-    <meta name="description" content="">
+    <title>{{ $page->title }}</title>
+    <meta name="description" content="{{ $page->meta_description }}">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:image" content="path/to/image.jpg">
+    <meta property="og:image" content="@yield('og:image')">
     <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
@@ -35,55 +35,9 @@
     <!-- Navigation -->
     <nav class="navigation hidden-xs hidden-sm hidden-md">
         <ul>
-            <li><a href="index.html">Home</a></li>
-
-            <li class="hov_submenu">
-
-                <a href="#">Blog</a>
-
-                <ul class="submenu">
-                    <li><a href="blog_1.html">Blog #1</a></li>
-                    <li><a href="blog_2.html">Blog #2</a></li>
-                    <li><a href="blog_single.html">Blog Single</a></li>
-                </ul>
-
-            </li>
-
-            <li class="hov_submenu">
-
-                <a href="#">Services</a>
-
-                <ul class="submenu">
-                    <li><a href="services_1.html">Services #1</a></li>
-                    <li><a href="services_2.html">Services #2</a></li>
-                    <li><a href="#">Single Services</a></li>
-                </ul>
-
-            </li>
-
-            <li><a href="about_us.html">About Us</a></li>
-
-            <li class="hov_submenu">
-
-                <a href="#">Pages</a>
-
-                <ul class="submenu">
-                    <li><a href="404.html">404</a></li>
-                </ul>
-
-            </li>
-
-            <li class="hov_submenu">
-
-                <a href="#">Portfolio</a>
-
-                <ul class="submenu">
-                    <li><a href="portfolio.html">Portfolio #1</a></li>
-                    <li><a href="portfolio_2.html">Portfolio #2</a></li>
-                </ul>
-
-            </li>
-
+            @foreach($pages as $page)
+                <li><a href="{{ route($page->key) }}">{{ $page->name }}</a></li>
+            @endforeach
         </ul>
     </nav>
     <!-- End Navigation  -->
@@ -92,54 +46,9 @@
     <nav class="sm-navigation">
 
         <ul class="sm-menu">
-            <li><a href="index.html">Home</a></li>
-
-            <li class="hov_submenu">
-
-                <a href="#">Blog</a>
-
-                <ul class="submenu">
-                    <li><a href="blog_1.html">Blog #1</a></li>
-                    <li><a href="blog_2.html">Blog #2</a></li>
-                    <li><a href="blog_single.html">Blog Single</a></li>
-                </ul>
-
-            </li>
-
-            <li class="hov_submenu">
-
-                <a href="#">Services</a>
-
-                <ul class="submenu">
-                    <li><a href="services_1.html">Services #1</a></li>
-                    <li><a href="services_2.html">Services #2</a></li>
-                    <li><a href="single_services.html">Single Services</a></li>
-                </ul>
-
-            </li>
-
-            <li><a href="about_us.html">About Us</a></li>
-
-            <li class="hov_submenu">
-
-                <a href="#">Pages</a>
-
-                <ul class="submenu">
-                    <li><a href="404.html">404</a></li>
-                </ul>
-
-            </li>
-
-            <li class="hov_submenu">
-
-                <a href="#">Portfolio</a>
-
-                <ul class="submenu">
-                    <li><a href="portfolio.html">Portfolio #1</a></li>
-                    <li><a href="portfolio_2.html">Portfolio #2</a></li>
-                </ul>
-
-            </li>
+            @foreach($pages as $page)
+                <li><a href="{{ route($page->key) }}">{{ $page->name }}</a></li>
+            @endforeach
         </ul>
 
 
@@ -168,8 +77,8 @@
 
             <ul>
 
-                <li class="left"><i class="far fa-envelope"></i> delicate@info.com</li>
-                <li class="center"><i class="fa fa-mobile" aria-hidden="true"></i> +123 - 456 - 789</li>
+                <li class="left"><i class="far fa-envelope"></i> {{ $settings->get('email') }}</li>
+                <li class="center"><i class="fa fa-mobile" aria-hidden="true"></i> {{ $settings->get('tel') }}</li>
                 <li class="right">
                     <ul>
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -182,7 +91,7 @@
 
             </ul>
             <!-- Search -->
-            <div class="search">
+            {{--<div class="search">
 
                 <i class="fa fa-search" aria-hidden="true"></i>
 
@@ -197,7 +106,7 @@
 
                 </div>
 
-            </div>
+            </div>--}}
             <!-- End Search -->
 
         </div>
@@ -210,7 +119,7 @@
                 WE ARE
             </div>
 
-            <h1 class="col-lg-12 col-md-12">CREATIVE AGENCY</h1>
+            <h1 class="col-lg-12 col-md-12">{{ $settings->get('app_name') }}</h1>
 
             <div class="bottom_phrase col-lg-12 col-md-12">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -221,7 +130,7 @@
 
         <div class="button col-lg-12 col-md-12">
 
-            <a href="#"><span>ABOUT US</span></a>
+            <a href="#"><span>О нас</span></a>
 
         </div>
 
@@ -325,25 +234,27 @@
 
     <div class="container">
 
-        <h1 class="section_caption">Services</h1>
-        <!-- UX/UI Design -->
-        <div class="col-lg-4 col-md-6 col-sm-6">
+        <h1 class="section_caption">Наши услуги</h1>
 
-            <div class="item_service">
+        @foreach($services as $service)
+            <div class="col-lg-4 col-md-6 col-sm-6">
 
-                <img src="img/98x90.png" alt="UX/UI Design">
+                <div class="item_service">
+                    <a href="{{ route('single_service', [$service->slug]) }}"><img src="/{{$service->icon}}" alt="{{ $service->name }}"></a>
 
-                <div class="item_service_name">UX/UI DESIGN</div>
 
-                <div class="item_service_description">
-                    Lorem ipsum dolor sit
-                    amet, consectetur
-                    adipiscing elit.
+                    <div class="item_service_name"><a href="{{ route('single_service', [$service->slug]) }}">{{ $service->name }}</a></div>
+
+                    <div class="item_service_description">
+                        {!! $service->annotation  !!}
+                    </div>
+
                 </div>
 
             </div>
+        @endforeach
+        <!-- UX/UI Design -->
 
-        </div>
         <!-- Analytics -->
         <div class="col-lg-4 col-md-6 col-sm-6">
 
@@ -520,105 +431,41 @@
 
     <div class="container">
         <!-- Caption -->
-        <h1 class="section_caption">Latest works</h1>
+        <h1 class="section_caption">Наши недавние проекты</h1>
         <!-- End Caption -->
 
         <!-- Filter -->
         <div class="filter">
             <ul>
-                <li><a href="#">ALL</a></li>
-                <li><a href="#">CONSULTING</a></li>
-                <li><a href="#">WORDPRESS</a></li>
-                <li><a href="#">UX/UI DESIGN</a></li>
+                @foreach($galleryServices as $service)
+                    <li><a href="{{ route('portfolio', ['service' => $service->slug]) }}">{{ $service->name }}</a></li>
+                @endforeach
             </ul>
         </div>
         <!-- End Filter -->
 
         <!-- Items -->
 
-        <!-- Item-1 -->
+    @foreach($galleries as $gallery)
+        <!-- Item_{{$loop->iteration}} -->
         <div class="col-lg-4 col-md-4 col-sm-6">
 
             <div class="work_item">
-                <a href="#">
-                    <img src="img/351x234.png" alt="">
-                    <div class="work_info">Project #1 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
+                <a href="{{ route('gallery', $gallery->slug) }}">
+                    <img src="/{{ $gallery->cover }}" alt="{{ $gallery->name }}">
+                    <div class="work_info">{{ $gallery->name }} <span>{{count($gallery->images)}} <i class="far fa-images"></i> / {{ $gallery->created_at }}</span></div>
                 </a>
             </div>
 
         </div>
-        <!-- End Item-1 -->
-
-        <!-- Item-2 -->
-        <div class="col-lg-4 col-md-4 col-sm-6">
-
-            <div class="work_item">
-                <a href="#">
-                    <img src="img/351x234.png" alt="">
-                    <div class="work_info">Project #2 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
-                </a>
-            </div>
-
-        </div>
-        <!-- End Item-2 -->
-
-        <!-- Item-3 -->
-        <div class="col-lg-4 col-md-4 col-sm-6">
-
-            <div class="work_item">
-                <a href="#">
-                    <img src="img/351x234.png" alt="">
-                    <div class="work_info">Project #3 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
-                </a>
-            </div>
-
-        </div>
-        <!-- End Item-3 -->
-
-        <!-- Item-4 -->
-        <div class="col-lg-4 col-md-4 col-sm-6">
-
-            <div class="work_item">
-                <a href="#">
-                    <img src="img/351x234.png" alt="">
-                    <div class="work_info">Project #4 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
-                </a>
-            </div>
-
-        </div>
-        <!-- End Item-4 -->
-
-        <!-- Item-5 -->
-        <div class="col-lg-4 col-md-4 col-sm-6">
-
-            <div class="work_item">
-                <a href="#">
-                    <img src="img/351x234.png" alt="">
-                    <div class="work_info">Project #5 <span>5 <i class="far fa-comment"></i> / 02.08.2018</span></div>
-                </a>
-            </div>
-
-        </div>
-        <!-- End Item-5 -->
-
-        <!-- Item-6 -->
-        <div class="col-lg-4 col-md-4 col-sm-6">
-
-            <div class="work_item">
-                <a href="#">
-                    <img src="img/351x234.png" alt="">
-                    <div class="work_info">Project #6 <span>4 <i class="far fa-comment"></i> / 02.08.2018</span></div>
-                </a>
-            </div>
-
-        </div>
-        <!-- End Item-6 -->
+        <!-- End Item_{{$loop->iteration}} -->
+    @endforeach
 
         <!-- End Items -->
 
         <div class="button loadmore col-lg-12 col-md-12">
 
-            <a href="#"><span>LOAD MORE</span></a>
+            <a href="#"><span>Смотреть все</span></a>
 
         </div>
 
@@ -715,8 +562,8 @@
 
 </section>
 <!-- End How do we work section -->
-
 <!-- Our Team section -->
+{{--
 <section class="our_team">
 
     <div class="container">
@@ -834,9 +681,9 @@
 
     </div>
 
-</section>
-
+</section>--}}
 <!-- Skills/Testimonials section -->
+{{--
 <section class="skills">
 
     <div class="container">
@@ -933,9 +780,9 @@
     </div>
 
 </section>
-<!-- End Skills/Testimonials section -->
-
+<!-- End Skills/Testimonials section -->--}}
 <!-- Plans section -->
+{{--
 <section class="plans">
 
     <div class="container">
@@ -1075,134 +922,19 @@
 
 </section>
 <!-- End Plans section -->
+--}}
 
 <!-- Frequently asked questions -->
 <section class="questions">
 
     <div class="container">
-        <!-- Caption -->
-        <h1 class="section_caption">Frequently askes questions</h1>
-        <!-- End Caption -->
-        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 
-            <ul>
-                <!-- Quetsion_1 -->
-                <li>
-                    <a href="#" class="open_explain">How can I change files? <i class="fas fa-caret-right"></i>
-                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
-                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
-                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
-                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
-                        </div>
-                    </a>
-                </li>
-                <!-- End Quetsion_1 -->
-                <!-- Quetsion_2 -->
-                <li>
-                    <a href="#" class="open_explain">Is it supported item? <i class="fas fa-caret-right"></i>
-                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
-                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
-                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
-                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
-                        </div>
-                    </a>
-                </li>
-                <!-- End Quetsion_2 -->
-                <!-- Quetsion_3 -->
-                <li>
-                    <a href="#" class="open_explain">Can I share it with friends? <i class="fas fa-caret-right"></i>
-                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
-                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
-                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
-                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
-                        </div>
-                    </a>
-                </li>
-                <!-- End Quetsion_3 -->
-                <!-- Quetsion_4 -->
-                <li>
-                    <a href="#" class="open_explain">How can i change the title? <i class="fas fa-caret-right"></i>
-                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
-                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
-                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
-                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
-                        </div>
-                    </a>
-                </li>
-                <!-- End Quetsion_4 -->
-                <!-- Quetsion_5 -->
-                <li>
-                    <a href="#" class="open_explain">Is it responsive? <i class="fas fa-caret-right"></i>
-                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
-                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
-                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
-                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
-                        </div>
-                    </a>
-                </li>
-                <!-- End Quetsion_5 -->
-                <!-- Quetsion_6 -->
-                <li>
-                    <a href="#" class="open_explain">All fonts are free? <i class="fas fa-caret-right"></i>
-                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
-                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
-                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
-                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
-                        </div>
-                    </a>
-                </li>
-                <!-- End Quetsion_6 -->
-                <!-- Quetsion_7 -->
-                <li>
-                    <a href="#" class="open_explain">All images are free? <i class="fas fa-caret-right"></i>
-                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
-                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
-                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
-                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
-                        </div>
-                    </a>
-                </li>
-                <!-- End Quetsion_7 -->
-
-                <!-- Quetsion_8 -->
-                <li>
-                    <a href="#" class="open_explain">Can i change animations? <i class="fas fa-caret-right"></i>
-                        <div class="explain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ma
-                            vestibulum magna, eu viverra mi euismod sed. Vivamus vel
-                            eu turpis ornare laoreet. Donec sit amet erat erat. Etiam
-                            lacinia et nibh non, sagittis auctor lectus. Integer quis.
-                        </div>
-                    </a>
-                </li>
-                <!-- End Quetsion_8 -->
-
-            </ul>
-
-        </div>
-
-        <!-- Questions image -->
-        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-
-            <div class="question_img">
-                <img src="img/640x442.png" alt="">
-            </div>
-
-        </div>
-        <!-- End Questions image -->
-
+    @component('components.questions')
+    @endcomponent
         <!-- Question form -->
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-            <div class="quest_form_caption">
-                Didn't find an answer? Contact Us!
-            </div>
-
-            <form action="#" class="form_question">
-                <input type="text" placeholder="Your E-Mail" class="input_placeholder">
-                <input type="button" class="submit_button" value="SEND">
-            </form>
-
-        </div>
+    @component('components.question_form')
+    @endcomponent
         <!-- End Question form -->
 
     </div>
@@ -1223,9 +955,9 @@
             </div>
 
             <ul class="footer_list">
-                <li><i class="far fa-envelope"></i> info@delicate.com</li>
-                <li><i class="fas fa-phone"></i> +123 - 456 - 789</li>
-                <li><i class="fas fa-map-marker-alt"></i> London, Baker-Street 221B</li>
+                <li><i class="far fa-envelope"></i> {{ $settings->get('email') }}</li>
+                <li><i class="fas fa-phone"></i> {{ $settings->get('tel') }}</li>
+                <li><i class="fas fa-map-marker-alt"></i> {{ $settings->get('address') }}</li>
             </ul>
 
             <form action="#" class="footer_form">
@@ -1240,16 +972,11 @@
         <div class="col-lg-5">
 
             <div class="footer_caption ml">
-                About Us
+                О нас
             </div>
 
             <div class="about_us_footer">
-                We are creative and modern web studio.
-                Newest technologies it’s about us. We keep
-                up with time, your web site will contain all
-                of the best and modern trends. We are
-                making web since 2005.
-                Huge experience - is a best helper.
+                {{ $settings->get('about') }}
             </div>
 
         </div>
@@ -1265,14 +992,13 @@
 
             <div class="owl-carousel footer_carousel">
 
-                <!-- Item_1 -->
-                <div class="item">
+                @foreach($galleries as $item)
+                    <div class="item">
 
-                    <a href="#"><img src="img/240x165.png" alt=""></a>
+                        <a href="{{ route('gallery', [$item->slug]) }}"><img src="/{{ $item->cover }}" alt=""></a>
 
-                </div>
-                <!-- End Item_1 -->
-
+                    </div>
+                @endforeach
             </div>
 
         </div>
@@ -1282,17 +1008,14 @@
         <div class="col-lg-12">
 
             <div class="footer_caption_nav">
-                DELICATE
+                {{ $settings->get('app_name') }}
             </div>
 
             <nav class="footer_nav">
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">DEMOS</a></li>
-                    <li><a href="#">BLOG</a></li>
-                    <li><a href="#">PAGES</a></li>
-                    <li><a href="#">ABOUT US</a></li>
-                    <li><a href="#">PURCHASE</a></li>
+                    @foreach($pages as $page)
+                        <li><a href="{{ route($page->key) }}">{{ $page->name }}</a></li>
+                    @endforeach
                 </ul>
             </nav>
 
@@ -1304,7 +1027,7 @@
     <!-- Footer info -->
 
     <div class="footer_info">
-        2017 All rights reserved ©
+        {{ date('Y') }} Все права защищены ©
     </div>
     <!-- End Footer info -->
 

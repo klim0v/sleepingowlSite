@@ -64,7 +64,8 @@ class Service extends Node
         'meta_description',
         'title',
         'slug',
-        'text',
+        'annotation',
+        'description',
         'cover',
     ];
 

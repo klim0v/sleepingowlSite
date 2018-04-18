@@ -19,12 +19,12 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                 <div class="service_item_page second_service">
-                    <a href="{{ route('single_services', ['slug' => $service->slug, 'slug2' => $child->slug ]) }}">
+                    <a href="{{ route('single_service', ['slug' => $service->slug, 'slug2' => $child->slug ]) }}">
                     <img src="/{{ $child->icon }}" alt="">
                     </a>
 
                     <div class="service_item_caption">
-                        <a href="{{ route('single_services', ['slug' => $service->slug, 'slug2' => $child->slug ]) }}">
+                        <a href="{{ route('single_service', ['slug' => $service->slug, 'slug2' => $child->slug ]) }}">
                         {{ $child->title }}
                         </a>
                     </div>
@@ -51,7 +51,12 @@
     <!-- End Team -->
 
     <!-- Frequently asked questions -->
+    <section class="questions no-padding">
+
+        <div class="container">
     @component('components.questions')
     @endcomponent
+        </div>
+    </section>
     <!-- End Frequently asked questions -->
 @endsection
