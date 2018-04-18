@@ -45,5 +45,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/back_call', 'FeedBackController@addBackCall')->name('back_call');
     Route::post('/ask_question', 'FeedBackController@askQuestion')->name('ask_question');
     Route::post('/back_ring', 'FeedBackController@backRing')->name('back_ring');
-    Route::post('/add_review', 'FeedBackController@addReview')->name('add_review');
+    Route::post('/back_ring', 'FeedBackController@onlineConsult')->name('online_consult');
+//    Route::post('/add_review', 'FeedBackController@addReview')->name('add_review');
 });

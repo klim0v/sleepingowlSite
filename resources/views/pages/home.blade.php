@@ -5,7 +5,6 @@
 <head>
 
     <meta charset="utf-8">
-
     <title>{{ $page->title }}</title>
     <meta name="description" content="{{ $page->meta_description }}">
 
@@ -253,7 +252,7 @@
 
             </div>
         @endforeach
-        <!-- UX/UI Design -->
+        {{--<!-- UX/UI Design -->
 
         <!-- Analytics -->
         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -353,7 +352,7 @@
             </div>
 
         </div>
-        <!-- End Support -->
+        <!-- End Support -->--}}
 
     </div>
 
@@ -366,7 +365,7 @@
     <div class="container">
 
         <!-- Caption -->
-        <h1 class="section_caption white">Online consulting</h1>
+        <h1 class="section_caption white">Онлайн консультация</h1>
 
         <div class="lower_caption grey">
             Maecenas ut metus fermentum, convallis dui nec, dictum risus. Pellentesque sagittis pretium lacus quis pulv
@@ -375,17 +374,19 @@
         <!-- End Caption -->
 
         <!-- Form -->
-        <form action="#" class="consult_form">
+        <form id="online_consult" action="{{ route('online_consult') }}#online_consult" class="consult_form" method="post" onsubmit="sendForm(this); return false;">
+
+        {{ csrf_field() }}
             <!-- Name -->
             <div class="col-lg-6 col-md-6">
-                <input type="text" placeholder="Your Name">
+                <input type="text" required placeholder="Ваше имя" name="author">
                 <span class="tringle"></span>
             </div>
             <!-- End Name -->
 
             <!-- Email -->
             <div class="col-lg-6 col-md-6">
-                <input type="text" placeholder="E-mail">
+                <input type="email" required placeholder="E-mail" name="email">
                 <span class="tringle"></span>
             </div>
             <!-- End Email -->
@@ -393,33 +394,33 @@
             <!-- Phone -->
             <div class="col-lg-6 col-md-6">
 
-                <input type="text" placeholder="Phone">
+                <input type="tel" required placeholder="Телефон" name="phone">
                 <span class="tringle"></span>
 
                 <div class="callme_check">
 
-                    <label><input type="checkbox"> <span>Call Me</span></label>
+                    <label><input type="checkbox" name="call"> <span>Позвонить мне</span></label>
 
                 </div>
 
             </div>
             <!-- End Phone -->
             <div class="col-lg-6 col-md-6">
-                <input type="text" placeholder="Message">
+                <input type="text" placeholder="Сообщение" name="text">
                 <span class="tringle"></span>
             </div>
             <!-- Message -->
 
             <!-- End Message -->
 
+                <input type="submit" class="hidden" id="consult_form_submit">
+
+            <div class="button send col-lg-12 col-md-12">
+                <a href="#" onclick="$('#consult_form_submit').click(); return false;" {{--onclick="sendForm('online_consult'); return false;"--}}><span>Отправить</span></a>
+
+            </div>
         </form>
         <!-- End Form -->
-
-        <div class="button send col-lg-12 col-md-12">
-
-            <a href="#"><span>SEND</span></a>
-
-        </div>
 
     </div>
 
@@ -960,9 +961,11 @@
                 <li><i class="fas fa-map-marker-alt"></i> {{ $settings->get('address') }}</li>
             </ul>
 
-            <form action="#" class="footer_form">
-                <input type="text" placeholder="Your E-Mail" class="footer_input">
-                <a href="#" class="send_footer_button"><i class="fas fa-paper-plane"></i></a>
+            <form id="footer_form" action="{{ route('online_consult') }}#online_consult" method="post" class="footer_form" onsubmit="sendForm(this); return false;">
+                {{ csrf_field() }}
+                <input type="email" required placeholder="Ваш E-Mail" class="footer_input">
+                <input type="submit" class="hidden" id="footer_form_submit">
+                <a href="#" class="send_footer_button" onclick="$('#footer_form_submit').click(); return false;"><i class="fas fa-paper-plane"></i></a>
             </form>
 
         </div>
@@ -986,7 +989,7 @@
         <div class="col-lg-4">
 
             <div class="footer_caption">
-                Recent Projects
+                Недавние проекты
             </div>
 
 
@@ -1037,5 +1040,41 @@
 <link rel="stylesheet" href="css/main.min.css">
 <script src="js/scripts.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script>
+    function sendForm(elem) {
+        // elem = '#' + id;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: $(elem).attr('action'),
+            type: "POST",
+            data: $(elem).serialize(),
+            dataType: "json",
+            success: function(data) {
+                $(elem).html('<div class="footer_caption">' + data.success + '</div>');
+                // $('body').find('div.button.send.col-lg-12.col-md-12').remove();
+            },
+            error:function (data) {
+                var errors = $.parseJSON(data.responseText);
+
+                // $(elem).find('.help-block').remove();
+                $.each(errors['errors'], function(index, value) {
+                    console.log(index + ' => ' + value);
+                //     $(elem).find('input[name=' + index + ']').after('<span class="help-block">' + value + '</span>');
+                });
+            },
+            complete:function () {
+                try {}
+                finally {
+                }
+            }
+        });
+        return false;
+    }
+</script>
 </body>
 </html>

@@ -85,7 +85,7 @@
 <!-- scripts -->
 <script src="particles/particles.js"></script>
 <script src="particles/js/app.js"></script>
-<script src="/static/js/jquery-1.11.3.min.js"></script>
+<script src="js/scripts.min.js"></script>
 <script>
     function sendForm(elem ) {
 

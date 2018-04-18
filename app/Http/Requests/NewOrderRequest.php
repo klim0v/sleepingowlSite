@@ -28,6 +28,7 @@ class NewOrderRequest extends FormRequest
             'author' => 'required',
             'phone' => 'required_without:email',
             'email' => 'email|required_without:phone',
+            'call' => 'nullable|boolean',
         ];
     }
 }

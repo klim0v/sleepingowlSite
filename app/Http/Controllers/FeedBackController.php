@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NewOrderRequest;
 use App\Http\Requests\NewReviewRequest;
+use Illuminate\Http\Request;
 use App\Mail\OrderShipped;
 use App\Model\Order;
-use App\Model\Banner;
-use App\Model\FundamentalSetting;
-use App\Model\Gallery;
 use App\Model\Review;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
 
 class FeedBackController extends Controller
@@ -70,6 +67,25 @@ class FeedBackController extends Controller
         }
 
         return redirect()->back()->with(['back_ring' => 'Форма успешно отправлена']);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function onlineConsult(Request $request)
+    {
+        $order = new Order(['type' => $request->input('call') ? 'Обратный звонок' : 'Онлайн консультация']);
+        $order->fill($request->only($order->getFillable()));
+        $order->save();
+        Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => 'Заявка успешно отправлена!'
+            ]);
+        }
+
+        return redirect()->back()->with(['form' => 'Форма успешно отправлена']);
     }
 
     /**
