@@ -33,7 +33,7 @@ class FundamentalSettingsSeeder extends Seeder
                 'value' => 'lift_33@mail.ru',
             ],
             [
-                'title' => 'Email',
+                'title' => 'Email 2',
                 'key' => 'email2',
                 'value' => 'info@ad33.ru',
             ],
