@@ -53,7 +53,7 @@ class PageOrders extends Section implements Initializable
      */
     public function onDisplay()
     {
-        return AdminDisplay::tree(OrderTreeType::class)->setValue('title');
+        return AdminDisplay::tree(OrderTreeType::class)->setValue('name');
     }
 
     /**

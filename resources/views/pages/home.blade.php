@@ -115,7 +115,7 @@
         <div class="caption">
 
             <div class="top_phrase col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                WE ARE
+                Рекламное агество
             </div>
 
             <h1 class="col-lg-12 col-md-12">{{ $settings->get('app_name') }}</h1>

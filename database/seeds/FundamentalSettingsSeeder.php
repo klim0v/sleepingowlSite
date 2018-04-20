@@ -23,9 +23,19 @@ class FundamentalSettingsSeeder extends Seeder
                 'value' => '8(4922) 222-808',
             ],
             [
+                'title' => 'Номер телефона 2',
+                'key' => 'tel2',
+                'value' => '8-920-620-7620',
+            ],
+            [
                 'title' => 'Email',
                 'key' => 'email',
                 'value' => 'lift_33@mail.ru',
+            ],
+            [
+                'title' => 'Email',
+                'key' => 'email2',
+                'value' => 'info@ad33.ru',
             ],
             [
                 'title' => 'Адрес',
