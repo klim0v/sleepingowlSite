@@ -28,7 +28,8 @@ class CreateFundamentalSettingsTable extends Migration
                 ->comment('Значение параметра (список почт, цифровое значение и тп.)');
             $table
                 ->string('description', 254)
-                ->comment('Описание параметра для вывода в админке в качестве подказки');
+                ->comment('Описание параметра для вывода в админке в качестве подказки')
+                ->nullable();
         });
     }
 

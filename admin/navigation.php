@@ -7,7 +7,7 @@
 
 use SleepingOwl\Admin\Navigation\Page;
 
-//$navigation->setFromArray([
+$navigation->setFromArray([
 //    [
 //        'title' => "Contacts",
 //        'icon' => 'fa fa-credit-card',
@@ -80,18 +80,18 @@ use SleepingOwl\Admin\Navigation\Page;
 //    ],
 //
 //
-//    [
-//        'title' => 'Разрешения',
-//        'icon' => 'fa fa-group',
-//        'priority' =>'10000',
-//        'pages' => [
-//            (new Page(\App\User::class))
-//                ->setIcon('fa fa-user')
-//                ->setPriority(0),
-//            (new Page(\App\Role::class))
-//                ->setIcon('fa fa-group')
-//                ->setPriority(100)
-//        ]
-//    ],
+    [
+        'title' => 'Разрешения',
+        'icon' => 'fa fa-group',
+        'priority' =>'10000',
+        'pages' => [
+            (new Page(\App\User::class))
+                ->setIcon('fa fa-user')
+                ->setPriority(0),
+            (new Page(\App\Role::class))
+                ->setIcon('fa fa-group')
+                ->setPriority(100)
+        ]
+    ],
 //
-//]);
+]);
