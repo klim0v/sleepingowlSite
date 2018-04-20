@@ -925,14 +925,15 @@
 --}}
 
 <!-- Frequently asked questions -->
+
 <section class="questions">
 
     <div class="container">
-
+{{--
     @component('components.questions')
     @endcomponent
+--}}
         <!-- Question form -->
-
     @component('components.question_form')
     @endcomponent
         <!-- End Question form -->
@@ -940,6 +941,7 @@
     </div>
 
 </section>
+
 <!-- End Frequently asked questions -->
 
 <!-- Footer -->
