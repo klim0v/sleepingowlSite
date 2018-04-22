@@ -66,7 +66,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
 
         'App\Model\FundamentalSetting' => 'Admin\Http\Sections\FundamentalSettings',
 
-        'App\Model\Review'             => 'Admin\Http\Sections\Reviews',
+        // 'App\Model\Review'             => 'Admin\Http\Sections\Reviews',
         'App\Model\Gallery'            => 'Admin\Http\Sections\Galleries',
         'App\Model\Order'              => 'Admin\Http\Sections\Orders',
         'App\Model\Service'              => 'Admin\Http\Sections\Services',
