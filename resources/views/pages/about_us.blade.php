@@ -47,6 +47,7 @@
 </section>
 <!-- End Description -->
 
+{{--
 <!-- Counts -->
 <section class="counts">
 
@@ -103,7 +104,8 @@
 
 </section>
 <!-- End Counts -->
-
+--}}
+{{--
 <!-- Team -->
 
 <section class="our_team">
@@ -225,4 +227,5 @@
 
 </section>
 <!-- End Team -->
+--}}
 @endsection
