@@ -54,7 +54,7 @@
     <section class="questions no-padding">
 
         <div class="container">
-    @component('components.questions')
+    @component('components.question_form')
     @endcomponent
         </div>
     </section>
