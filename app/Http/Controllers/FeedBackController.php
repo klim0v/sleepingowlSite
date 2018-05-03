@@ -17,9 +17,9 @@ class FeedBackController extends Controller
      * @param NewOrderRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function addBackCall(NewOrderRequest $request)
+    public function footer(Request $request)
     {
-        $order = new Order(['type' => 'Для УК и ТСЖ']);
+        $order = new Order(['type' => 'Из подвала сайта']);
         $order->fill($request->only($order->getFillable()));
         $order->save();
         Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
@@ -35,7 +35,7 @@ class FeedBackController extends Controller
      * @param NewOrderRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function askQuestion(NewOrderRequest $request)
+    public function askQuestion(Request $request)
     {
         $order = new Order(['type' => 'Вопрос']);
         $order->fill($request->only($order->getFillable()));
@@ -54,7 +54,7 @@ class FeedBackController extends Controller
      * @param NewOrderRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function backRing(NewOrderRequest $request)
+    public function backRing(Request $request)
     {
         $order = new Order(['type' => 'Обратный звонок']);
         $order->fill($request->only($order->getFillable()));
@@ -75,7 +75,7 @@ class FeedBackController extends Controller
      */
     public function onlineConsult(Request $request)
     {
-        $order = new Order(['type' => $request->input('call') ? 'Обратный звонок' : 'Онлайн консультация']);
+        $order = new Order(['type' => 'Онлайн консультация' . ($request->input('call') ? ' по телефону' : '' )]);
         $order->fill($request->only($order->getFillable()));
         $order->save();
         Mail::to(env('MAIL_NOTIFICATION', 'blizhekdomu@yandex.ru'))->send(new OrderShipped($order));
@@ -92,7 +92,7 @@ class FeedBackController extends Controller
      * @param NewReviewRequest $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function addReview(NewReviewRequest $request)
+    public function addReview(Request $request)
     {
         $review = new Review();
         $review->fill($request->only($review->getFillable()));

@@ -107,14 +107,16 @@
             <ul class="footer_list">
                 <li><i class="far fa-envelope"></i> {{ $settings->get('email') }}</li>
                 <li><i class="fas fa-phone"></i> {{ $settings->get('tel') }}</li>
+                <li><i class="fas fa-phone"></i> {{ $settings->get('tel2') }}</li>
                 <li><i class="fas fa-map-marker-alt"></i> {{ $settings->get('address') }}</li>
             </ul>
 
-            <form action="#" class="footer_form">
-                <input type="text" placeholder="Ваш E-Mail" class="footer_input">
-                <a href="#" class="send_footer_button"><i class="fas fa-paper-plane"></i></a>
+            <form id="footer_form" action="{{ route('footer') }}#online_consult" method="post" class="footer_form" onsubmit="sendForm(this); return false;">
+                {{ csrf_field() }}
+                <input type="email" required placeholder="Ваш E-Mail" class="footer_input" name="email">
+                <input type="submit" class="hidden" id="footer_form_submit">
+                <a href="#" class="send_footer_button" onclick="$('#footer_form_submit').click(); return false;"><i class="fas fa-paper-plane"></i></a>
             </form>
-
         </div>
         <!-- End Contact -->
 

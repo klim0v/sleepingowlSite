@@ -42,9 +42,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/blog', 'PublicationController@blog')->name('blog');
     Route::get('/blog/{slug}', 'PublicationController@blogSingle')->name('blog_single');
 
-    Route::post('/back_call', 'FeedBackController@addBackCall')->name('back_call');
+    Route::post('/footer', 'FeedBackController@footer')->name('footer');
     Route::post('/ask_question', 'FeedBackController@askQuestion')->name('ask_question');
     Route::post('/back_ring', 'FeedBackController@backRing')->name('back_ring');
-    Route::post('/back_ring', 'FeedBackController@onlineConsult')->name('online_consult');
+    Route::post('/online_consult', 'FeedBackController@onlineConsult')->name('online_consult');
 //    Route::post('/add_review', 'FeedBackController@addReview')->name('add_review');
 });

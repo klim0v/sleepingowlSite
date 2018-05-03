@@ -4,10 +4,10 @@
         Не нашли ответа? Свяжитесь с нами!
     </div>
 
-    <form action="{{ route('online_consult') }}" class="form_question" onsubmit="sendForm(this); return false;">
+    <form action="{{ route('ask_question') }}" class="form_question" onsubmit="sendForm(this); return false;" method="post">
         {{ csrf_field() }}
         <input type="email" name="email" placeholder="Ваш E-Mail" class="input_placeholder">
-        <input type="button" class="submit_button" value="Отправить">
+        <input type="submit" class="submit_button" value="Отправить">
     </form>
 
 </div>

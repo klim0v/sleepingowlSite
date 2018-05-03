@@ -32,7 +32,8 @@ use Illuminate\Support\Facades\Storage;
 class Order extends Model
 {
     protected $attributes = [
-        'is_new' => 1 ,
+        'is_new' => 1,
+        'author' => 'Не указанно',
     ];
 
     protected $fillable = [

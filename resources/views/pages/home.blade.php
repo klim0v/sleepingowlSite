@@ -77,8 +77,12 @@
             <ul>
 
                 <li class="left"><i class="far fa-envelope"></i> {{ $settings->get('email') }}</li>
-                <li class="center"><i class="fa fa-mobile" aria-hidden="true"></i> {{ $settings->get('tel') }}</li>
+                <li class="center">
+                    <i class="fa fa-mobile" aria-hidden="true"></i> {{ $settings->get('tel') }}
+                </li>
                 <li class="right">
+                    <i class="fa fa-mobile" aria-hidden="true"></i> {{ $settings->get('tel2') }}
+                    {{--
                     <ul>
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -86,6 +90,7 @@
                         <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                     </ul>
+                    --}}
                 </li>
 
             </ul>
@@ -958,11 +963,16 @@
 
             <ul class="footer_list">
                 <li><i class="far fa-envelope"></i> {{ $settings->get('email') }}</li>
-                <li><i class="fas fa-phone"></i> {{ $settings->get('tel') }}</li>
+                <li>
+                    <i class="fas fa-phone"></i> {{ $settings->get('tel') }}
+                </li>
+                <li>
+                    <i class="fas fa-phone"></i> {{ $settings->get('tel2') }}
+                </li>
                 <li><i class="fas fa-map-marker-alt"></i> {{ $settings->get('address') }}</li>
             </ul>
 
-            <form id="footer_form" action="{{ route('online_consult') }}#online_consult" method="post" class="footer_form" onsubmit="sendForm(this); return false;">
+            <form id="footer_form" action="{{ route('footer') }}#online_consult" method="post" class="footer_form" onsubmit="sendForm(this); return false;">
                 {{ csrf_field() }}
                 <input type="email" required placeholder="Ваш E-Mail" class="footer_input" name="email">
                 <input type="submit" class="hidden" id="footer_form_submit">
