@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="service_item_description">
-                            {{ $service->annotation }}
+                            {!! $service->annotation !!}
                         </div>
 
                     </div>
