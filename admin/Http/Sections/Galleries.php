@@ -86,7 +86,7 @@ class Galleries extends Section implements Initializable
      */
     public function onCreate()
     {
-//        return $this->onEdit(null);
+        return $this->onEdit(null);
     }
 
     /**
