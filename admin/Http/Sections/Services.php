@@ -7,7 +7,7 @@ use AdminColumnEditable;
 use AdminDisplay;
 use AdminForm;
 use AdminFormElement;
-use App\Model\Gallery;
+use App\Model\Service;
 use Illuminate\Support\Facades\Storage;
 use SleepingOwl\Admin\Contracts\Display\DisplayInterface;
 use SleepingOwl\Admin\Contracts\Form\FormInterface;
