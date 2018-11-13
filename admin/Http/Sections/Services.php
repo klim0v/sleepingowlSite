@@ -83,9 +83,9 @@ class Services extends Section implements Initializable
      */
     public function onDelete($id)
     {
-        $service = Gallery::findOrFail($id);
-        //Storage::disk('public')->delete(str_replace('storage/', '', $service->cover));
-        //Storage::disk('public')->delete(str_replace('storage/', '', $service->icon));
+        $service = Service::findOrFail($id);
+        Storage::disk('public')->delete(str_replace('storage/', '', $service->cover));
+        Storage::disk('public')->delete(str_replace('storage/', '', $service->icon));
 
     }
 
