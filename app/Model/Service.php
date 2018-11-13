@@ -67,6 +67,7 @@ class Service extends Node
         'annotation',
         'description',
         'cover',
+        'icon',
     ];
 
     protected $hidden = [
