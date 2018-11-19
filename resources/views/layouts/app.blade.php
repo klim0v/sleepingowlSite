@@ -117,6 +117,7 @@
                 <input type="submit" class="hidden" id="footer_form_submit">
                 <a href="#" class="send_footer_button" onclick="$('#footer_form_submit').click(); return false;"><i class="fas fa-paper-plane"></i></a>
             </form>
+          
         </div>
         <!-- End Contact -->
 

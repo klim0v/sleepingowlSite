@@ -150,7 +150,7 @@
 <!-- End Header section -->
 
 <!-- Welcome section -->
-<section class="welcome_section">
+{{--<section class="welcome_section">
 
     <div class="container no-pd">
         <!-- Caption -->
@@ -230,7 +230,7 @@
         <!-- End Counts -->
     </div>
 
-</section>
+</section>--}}
 <!-- End Welcome section -->
 
 <!-- Services section -->
@@ -470,7 +470,7 @@
 
         <div class="button loadmore col-lg-12 col-md-12">
 
-            <a href="#"><span>Смотреть все</span></a>
+            <a href="{{ route('portfolio') }}"><span>Смотреть все</span></a>
 
         </div>
 
