@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('meta_description', $service->meta_description)
-@section('breadcrumbs', 'Услуги > ' . optional($service->parent)->name . ' > ' . $service->name)
+@section('breadcrumbs', 'Услуги > ' . ($service->parent ? $service->parent->name . ' > ' : null) . $service->name)
 @section('title', $service->title)
 @section('name', $service->name)
 @section('content')

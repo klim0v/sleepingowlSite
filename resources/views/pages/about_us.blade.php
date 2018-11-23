@@ -14,9 +14,9 @@
         <div class="filter"></div>
         <div class="col-lg-6 col-md-6">
 
-            <div class="about_us_caption">
+            {{--<div class="about_us_caption">
                 <span>20</span> Years of experience made everything
-            </div>
+            </div>--}}
 
 
 
@@ -24,11 +24,11 @@
                 {!! $page->description !!}
             </div>
 
-            <div class="button loadmore about">
+            {{--<div class="button loadmore about">
 
                 <a href="#"><span>Написать нам</span></a>
 
-            </div>
+            </div>--}}
 
         </div>
         <!-- End About Us Text -->

@@ -16,7 +16,7 @@ class PageController extends Controller
     {
         $settings = FundamentalSetting::pluck('value', 'key');
         $galleries = Gallery::latest()->take(6)->get();
-        $services = Service::take(6)->get();
+        $services = Service::limitDepth(0)->take(6)->get();
         $galleryServices = Service::whereHas('galleries')->get();
         $pages = Page::all();
         $page = $pages->where('key', 'home')->first();

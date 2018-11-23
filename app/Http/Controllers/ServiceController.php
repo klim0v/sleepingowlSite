@@ -13,7 +13,7 @@ class ServiceController extends Controller
      */
     public function services()
     {
-        $services = Service::all();
+        $services = Service::limitDepth(0)->get();
         $page = Page::where('key', 'services')->firstOrFail();
         return view('pages.services.strips')
             ->with('page', $page)

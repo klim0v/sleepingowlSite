@@ -372,10 +372,10 @@
         <!-- Caption -->
         <h1 class="section_caption white">Онлайн консультация</h1>
 
-        <div class="lower_caption grey">
+        {{--<div class="lower_caption grey">
             Maecenas ut metus fermentum, convallis dui nec, dictum risus. Pellentesque sagittis pretium lacus quis pulv
             inar. In sollicitudin id urna vestibulum finibus.
-        </div>
+        </div>--}}
         <!-- End Caption -->
 
         <!-- Form -->
